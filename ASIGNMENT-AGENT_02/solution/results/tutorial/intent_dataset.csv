@@ -1,0 +1,433 @@
+text,label,class,group,split
+tìm mua laptop cho tôi,0,ecommerce,0:0,train
+tìm mua laptop vào ngày mai,0,ecommerce,0:0,train
+tìm mua laptop theo nhu cầu của tôi,0,ecommerce,0:0,train
+tìm mua chuột máy tính cho tôi,0,ecommerce,0:0,train
+tìm mua chuột máy tính vào ngày mai,0,ecommerce,0:0,train
+tìm mua chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:0,train
+tìm mua ba lô cho tôi,0,ecommerce,0:0,train
+tìm mua ba lô vào ngày mai,0,ecommerce,0:0,train
+tìm mua ba lô theo nhu cầu của tôi,0,ecommerce,0:0,train
+tìm mua giày thể thao cho tôi,0,ecommerce,0:0,train
+tìm mua giày thể thao vào ngày mai,0,ecommerce,0:0,train
+tìm mua giày thể thao theo nhu cầu của tôi,0,ecommerce,0:0,train
+tìm mua máy tính bảng cho tôi,0,ecommerce,0:0,train
+tìm mua máy tính bảng vào ngày mai,0,ecommerce,0:0,train
+tìm mua máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:0,train
+tìm mua tai nghe cho tôi,0,ecommerce,0:0,train
+tìm mua tai nghe vào ngày mai,0,ecommerce,0:0,train
+tìm mua tai nghe theo nhu cầu của tôi,0,ecommerce,0:0,train
+chọn mua laptop cho tôi,0,ecommerce,0:1,train
+chọn mua laptop vào ngày mai,0,ecommerce,0:1,train
+chọn mua laptop theo nhu cầu của tôi,0,ecommerce,0:1,train
+chọn mua chuột máy tính cho tôi,0,ecommerce,0:1,train
+chọn mua chuột máy tính vào ngày mai,0,ecommerce,0:1,train
+chọn mua chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:1,train
+chọn mua ba lô cho tôi,0,ecommerce,0:1,train
+chọn mua ba lô vào ngày mai,0,ecommerce,0:1,train
+chọn mua ba lô theo nhu cầu của tôi,0,ecommerce,0:1,train
+chọn mua giày thể thao cho tôi,0,ecommerce,0:1,train
+chọn mua giày thể thao vào ngày mai,0,ecommerce,0:1,train
+chọn mua giày thể thao theo nhu cầu của tôi,0,ecommerce,0:1,train
+chọn mua máy tính bảng cho tôi,0,ecommerce,0:1,train
+chọn mua máy tính bảng vào ngày mai,0,ecommerce,0:1,train
+chọn mua máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:1,train
+chọn mua tai nghe cho tôi,0,ecommerce,0:1,train
+chọn mua tai nghe vào ngày mai,0,ecommerce,0:1,train
+chọn mua tai nghe theo nhu cầu của tôi,0,ecommerce,0:1,train
+cần mua laptop cho tôi,0,ecommerce,0:2,train
+cần mua laptop vào ngày mai,0,ecommerce,0:2,train
+cần mua laptop theo nhu cầu của tôi,0,ecommerce,0:2,train
+cần mua chuột máy tính cho tôi,0,ecommerce,0:2,train
+cần mua chuột máy tính vào ngày mai,0,ecommerce,0:2,train
+cần mua chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:2,train
+cần mua ba lô cho tôi,0,ecommerce,0:2,train
+cần mua ba lô vào ngày mai,0,ecommerce,0:2,train
+cần mua ba lô theo nhu cầu của tôi,0,ecommerce,0:2,train
+cần mua giày thể thao cho tôi,0,ecommerce,0:2,train
+cần mua giày thể thao vào ngày mai,0,ecommerce,0:2,train
+cần mua giày thể thao theo nhu cầu của tôi,0,ecommerce,0:2,train
+cần mua máy tính bảng cho tôi,0,ecommerce,0:2,train
+cần mua máy tính bảng vào ngày mai,0,ecommerce,0:2,train
+cần mua máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:2,train
+cần mua tai nghe cho tôi,0,ecommerce,0:2,train
+cần mua tai nghe vào ngày mai,0,ecommerce,0:2,train
+cần mua tai nghe theo nhu cầu của tôi,0,ecommerce,0:2,train
+tư vấn mua laptop cho tôi,0,ecommerce,0:3,train
+tư vấn mua laptop vào ngày mai,0,ecommerce,0:3,train
+tư vấn mua laptop theo nhu cầu của tôi,0,ecommerce,0:3,train
+tư vấn mua chuột máy tính cho tôi,0,ecommerce,0:3,train
+tư vấn mua chuột máy tính vào ngày mai,0,ecommerce,0:3,train
+tư vấn mua chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:3,train
+tư vấn mua ba lô cho tôi,0,ecommerce,0:3,train
+tư vấn mua ba lô vào ngày mai,0,ecommerce,0:3,train
+tư vấn mua ba lô theo nhu cầu của tôi,0,ecommerce,0:3,train
+tư vấn mua giày thể thao cho tôi,0,ecommerce,0:3,train
+tư vấn mua giày thể thao vào ngày mai,0,ecommerce,0:3,train
+tư vấn mua giày thể thao theo nhu cầu của tôi,0,ecommerce,0:3,train
+tư vấn mua máy tính bảng cho tôi,0,ecommerce,0:3,train
+tư vấn mua máy tính bảng vào ngày mai,0,ecommerce,0:3,train
+tư vấn mua máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:3,train
+tư vấn mua tai nghe cho tôi,0,ecommerce,0:3,train
+tư vấn mua tai nghe vào ngày mai,0,ecommerce,0:3,train
+tư vấn mua tai nghe theo nhu cầu của tôi,0,ecommerce,0:3,train
+muốn đặt mua laptop cho tôi,0,ecommerce,0:4,train
+muốn đặt mua laptop vào ngày mai,0,ecommerce,0:4,train
+muốn đặt mua laptop theo nhu cầu của tôi,0,ecommerce,0:4,train
+muốn đặt mua chuột máy tính cho tôi,0,ecommerce,0:4,train
+muốn đặt mua chuột máy tính vào ngày mai,0,ecommerce,0:4,train
+muốn đặt mua chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:4,train
+muốn đặt mua ba lô cho tôi,0,ecommerce,0:4,train
+muốn đặt mua ba lô vào ngày mai,0,ecommerce,0:4,train
+muốn đặt mua ba lô theo nhu cầu của tôi,0,ecommerce,0:4,train
+muốn đặt mua giày thể thao cho tôi,0,ecommerce,0:4,train
+muốn đặt mua giày thể thao vào ngày mai,0,ecommerce,0:4,train
+muốn đặt mua giày thể thao theo nhu cầu của tôi,0,ecommerce,0:4,train
+muốn đặt mua máy tính bảng cho tôi,0,ecommerce,0:4,train
+muốn đặt mua máy tính bảng vào ngày mai,0,ecommerce,0:4,train
+muốn đặt mua máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:4,train
+muốn đặt mua tai nghe cho tôi,0,ecommerce,0:4,train
+muốn đặt mua tai nghe vào ngày mai,0,ecommerce,0:4,train
+muốn đặt mua tai nghe theo nhu cầu của tôi,0,ecommerce,0:4,train
+đề xuất mua laptop cho tôi,0,ecommerce,0:5,validation
+đề xuất mua laptop vào ngày mai,0,ecommerce,0:5,validation
+đề xuất mua laptop theo nhu cầu của tôi,0,ecommerce,0:5,validation
+đề xuất mua chuột máy tính cho tôi,0,ecommerce,0:5,validation
+đề xuất mua chuột máy tính vào ngày mai,0,ecommerce,0:5,validation
+đề xuất mua chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:5,validation
+đề xuất mua ba lô cho tôi,0,ecommerce,0:5,validation
+đề xuất mua ba lô vào ngày mai,0,ecommerce,0:5,validation
+đề xuất mua ba lô theo nhu cầu của tôi,0,ecommerce,0:5,validation
+đề xuất mua giày thể thao cho tôi,0,ecommerce,0:5,validation
+đề xuất mua giày thể thao vào ngày mai,0,ecommerce,0:5,validation
+đề xuất mua giày thể thao theo nhu cầu của tôi,0,ecommerce,0:5,validation
+đề xuất mua máy tính bảng cho tôi,0,ecommerce,0:5,validation
+đề xuất mua máy tính bảng vào ngày mai,0,ecommerce,0:5,validation
+đề xuất mua máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:5,validation
+đề xuất mua tai nghe cho tôi,0,ecommerce,0:5,validation
+đề xuất mua tai nghe vào ngày mai,0,ecommerce,0:5,validation
+đề xuất mua tai nghe theo nhu cầu của tôi,0,ecommerce,0:5,validation
+giúp chọn laptop cho tôi,0,ecommerce,0:6,test
+giúp chọn laptop vào ngày mai,0,ecommerce,0:6,test
+giúp chọn laptop theo nhu cầu của tôi,0,ecommerce,0:6,test
+giúp chọn chuột máy tính cho tôi,0,ecommerce,0:6,test
+giúp chọn chuột máy tính vào ngày mai,0,ecommerce,0:6,test
+giúp chọn chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:6,test
+giúp chọn ba lô cho tôi,0,ecommerce,0:6,test
+giúp chọn ba lô vào ngày mai,0,ecommerce,0:6,test
+giúp chọn ba lô theo nhu cầu của tôi,0,ecommerce,0:6,test
+giúp chọn giày thể thao cho tôi,0,ecommerce,0:6,test
+giúp chọn giày thể thao vào ngày mai,0,ecommerce,0:6,test
+giúp chọn giày thể thao theo nhu cầu của tôi,0,ecommerce,0:6,test
+giúp chọn máy tính bảng cho tôi,0,ecommerce,0:6,test
+giúp chọn máy tính bảng vào ngày mai,0,ecommerce,0:6,test
+giúp chọn máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:6,test
+giúp chọn tai nghe cho tôi,0,ecommerce,0:6,test
+giúp chọn tai nghe vào ngày mai,0,ecommerce,0:6,test
+giúp chọn tai nghe theo nhu cầu của tôi,0,ecommerce,0:6,test
+gợi ý mua laptop cho tôi,0,ecommerce,0:7,test
+gợi ý mua laptop vào ngày mai,0,ecommerce,0:7,test
+gợi ý mua laptop theo nhu cầu của tôi,0,ecommerce,0:7,test
+gợi ý mua chuột máy tính cho tôi,0,ecommerce,0:7,test
+gợi ý mua chuột máy tính vào ngày mai,0,ecommerce,0:7,test
+gợi ý mua chuột máy tính theo nhu cầu của tôi,0,ecommerce,0:7,test
+gợi ý mua ba lô cho tôi,0,ecommerce,0:7,test
+gợi ý mua ba lô vào ngày mai,0,ecommerce,0:7,test
+gợi ý mua ba lô theo nhu cầu của tôi,0,ecommerce,0:7,test
+gợi ý mua giày thể thao cho tôi,0,ecommerce,0:7,test
+gợi ý mua giày thể thao vào ngày mai,0,ecommerce,0:7,test
+gợi ý mua giày thể thao theo nhu cầu của tôi,0,ecommerce,0:7,test
+gợi ý mua máy tính bảng cho tôi,0,ecommerce,0:7,test
+gợi ý mua máy tính bảng vào ngày mai,0,ecommerce,0:7,test
+gợi ý mua máy tính bảng theo nhu cầu của tôi,0,ecommerce,0:7,test
+gợi ý mua tai nghe cho tôi,0,ecommerce,0:7,test
+gợi ý mua tai nghe vào ngày mai,0,ecommerce,0:7,test
+gợi ý mua tai nghe theo nhu cầu của tôi,0,ecommerce,0:7,test
+lên lịch tham quan bảo tàng cho tôi,1,tourism,1:0,train
+lên lịch tham quan bảo tàng vào ngày mai,1,tourism,1:0,train
+lên lịch tham quan bảo tàng theo nhu cầu của tôi,1,tourism,1:0,train
+lên lịch tham quan phố cổ cho tôi,1,tourism,1:0,train
+lên lịch tham quan phố cổ vào ngày mai,1,tourism,1:0,train
+lên lịch tham quan phố cổ theo nhu cầu của tôi,1,tourism,1:0,train
+lên lịch tham quan bãi biển cho tôi,1,tourism,1:0,train
+lên lịch tham quan bãi biển vào ngày mai,1,tourism,1:0,train
+lên lịch tham quan bãi biển theo nhu cầu của tôi,1,tourism,1:0,train
+lên lịch tham quan công viên cho tôi,1,tourism,1:0,train
+lên lịch tham quan công viên vào ngày mai,1,tourism,1:0,train
+lên lịch tham quan công viên theo nhu cầu của tôi,1,tourism,1:0,train
+lên lịch tham quan khu di tích cho tôi,1,tourism,1:0,train
+lên lịch tham quan khu di tích vào ngày mai,1,tourism,1:0,train
+lên lịch tham quan khu di tích theo nhu cầu của tôi,1,tourism,1:0,train
+lên lịch tham quan vườn thực vật cho tôi,1,tourism,1:0,train
+lên lịch tham quan vườn thực vật vào ngày mai,1,tourism,1:0,train
+lên lịch tham quan vườn thực vật theo nhu cầu của tôi,1,tourism,1:0,train
+lập chuyến đi bảo tàng cho tôi,1,tourism,1:1,train
+lập chuyến đi bảo tàng vào ngày mai,1,tourism,1:1,train
+lập chuyến đi bảo tàng theo nhu cầu của tôi,1,tourism,1:1,train
+lập chuyến đi phố cổ cho tôi,1,tourism,1:1,train
+lập chuyến đi phố cổ vào ngày mai,1,tourism,1:1,train
+lập chuyến đi phố cổ theo nhu cầu của tôi,1,tourism,1:1,train
+lập chuyến đi bãi biển cho tôi,1,tourism,1:1,train
+lập chuyến đi bãi biển vào ngày mai,1,tourism,1:1,train
+lập chuyến đi bãi biển theo nhu cầu của tôi,1,tourism,1:1,train
+lập chuyến đi công viên cho tôi,1,tourism,1:1,train
+lập chuyến đi công viên vào ngày mai,1,tourism,1:1,train
+lập chuyến đi công viên theo nhu cầu của tôi,1,tourism,1:1,train
+lập chuyến đi khu di tích cho tôi,1,tourism,1:1,train
+lập chuyến đi khu di tích vào ngày mai,1,tourism,1:1,train
+lập chuyến đi khu di tích theo nhu cầu của tôi,1,tourism,1:1,train
+lập chuyến đi vườn thực vật cho tôi,1,tourism,1:1,train
+lập chuyến đi vườn thực vật vào ngày mai,1,tourism,1:1,train
+lập chuyến đi vườn thực vật theo nhu cầu của tôi,1,tourism,1:1,train
+tìm điểm du lịch bảo tàng cho tôi,1,tourism,1:2,train
+tìm điểm du lịch bảo tàng vào ngày mai,1,tourism,1:2,train
+tìm điểm du lịch bảo tàng theo nhu cầu của tôi,1,tourism,1:2,train
+tìm điểm du lịch phố cổ cho tôi,1,tourism,1:2,train
+tìm điểm du lịch phố cổ vào ngày mai,1,tourism,1:2,train
+tìm điểm du lịch phố cổ theo nhu cầu của tôi,1,tourism,1:2,train
+tìm điểm du lịch bãi biển cho tôi,1,tourism,1:2,train
+tìm điểm du lịch bãi biển vào ngày mai,1,tourism,1:2,train
+tìm điểm du lịch bãi biển theo nhu cầu của tôi,1,tourism,1:2,train
+tìm điểm du lịch công viên cho tôi,1,tourism,1:2,train
+tìm điểm du lịch công viên vào ngày mai,1,tourism,1:2,train
+tìm điểm du lịch công viên theo nhu cầu của tôi,1,tourism,1:2,train
+tìm điểm du lịch khu di tích cho tôi,1,tourism,1:2,train
+tìm điểm du lịch khu di tích vào ngày mai,1,tourism,1:2,train
+tìm điểm du lịch khu di tích theo nhu cầu của tôi,1,tourism,1:2,train
+tìm điểm du lịch vườn thực vật cho tôi,1,tourism,1:2,train
+tìm điểm du lịch vườn thực vật vào ngày mai,1,tourism,1:2,train
+tìm điểm du lịch vườn thực vật theo nhu cầu của tôi,1,tourism,1:2,train
+sắp xếp hành trình bảo tàng cho tôi,1,tourism,1:3,train
+sắp xếp hành trình bảo tàng vào ngày mai,1,tourism,1:3,train
+sắp xếp hành trình bảo tàng theo nhu cầu của tôi,1,tourism,1:3,train
+sắp xếp hành trình phố cổ cho tôi,1,tourism,1:3,train
+sắp xếp hành trình phố cổ vào ngày mai,1,tourism,1:3,train
+sắp xếp hành trình phố cổ theo nhu cầu của tôi,1,tourism,1:3,train
+sắp xếp hành trình bãi biển cho tôi,1,tourism,1:3,train
+sắp xếp hành trình bãi biển vào ngày mai,1,tourism,1:3,train
+sắp xếp hành trình bãi biển theo nhu cầu của tôi,1,tourism,1:3,train
+sắp xếp hành trình công viên cho tôi,1,tourism,1:3,train
+sắp xếp hành trình công viên vào ngày mai,1,tourism,1:3,train
+sắp xếp hành trình công viên theo nhu cầu của tôi,1,tourism,1:3,train
+sắp xếp hành trình khu di tích cho tôi,1,tourism,1:3,train
+sắp xếp hành trình khu di tích vào ngày mai,1,tourism,1:3,train
+sắp xếp hành trình khu di tích theo nhu cầu của tôi,1,tourism,1:3,train
+sắp xếp hành trình vườn thực vật cho tôi,1,tourism,1:3,train
+sắp xếp hành trình vườn thực vật vào ngày mai,1,tourism,1:3,train
+sắp xếp hành trình vườn thực vật theo nhu cầu của tôi,1,tourism,1:3,train
+muốn khám phá bảo tàng cho tôi,1,tourism,1:4,train
+muốn khám phá bảo tàng vào ngày mai,1,tourism,1:4,train
+muốn khám phá bảo tàng theo nhu cầu của tôi,1,tourism,1:4,train
+muốn khám phá phố cổ cho tôi,1,tourism,1:4,train
+muốn khám phá phố cổ vào ngày mai,1,tourism,1:4,train
+muốn khám phá phố cổ theo nhu cầu của tôi,1,tourism,1:4,train
+muốn khám phá bãi biển cho tôi,1,tourism,1:4,train
+muốn khám phá bãi biển vào ngày mai,1,tourism,1:4,train
+muốn khám phá bãi biển theo nhu cầu của tôi,1,tourism,1:4,train
+muốn khám phá công viên cho tôi,1,tourism,1:4,train
+muốn khám phá công viên vào ngày mai,1,tourism,1:4,train
+muốn khám phá công viên theo nhu cầu của tôi,1,tourism,1:4,train
+muốn khám phá khu di tích cho tôi,1,tourism,1:4,train
+muốn khám phá khu di tích vào ngày mai,1,tourism,1:4,train
+muốn khám phá khu di tích theo nhu cầu của tôi,1,tourism,1:4,train
+muốn khám phá vườn thực vật cho tôi,1,tourism,1:4,train
+muốn khám phá vườn thực vật vào ngày mai,1,tourism,1:4,train
+muốn khám phá vườn thực vật theo nhu cầu của tôi,1,tourism,1:4,train
+tư vấn du lịch bảo tàng cho tôi,1,tourism,1:5,validation
+tư vấn du lịch bảo tàng vào ngày mai,1,tourism,1:5,validation
+tư vấn du lịch bảo tàng theo nhu cầu của tôi,1,tourism,1:5,validation
+tư vấn du lịch phố cổ cho tôi,1,tourism,1:5,validation
+tư vấn du lịch phố cổ vào ngày mai,1,tourism,1:5,validation
+tư vấn du lịch phố cổ theo nhu cầu của tôi,1,tourism,1:5,validation
+tư vấn du lịch bãi biển cho tôi,1,tourism,1:5,validation
+tư vấn du lịch bãi biển vào ngày mai,1,tourism,1:5,validation
+tư vấn du lịch bãi biển theo nhu cầu của tôi,1,tourism,1:5,validation
+tư vấn du lịch công viên cho tôi,1,tourism,1:5,validation
+tư vấn du lịch công viên vào ngày mai,1,tourism,1:5,validation
+tư vấn du lịch công viên theo nhu cầu của tôi,1,tourism,1:5,validation
+tư vấn du lịch khu di tích cho tôi,1,tourism,1:5,validation
+tư vấn du lịch khu di tích vào ngày mai,1,tourism,1:5,validation
+tư vấn du lịch khu di tích theo nhu cầu của tôi,1,tourism,1:5,validation
+tư vấn du lịch vườn thực vật cho tôi,1,tourism,1:5,validation
+tư vấn du lịch vườn thực vật vào ngày mai,1,tourism,1:5,validation
+tư vấn du lịch vườn thực vật theo nhu cầu của tôi,1,tourism,1:5,validation
+gợi ý tham quan bảo tàng cho tôi,1,tourism,1:6,test
+gợi ý tham quan bảo tàng vào ngày mai,1,tourism,1:6,test
+gợi ý tham quan bảo tàng theo nhu cầu của tôi,1,tourism,1:6,test
+gợi ý tham quan phố cổ cho tôi,1,tourism,1:6,test
+gợi ý tham quan phố cổ vào ngày mai,1,tourism,1:6,test
+gợi ý tham quan phố cổ theo nhu cầu của tôi,1,tourism,1:6,test
+gợi ý tham quan bãi biển cho tôi,1,tourism,1:6,test
+gợi ý tham quan bãi biển vào ngày mai,1,tourism,1:6,test
+gợi ý tham quan bãi biển theo nhu cầu của tôi,1,tourism,1:6,test
+gợi ý tham quan công viên cho tôi,1,tourism,1:6,test
+gợi ý tham quan công viên vào ngày mai,1,tourism,1:6,test
+gợi ý tham quan công viên theo nhu cầu của tôi,1,tourism,1:6,test
+gợi ý tham quan khu di tích cho tôi,1,tourism,1:6,test
+gợi ý tham quan khu di tích vào ngày mai,1,tourism,1:6,test
+gợi ý tham quan khu di tích theo nhu cầu của tôi,1,tourism,1:6,test
+gợi ý tham quan vườn thực vật cho tôi,1,tourism,1:6,test
+gợi ý tham quan vườn thực vật vào ngày mai,1,tourism,1:6,test
+gợi ý tham quan vườn thực vật theo nhu cầu của tôi,1,tourism,1:6,test
+lập lịch trình bảo tàng cho tôi,1,tourism,1:7,test
+lập lịch trình bảo tàng vào ngày mai,1,tourism,1:7,test
+lập lịch trình bảo tàng theo nhu cầu của tôi,1,tourism,1:7,test
+lập lịch trình phố cổ cho tôi,1,tourism,1:7,test
+lập lịch trình phố cổ vào ngày mai,1,tourism,1:7,test
+lập lịch trình phố cổ theo nhu cầu của tôi,1,tourism,1:7,test
+lập lịch trình bãi biển cho tôi,1,tourism,1:7,test
+lập lịch trình bãi biển vào ngày mai,1,tourism,1:7,test
+lập lịch trình bãi biển theo nhu cầu của tôi,1,tourism,1:7,test
+lập lịch trình công viên cho tôi,1,tourism,1:7,test
+lập lịch trình công viên vào ngày mai,1,tourism,1:7,test
+lập lịch trình công viên theo nhu cầu của tôi,1,tourism,1:7,test
+lập lịch trình khu di tích cho tôi,1,tourism,1:7,test
+lập lịch trình khu di tích vào ngày mai,1,tourism,1:7,test
+lập lịch trình khu di tích theo nhu cầu của tôi,1,tourism,1:7,test
+lập lịch trình vườn thực vật cho tôi,1,tourism,1:7,test
+lập lịch trình vườn thực vật vào ngày mai,1,tourism,1:7,test
+lập lịch trình vườn thực vật theo nhu cầu của tôi,1,tourism,1:7,test
+đặt lịch khám quầy tiếp nhận cho tôi,2,healthcare_admin,2:0,train
+đặt lịch khám quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:0,train
+đặt lịch khám quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:0,train
+đặt lịch khám thủ tục đăng ký cho tôi,2,healthcare_admin,2:0,train
+đặt lịch khám thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:0,train
+đặt lịch khám thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:0,train
+đặt lịch khám giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:0,train
+đặt lịch khám giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:0,train
+đặt lịch khám giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:0,train
+đặt lịch khám lịch chuyên khoa cho tôi,2,healthcare_admin,2:0,train
+đặt lịch khám lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:0,train
+đặt lịch khám lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:0,train
+đặt lịch khám hồ sơ hẹn cho tôi,2,healthcare_admin,2:0,train
+đặt lịch khám hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:0,train
+đặt lịch khám hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:0,train
+đặt lịch khám giờ tiếp nhận cho tôi,2,healthcare_admin,2:0,train
+đặt lịch khám giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:0,train
+đặt lịch khám giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:0,train
+hẹn gặp bác sĩ quầy tiếp nhận cho tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ thủ tục đăng ký cho tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ lịch chuyên khoa cho tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ hồ sơ hẹn cho tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ giờ tiếp nhận cho tôi,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:1,train
+hẹn gặp bác sĩ giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:1,train
+tìm lịch phòng khám quầy tiếp nhận cho tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:2,train
+tìm lịch phòng khám quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám thủ tục đăng ký cho tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:2,train
+tìm lịch phòng khám thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:2,train
+tìm lịch phòng khám giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám lịch chuyên khoa cho tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:2,train
+tìm lịch phòng khám lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám hồ sơ hẹn cho tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:2,train
+tìm lịch phòng khám hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám giờ tiếp nhận cho tôi,2,healthcare_admin,2:2,train
+tìm lịch phòng khám giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:2,train
+tìm lịch phòng khám giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:2,train
+chuẩn bị khám quầy tiếp nhận cho tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:3,train
+chuẩn bị khám quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám thủ tục đăng ký cho tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:3,train
+chuẩn bị khám thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:3,train
+chuẩn bị khám giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám lịch chuyên khoa cho tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:3,train
+chuẩn bị khám lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám hồ sơ hẹn cho tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:3,train
+chuẩn bị khám hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám giờ tiếp nhận cho tôi,2,healthcare_admin,2:3,train
+chuẩn bị khám giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:3,train
+chuẩn bị khám giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:3,train
+hỏi giờ bệnh viện quầy tiếp nhận cho tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện thủ tục đăng ký cho tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện lịch chuyên khoa cho tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện hồ sơ hẹn cho tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện giờ tiếp nhận cho tôi,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:4,train
+hỏi giờ bệnh viện giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:4,train
+xem lịch khám quầy tiếp nhận cho tôi,2,healthcare_admin,2:5,validation
+xem lịch khám quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:5,validation
+xem lịch khám quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:5,validation
+xem lịch khám thủ tục đăng ký cho tôi,2,healthcare_admin,2:5,validation
+xem lịch khám thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:5,validation
+xem lịch khám thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:5,validation
+xem lịch khám giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:5,validation
+xem lịch khám giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:5,validation
+xem lịch khám giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:5,validation
+xem lịch khám lịch chuyên khoa cho tôi,2,healthcare_admin,2:5,validation
+xem lịch khám lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:5,validation
+xem lịch khám lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:5,validation
+xem lịch khám hồ sơ hẹn cho tôi,2,healthcare_admin,2:5,validation
+xem lịch khám hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:5,validation
+xem lịch khám hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:5,validation
+xem lịch khám giờ tiếp nhận cho tôi,2,healthcare_admin,2:5,validation
+xem lịch khám giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:5,validation
+xem lịch khám giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:5,validation
+hướng dẫn đặt hẹn quầy tiếp nhận cho tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn thủ tục đăng ký cho tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn lịch chuyên khoa cho tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn hồ sơ hẹn cho tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn giờ tiếp nhận cho tôi,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:6,test
+hướng dẫn đặt hẹn giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:6,test
+sắp xếp khám quầy tiếp nhận cho tôi,2,healthcare_admin,2:7,test
+sắp xếp khám quầy tiếp nhận vào ngày mai,2,healthcare_admin,2:7,test
+sắp xếp khám quầy tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:7,test
+sắp xếp khám thủ tục đăng ký cho tôi,2,healthcare_admin,2:7,test
+sắp xếp khám thủ tục đăng ký vào ngày mai,2,healthcare_admin,2:7,test
+sắp xếp khám thủ tục đăng ký theo nhu cầu của tôi,2,healthcare_admin,2:7,test
+sắp xếp khám giấy tờ bảo hiểm cho tôi,2,healthcare_admin,2:7,test
+sắp xếp khám giấy tờ bảo hiểm vào ngày mai,2,healthcare_admin,2:7,test
+sắp xếp khám giấy tờ bảo hiểm theo nhu cầu của tôi,2,healthcare_admin,2:7,test
+sắp xếp khám lịch chuyên khoa cho tôi,2,healthcare_admin,2:7,test
+sắp xếp khám lịch chuyên khoa vào ngày mai,2,healthcare_admin,2:7,test
+sắp xếp khám lịch chuyên khoa theo nhu cầu của tôi,2,healthcare_admin,2:7,test
+sắp xếp khám hồ sơ hẹn cho tôi,2,healthcare_admin,2:7,test
+sắp xếp khám hồ sơ hẹn vào ngày mai,2,healthcare_admin,2:7,test
+sắp xếp khám hồ sơ hẹn theo nhu cầu của tôi,2,healthcare_admin,2:7,test
+sắp xếp khám giờ tiếp nhận cho tôi,2,healthcare_admin,2:7,test
+sắp xếp khám giờ tiếp nhận vào ngày mai,2,healthcare_admin,2:7,test
+sắp xếp khám giờ tiếp nhận theo nhu cầu của tôi,2,healthcare_admin,2:7,test

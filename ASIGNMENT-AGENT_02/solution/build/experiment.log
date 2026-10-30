@@ -1,0 +1,65 @@
+baseline done
+alpha_001 done
+alpha_050 done
+epsilon_005 done
+epsilon_030 done
+extensions seed 11 done
+extensions seed 22 done
+extensions seed 33 done
+extensions seed 44 done
+extensions seed 55 done
+{
+  "elapsed": 22.283149242401123,
+  "aggregate": [
+    {
+      "configuration": "baseline",
+      "mean": 34.0997,
+      "sd": 1.367797077420477,
+      "ci95_half_t4": 1.698072118167347,
+      "discount_rate": 0.16164,
+      "train_mean": 33.651332,
+      "first500": 32.859480000000005,
+      "last500": 33.671839999999996
+    },
+    {
+      "configuration": "alpha_001",
+      "mean": 33.64838,
+      "sd": 2.128563830849336,
+      "ci95_half_t4": 2.642537370909741,
+      "discount_rate": 0.19914,
+      "train_mean": 32.094395999999996,
+      "first500": 30.992380000000004,
+      "last500": 33.75410000000001
+    },
+    {
+      "configuration": "alpha_050",
+      "mean": 31.953279999999996,
+      "sd": 4.161269864716779,
+      "ci95_half_t4": 5.1660706475346245,
+      "discount_rate": 0.38083999999999996,
+      "train_mean": 31.851973999999995,
+      "first500": 30.858179999999997,
+      "last500": 31.89064
+    },
+    {
+      "configuration": "epsilon_005",
+      "mean": 33.3973,
+      "sd": 1.6126064274955623,
+      "ci95_half_t4": 2.001994343540972,
+      "discount_rate": 0.27902,
+      "train_mean": 32.945848,
+      "first500": 32.122,
+      "last500": 33.01536
+    },
+    {
+      "configuration": "epsilon_030",
+      "mean": 31.429999999999996,
+      "sd": 3.927223500133396,
+      "ci95_half_t4": 4.875510291310602,
+      "discount_rate": 0.33876,
+      "train_mean": 30.882198,
+      "first500": 30.897100000000005,
+      "last500": 30.688660000000006
+    }
+  ]
+}

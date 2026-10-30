@@ -1,0 +1,38 @@
+[
+  {
+    "system": "B0_single",
+    "requests": 220,
+    "success_rate": 1.0,
+    "p50_ms": 0.00483299999998188,
+    "p95_ms": 0.00901009999999534,
+    "messages_mean": 0.0,
+    "violation_rate": 0.0
+  },
+  {
+    "system": "B1_rule_MAS",
+    "requests": 220,
+    "success_rate": 1.0,
+    "p50_ms": 0.24056249999993007,
+    "p95_ms": 11.097260750000004,
+    "messages_mean": 6.0,
+    "violation_rate": 0.0
+  },
+  {
+    "system": "B2_learned_MAS",
+    "requests": 220,
+    "success_rate": 1.0,
+    "p50_ms": 0.3103540000000127,
+    "p95_ms": 11.402941349999862,
+    "messages_mean": 6.0,
+    "violation_rate": 0.0
+  },
+  {
+    "system": "B3_no_validation",
+    "requests": 220,
+    "success_rate": 0.7272727272727273,
+    "p50_ms": 0.21720850000006564,
+    "p95_ms": 11.304238150000012,
+    "messages_mean": 4.7272727272727275,
+    "violation_rate": 0.18181818181818182
+  }
+]

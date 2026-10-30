@@ -1,0 +1,102 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {section}{Danh mục thuật ngữ}{iv}{Doc-Start}%
+\contentsline {section}{\numberline {1}Mở đầu: Hai paper trong một khung nghiên cứu}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Cấu trúc và quy ước bằng chứng}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Paper 1: Cơ chế cộng tác đa tác tử dựa trên LLM}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Hồ sơ tài liệu, phạm vi và cách tiếp cận}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Vấn đề nghiên cứu và động lực}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Đóng góp và vị trí của survey}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Nền tảng: MAS, LLM và collaborative AI}{3}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Mô hình hóa tác tử và hệ cộng tác}{4}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Cộng tác sớm, giữa và muộn}{4}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Ba loại quan hệ cộng tác}{5}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Cooperation: mục tiêu được căn chỉnh}{5}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Competition: bất đồng có cấu trúc}{5}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Coopetition: hợp tác ở một cấp, cạnh tranh ở cấp khác}{6}{subsubsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.8}Ba chiến lược: rule-based, role-based, model-based}{6}{subsection.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.1}Giao thức theo luật}{6}{subsubsection.2.8.1}%
+\contentsline {subsubsection}{\numberline {2.8.2}Giao thức theo vai trò}{6}{subsubsection.2.8.2}%
+\contentsline {subsubsection}{\numberline {2.8.3}Giao thức dựa trên mô hình}{7}{subsubsection.2.8.3}%
+\contentsline {subsection}{\numberline {2.9}Cấu trúc giao tiếp và chi phí}{7}{subsection.2.9}%
+\contentsline {subsubsection}{\numberline {2.9.1}Tập trung}{7}{subsubsection.2.9.1}%
+\contentsline {subsubsection}{\numberline {2.9.2}Phi tập trung và phân tán}{7}{subsubsection.2.9.2}%
+\contentsline {subsubsection}{\numberline {2.9.3}Phân cấp}{8}{subsubsection.2.9.3}%
+\contentsline {subsection}{\numberline {2.10}Điều phối tĩnh và động}{8}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Bỏ phiếu, tranh luận và kiểm chứng}{8}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}Ứng dụng được survey phân tích}{9}{subsection.2.12}%
+\contentsline {subsubsection}{\numberline {2.12.1}Mạng 5G/B6G và Industry 5.0}{9}{subsubsection.2.12.1}%
+\contentsline {subsubsection}{\numberline {2.12.2}Hỏi đáp và sinh ngôn ngữ}{9}{subsubsection.2.12.2}%
+\contentsline {subsubsection}{\numberline {2.12.3}Miền xã hội và văn hóa}{9}{subsubsection.2.12.3}%
+\contentsline {subsection}{\numberline {2.13}Vấn đề mở và đánh giá phê bình}{9}{subsection.2.13}%
+\contentsline {subsubsection}{\numberline {2.13.1}Quản trị và quyết định tập thể}{10}{subsubsection.2.13.1}%
+\contentsline {subsubsection}{\numberline {2.13.2}Benchmark và nguyên nhân cải thiện}{10}{subsubsection.2.13.2}%
+\contentsline {subsubsection}{\numberline {2.13.3}An toàn, tấn công và độ tin cậy}{10}{subsubsection.2.13.3}%
+\contentsline {subsection}{\numberline {2.14}Thiết kế nghiên cứu tiếp nối do báo cáo đề xuất}{10}{subsection.2.14}%
+\contentsline {subsection}{\numberline {2.15}Kết luận riêng cho Paper 1}{11}{subsection.2.15}%
+\contentsline {section}{\numberline {3}Paper 2: Học tăng cường và ứng dụng trong các lĩnh vực}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Hồ sơ bài báo và mục đích đọc}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}RL khác học có giám sát và học không giám sát}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Mô hình MDP và giả định Markov}{12}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Những thành phần cơ bản của môi trường}{13}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Return, hệ số chiết khấu và tiêu chí kinh doanh}{13}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Chính sách, kế hoạch và hàm giá trị}{14}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Phương trình Bellman}{14}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Dynamic programming: biết mô hình để lập kế hoạch}{15}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Monte Carlo: học từ return hoàn chỉnh}{16}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Temporal difference và ý nghĩa bootstrapping}{16}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}SARSA và Q-learning}{16}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.12}Epsilon-greedy và khám phá}{17}{subsection.3.12}%
+\contentsline {subsection}{\numberline {3.13}Learning rate và điều kiện hội tụ}{17}{subsection.3.13}%
+\contentsline {subsection}{\numberline {3.14}Actor--critic và policy gradient}{18}{subsection.3.14}%
+\contentsline {subsection}{\numberline {3.15}Bayesian methods và bất định}{18}{subsection.3.15}%
+\contentsline {subsection}{\numberline {3.16}Deep Q-Network và các thành phần ổn định}{19}{subsection.3.16}%
+\contentsline {subsection}{\numberline {3.17}So sánh các họ phương pháp}{19}{subsection.3.17}%
+\contentsline {subsection}{\numberline {3.18}Ứng dụng trong paper: đọc bằng cấu trúc bài toán}{20}{subsection.3.18}%
+\contentsline {subsubsection}{\numberline {3.18.1}Healthcare}{20}{subsubsection.3.18.1}%
+\contentsline {subsubsection}{\numberline {3.18.2}Robotics và điều khiển tự động}{20}{subsubsection.3.18.2}%
+\contentsline {subsubsection}{\numberline {3.18.3}Communication và networking}{20}{subsubsection.3.18.3}%
+\contentsline {subsubsection}{\numberline {3.18.4}NLP}{21}{subsubsection.3.18.4}%
+\contentsline {subsubsection}{\numberline {3.18.5}Autonomous IoT và computer vision}{21}{subsubsection.3.18.5}%
+\contentsline {subsubsection}{\numberline {3.18.6}Games, self-organized systems và scheduling}{21}{subsubsection.3.18.6}%
+\contentsline {subsection}{\numberline {3.19}Các thách thức lớn và đọc phản biện}{21}{subsection.3.19}%
+\contentsline {subsubsection}{\numberline {3.19.1}Sample efficiency và độ bao phủ}{21}{subsubsection.3.19.1}%
+\contentsline {subsubsection}{\numberline {3.19.2}Reward design và reward hacking}{22}{subsubsection.3.19.2}%
+\contentsline {subsubsection}{\numberline {3.19.3}Partial observability và non-stationarity}{22}{subsubsection.3.19.3}%
+\contentsline {subsubsection}{\numberline {3.19.4}Bias--variance và những phát biểu cần điều kiện}{22}{subsubsection.3.19.4}%
+\contentsline {subsection}{\numberline {3.20}Kiểm tra giả định trên chính môi trường assignment}{22}{subsection.3.20}%
+\contentsline {subsection}{\numberline {3.21}Phân tích lợi nhuận kỳ vọng và chính sách mốc}{23}{subsection.3.21}%
+\contentsline {subsection}{\numberline {3.22}Cầu nối với MAS và phương pháp nghiên cứu chung}{23}{subsection.3.22}%
+\contentsline {subsection}{\numberline {3.23}Kết luận riêng cho Paper 2}{24}{subsection.3.23}%
+\contentsline {section}{\numberline {4}Chuyên đề toán học và kỹ thuật bổ sung}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}1. Từ collaboration channel đến hợp đồng có thể kiểm}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}2. State machine cho workflow thay vì vòng chat không giới hạn}{25}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}3. Complexity của giao tiếp và đường găng}{26}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}4. Mô hình lỗi dây chuyền và giá trị kiểm chứng}{26}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}5. Đa số và tương quan sai số}{26}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}6. Confusion matrix, macro-F1 và selective prediction}{27}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}7. Vì sao chia theo nhóm dữ liệu quan trọng}{27}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}8. Chứng minh observation baseline chưa đủ Markov}{27}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}9. Hữu hạn chân trời và terminal aliasing}{28}{subsection.4.9}%
+\contentsline {subsection}{\numberline {4.10}10. Quy hoạch động lùi: một ví dụ hai bước}{28}{subsection.4.10}%
+\contentsline {subsection}{\numberline {4.11}11. Giá trị kỳ vọng của policy bằng forward occupancy}{29}{subsection.4.11}%
+\contentsline {subsection}{\numberline {4.12}12. Tách lỗi học khỏi nhiễu evaluation bằng exact values}{29}{subsection.4.12}%
+\contentsline {subsection}{\numberline {4.13}13. Kỳ vọng và phương sai profit ở một bước}{29}{subsection.4.13}%
+\contentsline {subsection}{\numberline {4.14}14. Confidence interval và đơn vị mẫu}{30}{subsection.4.14}%
+\contentsline {subsection}{\numberline {4.15}15. Robustness: zero-shot shift khác retraining}{30}{subsection.4.15}%
+\contentsline {subsection}{\numberline {4.16}16. Đối thủ cố định, self-play và cân bằng}{30}{subsection.4.16}%
+\contentsline {subsection}{\numberline {4.17}17. Từ thuật toán sang thiết kế có thể tái lập}{31}{subsection.4.17}%
+\contentsline {subsection}{\numberline {4.18}18. Phạm vi đóng góp của bộ báo cáo}{31}{subsection.4.18}%
+\contentsline {section}{\numberline {5}Tổng hợp, phản biện và thiết kế nối hai hướng nghiên cứu}{32}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Bảng đối chiếu mục tiêu và loại bằng chứng}{32}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Hai cấp độ thích nghi không nên gộp}{32}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Thiết kế tham chiếu: trợ lý kinh doanh có tầng quyết định và tầng kiểm chứng}{32}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Thiết kế thí nghiệm để tách lợi ích chia vai khỏi tăng tính toán}{33}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Đề xuất kiểm tra độ bền nhiều tầng}{33}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Những luận điểm cần tránh sau khi đọc hai paper}{33}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Bằng chứng minh họa liên hệ hai paper}{34}{section.6}%
+\contentsline {section}{\numberline {7}Phụ lục đọc paper: bản đồ nội dung và câu hỏi kiểm tra}{35}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Đối chiếu Paper 1 với tài liệu gốc}{35}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Đối chiếu Paper 2 với tài liệu gốc}{36}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Câu hỏi phản biện và lời giải định hướng}{37}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Kết luận chung của báo cáo paper}{37}{section.8}%
+\contentsline {section}{Tài liệu tham khảo}{38}{section*.1}%

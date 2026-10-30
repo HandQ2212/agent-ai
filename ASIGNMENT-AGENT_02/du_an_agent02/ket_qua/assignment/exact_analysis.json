@@ -1,0 +1,4 @@
+{
+  "baseline42_exact": 25.697999954223633,
+  "method": "Forward occupancy on full state (d, own_prev, opponent_prev), H=20, reward undiscounted, fixed rule opponent; no simulation or fitted model."
+}

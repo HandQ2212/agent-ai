@@ -1,0 +1,287 @@
+# Paper 2: Học tăng cường và ứng dụng trong các lĩnh vực
+
+## Hồ sơ bài báo và mục đích đọc
+
+Bài *A Gentle Introduction to Reinforcement Learning and Its Application in Different Fields* do Muddasar Naeem, Syed Tahir Hussain Rizvi và Antonio Coronato thực hiện, đăng trên IEEE Access, tập 8, năm 2020, trang 209320–209344, DOI 10.1109/ACCESS.2020.3038605. Bản PDF được cung cấp có 25 trang, gồm nền tảng MDP, nguyên lý RL, các nhóm thuật toán, ứng dụng và thảo luận. \cite{naeem}
+
+Mục đích của bài là cung cấp một lộ trình nhập môn tương đối rộng, giúp người đọc hiểu những khái niệm trước khi bước vào thuật toán chuyên sâu. Đóng góp phù hợp nhất để đánh giá là cách hệ thống hóa và nối kiến thức với ứng dụng. Bài không cung cấp một benchmark thống nhất chạy mọi thuật toán trên mọi lĩnh vực, nên không thể suy ra một bảng xếp hạng phổ quát từ số lượng ví dụ được nhắc đến.
+
+Báo cáo đọc paper theo chuỗi: mô hình quyết định → đại lượng cần học → cách ước lượng → điều kiện áp dụng → kiểm tra bằng assignment. Các công thức được viết lại với ký hiệu nhất quán và kỳ vọng rõ ràng. Đây là phần diễn giải kỹ thuật của báo cáo, giúp tránh những giản lược ký hiệu trong tài liệu nhập môn. Ví dụ số và kết quả mô phỏng được phân biệt rõ với nội dung nguyên bản.
+
+## RL khác học có giám sát và học không giám sát
+
+Trong học có giám sát, một quan sát đi cùng nhãn hoặc giá trị mục tiêu. Mô hình học quan hệ giữa đặc trưng và nhãn trên tập dữ liệu cho trước. Trong học không giám sát, mục tiêu thường là tìm cấu trúc, biểu diễn hoặc nhóm trong dữ liệu không có nhãn tác vụ. Trong RL, tác tử chọn hành động rồi nhận phản hồi; hành động ảnh hưởng dữ liệu quan sát tiếp theo, vì vậy quá trình thu thập dữ liệu gắn với chính sách hiện tại.
+
+Phần thưởng khác nhãn đáp án. Khi cửa hàng giảm giá và nhận lợi nhuận 30, môi trường không nói hành động còn lại sẽ cho lợi nhuận bao nhiêu trong cùng tình huống. Tác tử phải học thông qua nhiều lần tương tác, đối mặt với nhiễu và đánh đổi giữa thử mới với khai thác điều đã biết. Nếu hậu quả xuất hiện chậm, còn phải xác định hành động nào trong chuỗi đóng góp cho kết quả cuối.
+
+Tutorial intent sử dụng **supervised learning**: mỗi câu có nhãn ecommerce, tourism hoặc healthcare administration và mạng tối ưu cross entropy. Assignment sử dụng **reinforcement learning**: agent chọn hành động giảm giá và học từ lợi nhuận ngẫu nhiên. Hai phần đều có quá trình training nhưng không nên gọi classifier là RL. Tương tự, một hệ có nhiều agent không tự động là MARL nếu các thành viên không cập nhật chính sách từ tương tác.
+
+## Mô hình MDP và giả định Markov
+
+Một MDP thường được biểu diễn bằng $(\mathcal S,\mathcal A,P,R,\gamma,\rho_0)$: không gian trạng thái, hành động, xác suất chuyển, phần thưởng kỳ vọng, hệ số chiết khấu và phân phối khởi đầu. Với bài hữu hạn chân trời, cần nêu thêm $H$ hoặc dùng trạng thái chứa thời gian. MDP là mô hình bài toán; RL là một họ phương pháp học quyết định, thường khi không biết đầy đủ $P$ và $R$.
+
+Tính Markov có thể viết:
+
+$$P(S_{t+1},R_{t+1}\mid S_0,A_0,\ldots,S_t,A_t)
+=P(S_{t+1},R_{t+1}\mid S_t,A_t).$$
+
+Điều kiện không nói quá khứ không quan trọng trong thế giới thực, mà nói trạng thái đã tóm tắt đủ thông tin quá khứ liên quan đến tương lai. Nếu trạng thái thiếu tồn kho, đơn hàng đang xử lý hoặc hành động trước mà đối thủ dùng để phản ứng, điều kiện có thể không còn. Một chuỗi quan sát có dạng vector không mặc nhiên là trạng thái Markov.
+
+Cần tách tính Markov và tính dừng. Markov liên quan đến thông tin cần điều kiện hóa; tính dừng liên quan đến việc cùng một trạng thái và hành động có cùng quy luật qua thời gian. Một quá trình có thể Markov nhưng quy luật phụ thuộc thời điểm. Có thể bổ sung thời gian hoặc chế độ vào trạng thái để mô hình hóa sự phụ thuộc đó, nhưng khi không quan sát chế độ thì bài toán vẫn có bất định.
+
+## Những thành phần cơ bản của môi trường
+
+**Trạng thái** phải chứa thông tin cần cho quyết định, không nhất thiết là mọi dữ liệu có thể lưu. Thêm quá nhiều biến làm tăng độ phức tạp; bỏ biến quan trọng làm giá trị ước lượng bị trộn. Trong assignment, quan sát tham chiếu có hai bit nên chỉ có bốn trạng thái cục bộ. Khi kiểm tra giả định Markov, báo cáo chỉ ra cần thêm hành động trước của chính mình để mô tả phản ứng của rule opponent.
+
+**Hành động** là lựa chọn thực sự được môi trường cho phép. Ở đây $a\in\{0,1\}$, không giảm và giảm 20%. Nếu mở rộng sang nhiều mức giảm, cần kiểm tra biên lợi nhuận và tập hợp hành động hợp lệ. Một mạng xuất ra giá trị liên tục không tự giải quyết tính hợp lệ của giao dịch hoặc hạn mức kinh doanh.
+
+**Chuyển trạng thái** mô tả điều xảy ra sau hành động. Nhu cầu trong mô phỏng được lấy độc lập với hành động, nhưng hành động hiện tại trở thành lịch sử quan sát ở bước sau. Vì rule opponent phản ứng theo lịch sử này, agent vẫn có ảnh hưởng đến tương lai dù không điều khiển nhu cầu. Chỉ nhìn nhu cầu độc lập rồi kết luận bài toán là bandit sẽ bỏ qua cơ chế phản hồi đối thủ.
+
+**Phần thưởng** phản ánh mục tiêu đo được. Trong mô phỏng là lợi nhuận số học, không phải doanh thu hoặc số đơn. Việc chọn reward là lựa chọn mô hình hóa có hệ quả: tối ưu số lượng bán sẽ có động lực khác tối ưu lợi nhuận; thêm phạt tồn kho hay phạt biến động giá lại tạo chính sách khác. Cần xác định mục tiêu trước khi chọn thuật toán.
+
+## Return, hệ số chiết khấu và tiêu chí kinh doanh
+
+Return hữu hạn bắt đầu từ bước $t$ được viết:
+
+$$G_t=\sum_{k=0}^{H-t-1}\gamma^k R_{t+k+1}.$$
+
+Khi $\gamma=0$, chỉ phần thưởng kế tiếp được xem xét. Khi $0<\gamma<1$, các phần thưởng xa hơn có trọng số nhỏ hơn và chuỗi vô hạn bị chặn nếu reward bị chặn. Khi $\gamma=1$, nhiệm vụ hữu hạn vẫn hợp lệ; trong nhiệm vụ vô hạn phải có điều kiện bổ sung để tổng có nghĩa. Vì vậy không thể nói mọi lựa chọn $\gamma=1$ đều sai hoặc đều an toàn.
+
+Có một khác biệt quan trọng trong assignment: cập nhật Q dùng $\gamma=0.9$, trong khi báo cáo hiệu năng yêu cầu lợi nhuận trung bình không chiết khấu qua 20 bước. Hai tiêu chí có liên quan nhưng không đồng nhất trong mọi môi trường. Nếu một hành động hy sinh lợi nhuận đầu kỳ để có lợi ích cuối kỳ, việc giảm trọng số tương lai có thể thay đổi lựa chọn tối ưu theo chỉ số kinh doanh.
+
+Trong mô hình hiện tại, quy hoạch động xác nhận chính sách không giảm giá là best response với rule opponent ở các tham số được dùng. Do đó khác biệt tiêu chí không làm thay đổi mốc hành động này. Tuy nhiên, báo cáo vẫn nêu sự không đồng nhất vì nó quan trọng khi thêm tồn kho, ngân sách khuyến mãi hoặc khách hàng quay lại.
+
+Ví dụ của báo cáo: chuỗi reward $(5,5,20)$ có tổng 30, nhưng return với $\gamma=0.9$ là $5+0.9\times5+0.9^2\times20=25.7$. Một chính sách khác nhận $(12,10,6)$ có tổng 28 và return 25.86. Như vậy chính sách có tổng ít hơn vẫn có thể được ưu tiên dưới chiết khấu. Ví dụ này cho thấy phải công bố rõ tối ưu đại lượng nào.
+
+## Chính sách, kế hoạch và hàm giá trị
+
+Chính sách xác định cách hành động theo trạng thái hoặc lịch sử. Chính sách xác định viết $a=\pi(s)$; chính sách ngẫu nhiên viết $\pi(a\mid s)$. Một kế hoạch là chuỗi hoặc đồ thị bước để thực hiện, còn chính sách là quy tắc phản ứng cho những tình huống có thể gặp. Trong môi trường ngẫu nhiên, một danh sách hành động cố định thường không đủ thay thế chính sách.
+
+Hàm giá trị trạng thái và hành động được định nghĩa bằng kỳ vọng:
+
+$$V^\pi(s)=\mathbb E_\pi[G_t\mid S_t=s],\qquad
+Q^\pi(s,a)=\mathbb E_\pi[G_t\mid S_t=s,A_t=a].$$
+
+Một reward lớn trong một lượt không bằng Q lớn. Q phản ánh lợi ích dài hạn kỳ vọng khi thực hiện hành động rồi tiếp tục theo chính sách. Mẫu sales có nhiễu, nên hai lần cùng trạng thái và hành động vẫn có thể cho reward khác nhau. Bảng Q giảm bớt nhiễu nhờ cập nhật qua nhiều quan sát, nhưng cách giảm phụ thuộc learning rate và cấu trúc bài toán.
+
+Hàm giá trị tối ưu $V^*$, $Q^*$ dùng chính sách tốt nhất trong lớp đang xét và giả định mô hình. Nếu trạng thái thiếu thông tin, một chính sách tối ưu trên biểu diễn đó có thể kém chính sách dùng bộ nhớ đầy đủ. Từ “tối ưu” luôn cần đi kèm điều kiện: tối ưu đối với trạng thái nào, môi trường nào, đối thủ nào và mục tiêu nào.
+
+## Phương trình Bellman
+
+Với reward kỳ vọng $R(s,a)$ và chuyển trạng thái $P(s'\mid s,a)$, phương trình kỳ vọng Bellman có dạng:
+
+$$V^\pi(s)=\sum_a\pi(a\mid s)\left[R(s,a)+\gamma\sum_{s'}P(s'\mid s,a)V^\pi(s')\right].$$
+
+Phương trình tối ưu thay trung bình theo chính sách bằng phép cực đại:
+
+$$V^*(s)=\max_a\left[R(s,a)+\gamma\sum_{s'}P(s'\mid s,a)V^*(s')\right].$$
+
+Đối với Q, ta có:
+
+$$Q^*(s,a)=R(s,a)+\gamma\sum_{s'}P(s'\mid s,a)\max_{a'}Q^*(s',a').$$
+
+Các biểu thức này làm rõ hai thành phần: lợi ích tức thời và giá trị của trạng thái tiếp theo. Trong một số phần nhập môn của paper, ký hiệu được rút gọn để dễ trình bày. Báo cáo thêm tổng xác suất và điều kiện chính sách để tránh hiểu rằng chỉ cộng mọi giá trị tương lai với trọng số bằng nhau.
+
+Với chân trời hữu hạn, nên viết $V_t$ thay vì một $V$ không phụ thuộc thời gian, và điều kiện biên $V_H=0$. Khi cùng một quan sát xuất hiện ở đầu và cuối episode, giá trị phần thưởng còn có thể nhận khác nhau. Một bảng Q không chứa thời gian nhưng nhận cả target terminal lẫn nonterminal sẽ trộn các ngữ cảnh này; đây là hạn chế của baseline được giữ lại để phân tích.
+
+## Dynamic programming: biết mô hình để lập kế hoạch
+
+Section IV-A trình bày dynamic programming, gồm đánh giá chính sách, cải thiện chính sách, policy iteration và value iteration. Khi biết mô hình, ta có thể tính kỳ vọng thay vì chờ mẫu thực nghiệm. Policy evaluation giữ nguyên $\pi$ và giải giá trị; policy improvement chọn hành động tốt hơn theo giá trị hiện có; policy iteration luân phiên hai bước.
+
+Value iteration áp dụng trực tiếp toán tử tối ưu Bellman. Trong MDP hữu hạn có chiết khấu thích hợp, phép lặp có nền tảng hội tụ. Tuy nhiên, khi mô hình lớn hoặc không biết, liệt kê toàn bộ trạng thái và chuyển tiếp có thể không khả thi. Đây là lý do học từ mẫu trở nên cần thiết, chứ không phải vì quy hoạch động vốn kém thông minh hơn RL.
+
+Trong assignment, mô hình chỉ có hai mức nhu cầu, hai hành động và phản ứng rule rõ ràng. Vì thế quy hoạch động hữu hạn chân trời là mốc kiểm tra rất mạnh. Nó giúp phân biệt việc “Q-learning đã học được một chiến lược” với việc “chiến lược đó đạt best response”. Một thuật toán học phức tạp mà không so với mốc đơn giản có thể tạo ra kết luận sai về hiệu quả.
+
+Mã DP của báo cáo dùng trạng thái $(d,a_{t-1}^{A},a_{t-1}^{B})$ và thời điểm $t$. Với rule opponent, hành động hiện tại $b=d\,a_{t-1}^{A}$. Với mỗi lựa chọn $a$, thuật toán tính reward kỳ vọng và trung bình giá trị ở hai mức nhu cầu kế tiếp. Việc thực hiện từ $t=H-1$ về 0 cho ra chính sách phụ thuộc thời gian một cách chính xác trong mô hình.
+
+## Monte Carlo: học từ return hoàn chỉnh
+
+Section IV-B giới thiệu Monte Carlo như cách ước lượng giá trị qua các episode hoàn tất. Với mỗi lần thăm trạng thái, tính return thực tế rồi lấy trung bình. Nếu dữ liệu được lấy đúng từ chính sách mục tiêu và episode phù hợp, trung bình mẫu là cách tự nhiên để ước lượng kỳ vọng. Không cần biết bảng xác suất chuyển trạng thái.
+
+Ưu điểm là không bootstrap từ một giá trị ước lượng khác. Nhược điểm là phải chờ tương lai của episode và return có thể biến động mạnh theo nhiều bước ngẫu nhiên. Nếu một episode dài gồm nhiều thành phần nhiễu, mẫu return ở đầu kỳ có phương sai lớn. First-visit và every-visit phân biệt cách dùng những lần gặp lại trạng thái trong một episode.
+
+Off-policy Monte Carlo cần xử lý khác biệt giữa chính sách thu thập và chính sách đánh giá, thường qua importance sampling với điều kiện hỗ trợ thích hợp. Trọng số có thể rất lớn khi chuỗi dài hoặc chính sách khác nhau mạnh. Do đó việc có log lịch sử không tự động cho phép đánh giá mọi chính sách mới một cách ổn định.
+
+Liên hệ bài lab: mỗi episode có 20 bước nên có thể bổ sung MC để đối chiếu với Q-learning. Tuy vậy, bản thực nghiệm chính không chạy MC; báo cáo không gán cho nó số liệu chưa đo. Đề xuất có thể thực hiện là giữ cùng seed và budget tương tác, thêm MC control với cùng không gian quan sát rồi so mức sai lệch so với oracle.
+
+## Temporal difference và ý nghĩa bootstrapping
+
+Section IV-C trình bày temporal difference, kết hợp việc học từ mẫu với ước lượng giá trị tương lai. TD(0) cho trạng thái có dạng:
+
+$$V(S_t)\leftarrow V(S_t)+\alpha\left[R_{t+1}+\gamma V(S_{t+1})-V(S_t)\right].$$
+
+Đại lượng trong ngoặc là TD error. Khi target cao hơn dự đoán, giá trị tăng; khi thấp hơn, giá trị giảm. Không cần chờ episode hoàn tất, nhưng target phụ thuộc ước lượng hiện tại nên có thể mang bias. Nhận định “TD phương sai thấp hơn MC” là trực giác thường hữu ích, không phải bất đẳng thức phổ quát cho mọi cấu hình dữ liệu và estimator.
+
+Bootstrapping là dùng một giá trị ước lượng để cập nhật giá trị khác. Trong Q-learning, target có phép max trên trạng thái kế tiếp. Nó truyền thông tin từ tương lai về các hành động trước. Nhưng nếu ước lượng kế tiếp không phù hợp do trạng thái thiếu hoặc môi trường thay đổi, sai lệch cũng có thể truyền ngược.
+
+Ở terminal thật, giá trị tương lai bằng 0. Trong nhiệm vụ continuing bị cắt chỉ để quản lý thời lượng, “hết 20 bước” có thể là truncation và việc bootstrap cần khác terminal. Đề tham chiếu dùng episode hữu hạn với terminal ở bước cuối, nên báo cáo giữ quy ước này; đồng thời chỉ ra cần thêm thời gian vào trạng thái nếu muốn biểu diễn chính xác nhiệm vụ hữu hạn.
+
+## SARSA và Q-learning
+
+SARSA cập nhật theo hành động thực sự được chọn ở trạng thái tiếp theo:
+
+$$Q(S_t,A_t)\leftarrow Q(S_t,A_t)+\alpha[R_{t+1}+\gamma Q(S_{t+1},A_{t+1})-Q(S_t,A_t)].$$
+
+Nó gắn với chính sách đang hành động, gồm cả khám phá, nên thường được gọi là on-policy. Q-learning thay $Q(S_{t+1},A_{t+1})$ bằng $\max_aQ(S_{t+1},a)$, hướng đến chính sách greedy dù dữ liệu có thể đến từ epsilon-greedy, nên là off-policy trong cách phân loại này.
+
+Sự khác nhau không nói SARSA luôn an toàn còn Q-learning luôn rủi ro. Kết quả phụ thuộc môi trường, reward, biểu diễn và quy trình đánh giá. Ví dụ kinh điển về hành động khám phá nguy hiểm chỉ minh họa một cấu hình cụ thể. Khi thảo luận một ứng dụng kinh doanh, cần đo chi phí khám phá và ràng buộc thực tế.
+
+Ví dụ cập nhật theo đề: $Q=4$, $\alpha=0.1$, reward 6, $\gamma=0.9$, giá trị tốt nhất kế tiếp 5. Target là $6+0.9\times5=10.5$; TD error là 6.5; giá trị mới $4+0.1\times6.5=4.65$. Nếu cùng transition kết thúc thật, target chỉ là 6 và giá trị mới 4.2. Hai ca được kiểm thử riêng trong mã.
+
+## Epsilon-greedy và khám phá
+
+Với hai hành động, epsilon-greedy chọn một hành động ngẫu nhiên trong hai lựa chọn với xác suất $\epsilon$, còn lại chọn hành động tốt nhất theo bảng. Vì nhánh ngẫu nhiên vẫn có thể chọn hành động greedy, xác suất chọn hành động không greedy là $\epsilon/2$ khi chỉ có một greedy action. Nói epsilon bằng đúng tỷ lệ hành động sai sẽ không chính xác.
+
+Lịch tham chiếu giảm theo episode: $\epsilon_e=\max(0.02,0.2\times0.995^e)$ với $e$ bắt đầu từ 0. Giải $0.2\times0.995^e\le0.02$ cho thấy ngưỡng sàn đạt xấp xỉ episode chỉ số 460. Hơn 4.500 episode còn lại vẫn giữ khám phá nhỏ. Khi đánh giá, báo cáo đặt epsilon bằng 0 và không cập nhật Q.
+
+Khám phá quá ít có thể làm bỏ sót hành động, nhất là trạng thái hiếm. Khám phá quá nhiều gây mất reward trong training và có thể ảnh hưởng hành vi đối thủ. Trong bài bán hàng, một hành động giảm giá hiện tại còn làm rule opponent có khả năng giảm ở bước sau khi nhu cầu cao. Vì vậy chi phí khám phá không chỉ là margin của bước hiện tại.
+
+Báo cáo chạy ba cấu hình khám phá: lịch giảm tham chiếu, epsilon cố định 0.05 và 0.30. Việc giữ cố định learning rate, số episode và các seed giúp so sánh có ý nghĩa. Dù vậy, một chênh lệch sau năm seed chưa đủ chứng minh cơ chế khám phá là nguyên nhân duy nhất; kết quả còn chịu nhiễu Q, aliasing và trộn thời điểm terminal.
+
+## Learning rate và điều kiện hội tụ
+
+Learning rate điều khiển mức thay đổi trước một mẫu mới. Với target cố định $y$, cập nhật $Q\leftarrow(1-\alpha)Q+\alpha y$ là một trung bình có trọng số. Alpha lớn phản ứng mạnh, alpha nhỏ tích lũy chậm. Trong thực tế target cũng thay đổi theo Q và dữ liệu nên trực giác trung bình chỉ giải thích một phần hành vi.
+
+Các bảo đảm hội tụ cổ điển cho tabular Q-learning đòi hỏi những điều kiện về môi trường Markov và dừng, độ bao phủ state–action và lịch learning rate thỏa các tổng thích hợp, thường $\sum\alpha_t=\infty$, $\sum\alpha_t^2<\infty$. Alpha cố định 0.1 và số episode hữu hạn của lab không đủ để viện dẫn trực tiếp bảo đảm hội tụ về $Q^*$. \cite{watkins}
+
+Trong lab, alpha 0.01 có thể cần nhiều mẫu hơn để phản ánh reward; alpha 0.50 có thể nhạy với nhiễu sales và các target terminal thấp. Nhìn một đường reward được làm trơn chưa xác định được Q đã ổn định. Nên kết hợp đánh giá đóng băng, phân phối chính sách qua seed và độ lệch với oracle.
+
+Cũng cần phân biệt ổn định và tối ưu. Một policy luôn giảm giá có thể rất ổn định nhưng lợi nhuận thấp. Một policy tốt có thể cho reward thô dao động lớn vì nhu cầu ngẫu nhiên. Chỉ số thay đổi tham số, tỷ lệ thay đổi hành động và lợi nhuận đánh giá giải đáp những câu hỏi khác nhau.
+
+## Actor–critic và policy gradient
+
+Section IV-D giới thiệu actor–critic, nơi actor biểu diễn chính sách còn critic ước lượng chất lượng để hướng dẫn actor. Một dạng mục tiêu là $J(\theta)=\mathbb E_{\pi_\theta}[G_0]$. Gradient có thể được ước lượng bằng log xác suất hành động nhân một tín hiệu lợi thế. Critic giúp giảm phương sai hoặc cung cấp tín hiệu thường xuyên hơn.
+
+Actor–critic hữu ích khi hành động liên tục hoặc không gian quá lớn cho bảng Q. Tuy nhiên, nó thêm mô hình, learning rate và quan hệ phụ thuộc giữa hai quá trình học. Critic sai có thể hướng actor sai; actor thay đổi làm dữ liệu critic học thay đổi. Đây không phải phép thay thế mặc nhiên tốt hơn cho bài có tám giá trị Q.
+
+Một số câu trong phần thảo luận của paper nói về hội tụ ở mức tổng quát. Báo cáo đọc thận trọng: policy gradient không được bảo đảm tìm global optimum cho mọi bài toán mạng nơ-ron và mọi ước lượng gradient; model-based cũng không được bảo đảm đúng mô hình khi lớp mô hình sai. Cần đặt các phát biểu về hội tụ trong giả định toán học cụ thể.
+
+Liên hệ cải tiến: nếu mở rộng hành động thành mức chiết khấu liên tục và thêm tồn kho, có thể cân nhắc actor–critic hoặc phương pháp điều khiển tối ưu. Trước đó cần một môi trường được hiệu chỉnh và baseline đủ mạnh. Dùng mạng sâu sớm trong môi trường toy làm tăng khó khăn giải thích mà chưa có lý do về biểu diễn.
+
+## Bayesian methods và bất định
+
+Section IV-E đề cập phương pháp Bayesian, dùng phân phối niềm tin để biểu diễn điều chưa biết. Thay vì giữ một con số reward trung bình duy nhất, có thể giữ posterior cho tham số xác suất chuyển đổi rồi chọn hành động theo bất định. Thompson sampling là một ví dụ về lấy mẫu giả thuyết để cân bằng khám phá và khai thác trong các bài phù hợp.
+
+Cần tách **aleatoric uncertainty** do tính ngẫu nhiên của môi trường và **epistemic uncertainty** do thiếu hiểu biết. Dù biết xác suất mua chính xác, sales binomial vẫn ngẫu nhiên. Thu thập thêm dữ liệu giúp giảm bất định tham số nhưng không xóa tính ngẫu nhiên của từng lượt mua. Nhầm hai loại dễ dẫn đến yêu cầu một policy phải thắng trong mọi episode.
+
+Trong bài bán hàng, nếu mô hình conversion chưa biết, có thể dùng posterior cho từng ngữ cảnh và hành động. Nhưng đối thủ phản ứng qua lịch sử khiến mô hình bandit độc lập có thể thiếu động lực dài hạn. Một cải tiến cần xác định liệu đang học reward tức thời hay toàn bộ quá trình quyết định có trạng thái.
+
+## Deep Q-Network và các thành phần ổn định
+
+Section IV-F trình bày DQN như cách dùng mạng nơ-ron xấp xỉ Q cho không gian trạng thái lớn. Hai thành phần nổi bật là experience replay và target network. Replay tái sử dụng transition và giảm tương quan theo thời gian trong minibatch; target network làm mục tiêu thay đổi chậm hơn so với việc dùng cùng một mạng cập nhật ngay lập tức.
+
+Một target điển hình có dạng $y=r+\gamma\max_{a'}Q_{\bar\theta}(s',a')$ cho transition không terminal, rồi tối ưu bình phương sai số giữa $y$ và $Q_\theta(s,a)$. DQN vẫn chịu vấn đề xấp xỉ hàm, tối ưu không lồi và dữ liệu phụ thuộc chính sách. Thêm replay không tự khắc phục non-stationarity khi nhiều agent cùng học.
+
+Với tám giá trị Q trong lab, mạng sâu sẽ có nhiều tham số hơn đại lượng cần học và tốn thêm tuning. Bảng Q là lựa chọn hợp lý để người học nhìn rõ từng giá trị, từng trạng thái và từng lỗi. Bài học từ paper là chọn công cụ theo kích thước và đặc tính bài toán, không chọn thuật toán mới chỉ vì có vẻ mạnh.
+
+## So sánh các họ phương pháp
+
+| Phương pháp | Cần mô hình chuyển tiếp? | Target chính | Điểm mạnh | Hạn chế chính |
+|---|---|---|---|---|
+| Dynamic programming | Có | Kỳ vọng Bellman | Mốc chính xác khi mô hình nhỏ, đúng | Chi phí không gian trạng thái, sai mô hình |
+| Monte Carlo | Không | Return sau episode | Không bootstrap, diễn giải rõ | Chờ cuối kỳ, phương sai return |
+| TD/SARSA | Không | Reward và giá trị hành động kế tiếp | Cập nhật online, theo policy hành động | Bootstrap và phụ thuộc biểu diễn |
+| Q-learning | Không | Reward và max Q kế tiếp | Tabular nhỏ dễ triển khai | Không bảo đảm ở mọi môi trường, nhạy trạng thái thiếu |
+| Actor–critic | Không nhất thiết | Gradient policy và critic | Phù hợp policy tham số, hành động lớn | Nhiều nguồn bất ổn và tham số |
+| Bayesian | Tùy thiết kế | Posterior và quyết định dưới bất định | Biểu diễn điều chưa biết | Chi phí suy luận, giả định prior/model |
+| DQN | Không cần mô hình tường minh | Bellman target từ mạng mục tiêu | Xấp xỉ Q trên đầu vào lớn | Data hungry, khó giải thích, cần ổn định |
+
+Các trục phân loại không hoàn toàn loại trừ nhau. Bayesian có thể dùng cho model-based hoặc một thành phần reward; actor–critic có thể dùng mô hình hoặc không; deep RL có thể value-based hoặc policy-based. Do vậy không nên vẽ một cây phân loại duy nhất rồi coi mỗi thuật toán chỉ được đặt vào đúng một lá.
+
+## Ứng dụng trong paper: đọc bằng cấu trúc bài toán
+
+### Healthcare
+
+Paper xem xét lựa chọn điều trị tuần tự, cá nhân hóa và một số quy trình hỗ trợ. Điểm phù hợp với RL là quyết định hiện tại ảnh hưởng sức khỏe và lựa chọn ở tương lai. Nhưng việc quan sát dữ liệu điều trị lịch sử không tương đương có quyền khám phá trực tiếp trên bệnh nhân. Nhiễu quan sát, confounding và thiếu độ bao phủ hành động khiến đánh giá chính sách khó.
+
+Báo cáo chỉ dùng miền healthcare ở **phân loại yêu cầu hành chính**, không tạo chính sách điều trị, chẩn đoán hay khuyến nghị thuốc. Liên hệ này giúp nhận ra khác biệt mức rủi ro giữa một ví dụ nhập môn và ứng dụng clinical mà paper khảo sát. Các chi tiết y khoa thực hành nằm ngoài phạm vi bộ bài.
+
+### Robotics và điều khiển tự động
+
+Robot có chuỗi quan sát–hành động liên tục và hậu quả động học, nên RL là khung tự nhiên. Phần thưởng có thể gắn với hoàn thành nhiệm vụ, tiêu hao năng lượng hoặc tránh va chạm. Khó khăn là tương tác thật tốn kém và hành động sai có thể gây hỏng vật lý. Mô phỏng giúp thu thập dữ liệu nhưng có khoảng cách sim-to-real.
+
+Một thí nghiệm robot tốt không chỉ báo reward trung bình; cần tỷ lệ thành công, vi phạm giới hạn, độ bền qua điều kiện tải và khả năng khôi phục. Các chỉ số này có thể được chuyển thành tư duy cho tutorial: một hệ trả lời nhanh nhưng không giữ bất biến ngân sách vẫn thất bại nhiệm vụ.
+
+### Communication và networking
+
+Ứng dụng gồm điều khiển tài nguyên, lập lịch, đường truyền hoặc cấu hình. Trạng thái mạng biến động và quyết định cục bộ có thể ảnh hưởng người dùng khác. RL phù hợp khi có tương tác lặp và feedback, nhưng không thể bỏ qua độ trễ quyết định và sự thay đổi phân phối lưu lượng.
+
+Nếu nhiều node học độc lập, throughput của một node phụ thuộc chính sách của các node còn lại. Khi mọi node cập nhật, mỗi node quan sát một môi trường hiệu dụng đang đổi. Đây là cầu nối trực tiếp đến vấn đề non-stationarity trong câu 8 của assignment.
+
+### NLP
+
+Paper thảo luận ứng dụng RL trong các tác vụ ngôn ngữ, đối thoại và tạo chuỗi, nơi đầu ra dài và tiêu chí cuối khó chia thành nhãn cho từng bước. Phần thưởng có thể là độ hoàn thành mục tiêu hoặc đánh giá chất lượng. Tuy nhiên, một reward dễ tối ưu có thể khác mục tiêu con người thực sự muốn.
+
+Cần giữ bối cảnh thời gian: bài công bố năm 2020 và không phải survey về toàn bộ các kỹ thuật căn chỉnh LLM xuất hiện sau đó. Báo cáo dùng nó cho nền tảng RL và không gán các mô hình mới vào danh sách đóng góp nguyên bản. So sánh với paper MAS năm 2025 cần nêu khoảng cách này.
+
+### Autonomous IoT và computer vision
+
+Trong IoT, bài toán thường liên quan năng lượng, kết nối, thu thập dữ liệu và phân bổ tài nguyên. Hành động có thể làm thay đổi thời lượng pin hoặc mức thông tin nhận được. Với computer vision, RL có thể tham gia lựa chọn vùng quan sát hoặc quyết định tuần tự, trong khi nhiều bài nhận dạng thuần túy vẫn thích hợp hơn với supervised learning.
+
+Bài học lựa chọn phương pháp: có ảnh hoặc có sensor chưa đủ để kết luận cần RL. Nếu nhiệm vụ chỉ dự đoán nhãn từ một ảnh và hành động không ảnh hưởng dữ liệu tương lai, classifier có thể phù hợp hơn. RL được biện minh bởi cấu trúc quyết định và phản hồi, không phải loại dữ liệu đầu vào.
+
+### Games, self-organized systems và scheduling
+
+Trò chơi cung cấp môi trường có luật rõ, vòng tương tác lặp và công cụ đo reward, vì vậy thuận tiện cho nghiên cứu. Tuy nhiên, thành công trong trò chơi có thông tin sạch không đồng nghĩa thành công trong hệ kinh doanh có nhu cầu thay đổi và hạn chế can thiệp. Cần kiểm tra cơ chế chuyển từ benchmark sang miền ứng dụng.
+
+Trong scheduling, quyết định hiện tại có thể chiếm tài nguyên và ảnh hưởng các công việc về sau. Ràng buộc cứng như deadline hoặc năng lực máy cần được thể hiện trực tiếp. Nếu chỉ thêm một penalty nhỏ vào reward, agent có thể chọn vi phạm để đổi lợi ích khác. Điều này tương tự việc phải lọc sản phẩm vượt ngân sách trước khi xếp hạng trong tutorial.
+
+## Các thách thức lớn và đọc phản biện
+
+### Sample efficiency và độ bao phủ
+
+Paper nhấn mạnh chi phí dữ liệu và không gian trạng thái lớn. Đối với lab, 5.000 episode tương đương 100.000 bước mỗi lượt training, nhưng không có nghĩa mọi state–action được quan sát đủ cân bằng. Một trạng thái chứa đối thủ giảm giá có thể hiếm khi policy tiến về không giảm giá. Chỉ báo tổng số bước che khuất sự thiếu bao phủ cục bộ.
+
+Đánh giá sample efficiency nên xem hiệu năng theo số tương tác và dùng cùng ngân sách giữa thuật toán. So sánh một agent được train gấp mười lần với baseline ít dữ liệu sẽ không tách được chất lượng phương pháp. Một đề xuất mở rộng là lưu visit count cho từng state–action và phân tích sai lệch Q ở các ô hiếm.
+
+### Reward design và reward hacking
+
+Mục tiêu được số hóa có thể bỏ sót điều người dùng quan tâm. Nếu reward là số đơn, agent dễ ưu tiên giảm giá mạnh dù lợi nhuận thấp. Nếu reward là doanh thu, nó có thể bán hàng lỗ. Nếu reward chỉ là lợi nhuận ngắn hạn, nó có thể không tính trải nghiệm khách hàng hoặc biến động giá. Việc định nghĩa reward là một phần nội dung khoa học, không chỉ tham số code.
+
+Cải tiến phù hợp là tách objective và constraints: tối đa lợi nhuận trong miền hành động tuân thủ các điều kiện về margin và ngân sách. Có thể đưa một số ưu tiên mềm vào reward, nhưng phải công bố trọng số và phân tích độ nhạy. Một con số tổng hợp cao không chứng minh mọi mặt đều được cải thiện.
+
+### Partial observability và non-stationarity
+
+Khi chỉ quan sát một phần, agent có thể cần lịch sử hoặc belief state. Trong lab, rule opponent dùng hành động trước của agent A, nhưng bảng Q của A chỉ nhận nhu cầu và hành động trước của B. Hai lịch sử khác nhau có cùng quan sát A nhưng dẫn đến hành động hiện tại khác nhau của B. Đây là ví dụ cụ thể về state aliasing, ngay cả khi đối thủ không học.
+
+Khi cả hai agent cùng học, chính sách đối thủ thay đổi qua episode nên reward và chuyển tiếp hiệu dụng đối với một learner thay đổi. Frozen evaluation sau training giúp đo chất lượng cặp policy tại một thời điểm, nhưng không chứng minh quá trình học đã tiến đến cân bằng. Cần thêm cross-play, nhiều seed và phân tích dao động hoặc best response.
+
+### Bias–variance và những phát biểu cần điều kiện
+
+Phần Challenges của paper so sánh MC, TD và biến động ước lượng. Báo cáo giữ trực giác rằng target dài có thể nhiều nhiễu hơn, còn bootstrap có thể mang sai lệch, nhưng không biến trực giác đó thành kết luận tuyệt đối. Một estimator cụ thể có thể có hành vi khác tùy dữ liệu và cấu trúc môi trường.
+
+Paper cũng có những lời khẳng định rộng về dữ liệu tổng hợp và giảm bias. Dữ liệu tổng hợp không bảo đảm loại thiên lệch; nó có thể tái tạo hoặc làm nặng thiên lệch mô hình sinh. Trong tutorial, classifier đạt 100% trên test tổng hợp nhưng vẫn nhận sai hai câu ngoài miền. Đây là minh chứng thực tế vì sao cần tách chất lượng trên phân phối tạo dữ liệu khỏi độ bền ngoài phân phối.
+
+## Kiểm tra giả định trên chính môi trường assignment
+
+Gọi trạng thái đầy đủ $x_t=(d_t,u_t,v_t)$ với $u_t=a^A_{t-1}$ và $v_t=a^B_{t-1}$. Với rule opponent, $b_t=d_tu_t$. Quan sát tham chiếu của A là $o_t=(d_t,v_t)$, không có $u_t$. Xét $d_t=1,v_t=0$: nếu $u_t=0$ thì B chọn 0; nếu $u_t=1$ thì B chọn 1. Cùng một quan sát và cùng hành động A dẫn đến reward kỳ vọng khác nhau.
+
+Ví dụ A không giảm: ở nhu cầu cao, B không giảm cho conversion 0.55 và lợi nhuận kỳ vọng $20\times0.55\times5=55$; B giảm cho conversion 0.45 và kỳ vọng 45. Chênh 10 không phải nhiễu ngẫu nhiên, mà do thông tin thiếu. Vì A biết hành động mình vừa làm, việc bổ sung bit này là khả thi và chi phí nhỏ.
+
+Một yếu tố khác là thời điểm. Ở bước cuối, $Q$ chỉ gồm reward ngay; ở bước đầu còn nhiều reward tương lai. Nếu dùng một bảng cho cả hai mà không có thời gian, cùng state–action nhận target theo những chân trời khác nhau. Báo cáo giữ baseline tám giá trị để đúng tinh thần đề, rồi dùng DP với đầy đủ trạng thái và thời gian để kiểm tra.
+
+## Phân tích lợi nhuận kỳ vọng và chính sách mốc
+
+Với $a,b\in\{0,1\}$, conversion ở các tham số mặc định luôn nằm giữa 0.20 và 0.70 nên clip không hoạt động. Reward kỳ vọng là:
+
+$$\bar r(d,a,b)=(10+10d)(0.30+0.25d+0.15a-0.10b)(5-2a).$$
+
+Nếu $b=0$, nhu cầu thấp: không giảm thu 15, giảm thu 13.5; nhu cầu cao: không giảm 55, giảm 42. Nếu $b=1$, các giá trị lần lượt là 10 và 10.5 ở thấp, 45 và 36 ở cao. Vì rule opponent chỉ giảm khi nhu cầu cao và A vừa giảm ở bước trước, trường hợp thấp mà B giảm không xuất hiện trong baseline.
+
+Không giảm là tốt hơn tức thời ở các trạng thái mà rule opponent tạo ra. Nó còn tránh kích hoạt phản ứng giảm giá của B ở bước kế tiếp khi nhu cầu cao. Quy hoạch động xác nhận hành động 0 ở mọi thời điểm và trạng thái đầy đủ trong mô hình tham chiếu. Đây là best response với đối thủ đã định nghĩa, không phải chứng minh luôn không giảm là tối ưu cho mọi thị trường.
+
+Khi cả hai khởi đầu với lịch sử 0 và dùng rule, không bên nào tạo ra tín hiệu giảm giá nên cả hai luôn chọn 0. Nhu cầu thấp/cao có xác suất 1/2, vì vậy lợi nhuận kỳ vọng mỗi bước là $(15+55)/2=35$. Kết quả đánh giá thực nghiệm dao động quanh 35 do nhu cầu và sales; kỳ vọng 35 không được chép thành mọi số đo của bảng kết quả.
+
+## Cầu nối với MAS và phương pháp nghiên cứu chung
+
+Paper MAS nhấn mạnh kênh phối hợp, còn paper RL nhấn mạnh điều chỉnh chính sách bằng feedback. Hai quan điểm bổ sung: một hệ có thể thiết kế cơ chế giao tiếp rất rõ nhưng policy quyết định kém; một learner có reward tốt trong mô phỏng vẫn có thể bị tích hợp sai vào một workflow. Cần kiểm tra cả vòng học và hợp đồng vận hành.
+
+Ví dụ nếu chuyển learner bán hàng thành một thành phần của hệ thương mại, nó chỉ nên đề xuất mức giảm trong tập được phép. Agent chính sách kiểm tra margin, inventory xác nhận khả năng giao hàng và hệ giao dịch thực hiện với xác nhận tương ứng. Reward training không tự cấp quyền thay đổi giá hoặc bỏ qua dữ liệu kho.
+
+Một khuôn nghiên cứu chung là: mô hình hóa giả định; xây baseline đơn giản; lưu dữ liệu thô; đánh giá đóng băng; phân tích theo loại trạng thái; thử thay đổi môi trường; và nêu giới hạn suy rộng. Cách làm này có giá trị hơn kết luận “AI học được nên thông minh hơn luật” từ một lượt chạy.
+
+## Kết luận riêng cho Paper 2
+
+Paper cung cấp đường đi từ MDP đến các họ thuật toán và ứng dụng. Phần có giá trị cho bài học là những câu hỏi nền tảng: trạng thái có đủ không, reward đo gì, khám phá tốn gì, target được tính thế nào và kết quả có được đánh giá độc lập không? Khi áp dụng vào assignment, các câu hỏi này phát hiện những vấn đề cụ thể mà việc chỉ chạy chương trình tham chiếu sẽ bỏ qua.
+
+Báo cáo bổ sung ký hiệu kỳ vọng rõ, phân biệt Markov với tính dừng, hữu hạn chân trời với continuing, hiệu năng training với evaluation và tối ưu với hội tụ. Các thực nghiệm đi kèm không nhằm thay thế survey, mà biến kiến thức tổng quan thành một trường hợp có thể tính tay, chạy lại và phản biện bằng dữ liệu.

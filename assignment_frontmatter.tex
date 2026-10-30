@@ -1,0 +1,45 @@
+\pagenumbering{roman}
+\setcounter{tocdepth}{2}
+\begingroup
+\linespread{1.0}\selectfont
+\tableofcontents
+\endgroup
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Danh mục hình vẽ}
+\listoffigures
+\clearpage
+\section*{DANH MỤC THUẬT NGỮ VÀ TỪ VIẾT TẮT}
+\phantomsection
+\addcontentsline{toc}{section}{Danh mục thuật ngữ và từ viết tắt}
+\begin{tabularx}{\linewidth}{@{}p{2.2cm}X@{}}
+\toprule
+\textbf{Viết tắt} & \textbf{Diễn giải}\\\midrule
+AI & Artificial Intelligence -- Trí tuệ nhân tạo\\
+Agent & Tác tử quan sát môi trường và lựa chọn hành động để đạt mục tiêu\\
+LLM & Large Language Model -- Mô hình ngôn ngữ lớn\\
+API & Application Programming Interface -- Giao diện lập trình ứng dụng\\
+BFS & Breadth-First Search -- Tìm kiếm theo chiều rộng\\
+MDP & Markov Decision Process -- Quá trình quyết định Markov\\
+POMDP & Partially Observable MDP -- MDP có quan sát không đầy đủ\\
+RL & Reinforcement Learning -- Học tăng cường\\
+RAG & Retrieval-Augmented Generation -- Sinh có tăng cường truy hồi\\
+ReAct & Reasoning and Acting -- Kết hợp suy luận và hành động\\
+ReWOO & Reasoning WithOut Observation -- Tách lập kế hoạch khỏi quan sát công cụ\\
+TD & Temporal Difference -- Sai phân thời gian trong cập nhật giá trị\\
+Q-learning & Thuật toán học giá trị hành động $Q(s,a)$\\
+Schema & Hợp đồng quy định cấu trúc và kiểu dữ liệu\\
+Oracle & Phương pháp tham chiếu dùng để kiểm tra kết quả\\
+\bottomrule
+\end{tabularx}
+\vspace{0.7cm}
+\begin{academicbox}{Phạm vi báo cáo và tệp thực hành}
+Báo cáo gồm phần nền tảng, các chuyên đề mở rộng và ba bài thực hành: agent tìm
+đường có tái lập kế hoạch, trợ lý tra cứu có dẫn chứng và learning agent Q-learning.
+Toàn bộ 17 cell code cùng output được chụp trong phần thực hành. Notebook, tệp
+Python thực thi và mã LaTeX được cung cấp kèm báo cáo. Tên tệp nộp:
+\texttt{agent01\_CT\_04\_hainn.pdf}.
+\end{academicbox}
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}

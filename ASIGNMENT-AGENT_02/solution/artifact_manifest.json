@@ -1,0 +1,801 @@
+{
+  "completed_date": "2026-10-28",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "student": "Nguyễn Nam Hải — B23DCCN277",
+  "pdfs": [
+    {
+      "file": "agent02_CT_04_hainn.pdf",
+      "pages": 24
+    },
+    {
+      "file": "paper_CT_04_hainn.pdf",
+      "pages": 44
+    },
+    {
+      "file": "tutorial_CT_04_hainn.pdf",
+      "pages": 22
+    }
+  ],
+  "files": [
+    {
+      "path": "COVERAGE.md",
+      "bytes": 3227,
+      "sha256": "091eb51ca81bdf1dd5ccff47a3128f9e4937a068eeecb4a8d56602a774490da7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7525,
+      "sha256": "14da304b2d3db793bc1f0b05944c40a3b13fbaede5818b9a19ef098b73eda716"
+    },
+    {
+      "path": "agent02_CT_04_hainn.ipynb",
+      "bytes": 861785,
+      "sha256": "4f0a9f9ec2433e3243172313b1e3958b56731eb59728de50838a1812db25967b"
+    },
+    {
+      "path": "agent02_CT_04_hainn.pdf",
+      "bytes": 888064,
+      "sha256": "d11462c05b77872d37a2d1267aa741b58dac5b5f84b17984669c2323045898db"
+    },
+    {
+      "path": "agent02_CT_04_hainn.tex",
+      "bytes": 2972,
+      "sha256": "03820964bb8c89b71ae20c75a059ae54900bb0e0d178a5f9681ea9d293845825"
+    },
+    {
+      "path": "agent02_CT_04_hainn_notebook.html",
+      "bytes": 1175293,
+      "sha256": "0c471e9d205365423583fe0798a15572868d8e17ce12bddc64027ae1ab5710d8"
+    },
+    {
+      "path": "assets/logo_ptit.png",
+      "bytes": 56088,
+      "sha256": "df5713a6cb61f6f2f6b1d6c1b1e1fe99a3ba2173e86ecc38b2e950cf671775f4"
+    },
+    {
+      "path": "assignment/agent02_experiment.py",
+      "bytes": 14302,
+      "sha256": "fb3aa9f77e063a8578fba81c2dc5ba027a7dbf3c819bbcae31f1ac50cc30d271"
+    },
+    {
+      "path": "assignment/analyze_exact.py",
+      "bytes": 2019,
+      "sha256": "a460aa377121d387f624d1eab1f08557162b687efabd448def5e57465d8fa4be"
+    },
+    {
+      "path": "assignment/reference_agent02.py",
+      "bytes": 25001,
+      "sha256": "3d40be4edc925f83b403c0b7e71e7fff03dfe0dbed56f0895c192058a4865ca9"
+    },
+    {
+      "path": "assignment/test_assignment.py",
+      "bytes": 1982,
+      "sha256": "b5dd920d606c8fda384aea98b60bc27c9dc10d2b2681345be2d670dfe4d2722e"
+    },
+    {
+      "path": "build/agent02_CT_04_hainn.log",
+      "bytes": 56070,
+      "sha256": "ed43cae2ba346c53e52937f6d82e69898752e040bf83750a823707f1a611df3a"
+    },
+    {
+      "path": "build/assignment_tests.log",
+      "bytes": 111,
+      "sha256": "3370476b0549511fc334d2378a54649ccb1b4deab734ed22c3cc46825de0ac43"
+    },
+    {
+      "path": "build/document_generation.log",
+      "bytes": 2727,
+      "sha256": "fbddf3c3acf03cb6f528f8b10ec83c7852baf61e581de70470b58322162b657a"
+    },
+    {
+      "path": "build/experiment.log",
+      "bytes": 1685,
+      "sha256": "724ad6b35d5dd3233b1814761acf0bbf361bb07662626f0cfd5ddf01158ccfdd"
+    },
+    {
+      "path": "build/intent.log",
+      "bytes": 1386,
+      "sha256": "e88bec32dc7ed91c184fc4a999d31de7f8010040e2f56a93f80a2377cf9c3a01"
+    },
+    {
+      "path": "build/mas.log",
+      "bytes": 875,
+      "sha256": "16744d67c646fa9f85b77c3cfa903ff6ec5d7aec19bbae0fdffd7e8e710d57d9"
+    },
+    {
+      "path": "build/notebooks.log",
+      "bytes": 87,
+      "sha256": "3204870334e6fbf426340b55c4f231b3faa51dd4adffe8766878fba8236bb12b"
+    },
+    {
+      "path": "build/paper_CT_04_hainn.log",
+      "bytes": 55524,
+      "sha256": "731fc54d410096dd737dfd1289ad014a61e167f1896fd31f3f7bea835481d644"
+    },
+    {
+      "path": "build/reference.log",
+      "bytes": 325,
+      "sha256": "1321b727dbf11d0f260d30714110bb8aa216961ff62ce06a461be0106f8fe192"
+    },
+    {
+      "path": "build/report_summary.json",
+      "bytes": 256,
+      "sha256": "b654b415172d69e4906c1b3e7054da16ef545f386425b65a374cceb77700c650"
+    },
+    {
+      "path": "build/reports.log",
+      "bytes": 257,
+      "sha256": "17bca030bbad8e266e3030fa0476e38c3f90d1ff8ff02b60f015c19bba6c3a06"
+    },
+    {
+      "path": "build/slide_baseline.log",
+      "bytes": 505,
+      "sha256": "06b4db9f0553e53e1e302870dfa4bdcdae298925be6f9004ef14f7bb6b80d222"
+    },
+    {
+      "path": "build/tutorial_CT_04_hainn.log",
+      "bytes": 54282,
+      "sha256": "040b95823c190770418fa67d77145ef6c8b64c1e62a56043e1e2144d222d139c"
+    },
+    {
+      "path": "build/tutorial_tests.log",
+      "bytes": 116,
+      "sha256": "9814460d32f630268cd57802dc333981018acf6d59e41c4f417f8dd179937372"
+    },
+    {
+      "path": "build/validation.json",
+      "bytes": 1114,
+      "sha256": "17a3c03fc66553bd3f01f57b0fe27e8844a446963c591e6755772fd48174c4a4"
+    },
+    {
+      "path": "build_documents.py",
+      "bytes": 32870,
+      "sha256": "c01912540d99da89b1adef0ffdbd1e82171753bb9e419b1dcf277ed5d04092cb"
+    },
+    {
+      "path": "build_notebooks.py",
+      "bytes": 14066,
+      "sha256": "a641f7bf872644529f2a4d954c6c571155e6fa960f0cc4399a521c4bec94e1f2"
+    },
+    {
+      "path": "build_reports.py",
+      "bytes": 1420,
+      "sha256": "3649a2deb13ce6dbadbd62049d842ba6381d6a1cec9511d3cc0c860076fd4970"
+    },
+    {
+      "path": "environment_versions.json",
+      "bytes": 161,
+      "sha256": "e46991390a610489166e37d6753922c5f4f52eaddb1bcd879e9b91b8e8fc0c0f"
+    },
+    {
+      "path": "package_solution.py",
+      "bytes": 1999,
+      "sha256": "8dc42c4dcdac4425a6aa02aaab4460bf6d00c7acb6efa7e181a30720da9e4ef2"
+    },
+    {
+      "path": "paper_CT_04_hainn.pdf",
+      "bytes": 686727,
+      "sha256": "efb94faa49f5914b93b57debedf3e8c681bf49138e96706d553c7767a5be4f34"
+    },
+    {
+      "path": "paper_CT_04_hainn.tex",
+      "bytes": 3138,
+      "sha256": "94a48b76943551a8396e021eccd0c075e8c4b396c7a1f776531a92776c60f257"
+    },
+    {
+      "path": "report/agent02_CT_04_hainn_cover.tex",
+      "bytes": 1638,
+      "sha256": "582fe12bb553ae300cc34503c9dc2cee3a65acc95b172f3b3d4e4ff26a0f970a"
+    },
+    {
+      "path": "report/assignment_format.sty",
+      "bytes": 2755,
+      "sha256": "ff6a692672762355694adff81f4bd880dde329f8edb9e2b580fcce881b20b825"
+    },
+    {
+      "path": "report/chapters/assignment.md",
+      "bytes": 35794,
+      "sha256": "e88be787923900b3f5fb9bd82e11143632ec7e8f1a2760a97fff9d46e1359d23"
+    },
+    {
+      "path": "report/chapters/assignment.tex",
+      "bytes": 39557,
+      "sha256": "7a1882b50ab75f3613fdd84c59dc2caec8382cb51830c9777acacf3286b8fe3f"
+    },
+    {
+      "path": "report/chapters/assignment_results.md",
+      "bytes": 5383,
+      "sha256": "941091f57008de5e1b0b0783730f38f354078bef4b41e9bfc24a44e57048ef5a"
+    },
+    {
+      "path": "report/chapters/assignment_results.tex",
+      "bytes": 7800,
+      "sha256": "c6bd5df05bc33d0740cf3c45b9ad545ec08bea26986dd385fd218e48916e79ed"
+    },
+    {
+      "path": "report/chapters/paper_intro.md",
+      "bytes": 1920,
+      "sha256": "c73206bc3dbeb1886009d60bcf94c7ad139f567cb551ff268fac29d0f065764e"
+    },
+    {
+      "path": "report/chapters/paper_intro.tex",
+      "bytes": 2078,
+      "sha256": "4546848bcf542f370e239128e45209b3d329355d9156a0246e74d6f5a295ec7e"
+    },
+    {
+      "path": "report/chapters/paper_mas.md",
+      "bytes": 33628,
+      "sha256": "6a1d432977405abee25a5412c0c414754f948c7de31f302c50c8444cc2cb4f3f"
+    },
+    {
+      "path": "report/chapters/paper_mas.tex",
+      "bytes": 36639,
+      "sha256": "4df52be4b23f0de4ad0d9756a18033180fcc9886eccfe2a16d421e56bdaf72f7"
+    },
+    {
+      "path": "report/chapters/paper_rl.md",
+      "bytes": 41338,
+      "sha256": "3154b8bd2e1e0083dff38e69a40a9b7de5f9c18104b82bc7bb3b5ee57eef10ee"
+    },
+    {
+      "path": "report/chapters/paper_rl.tex",
+      "bytes": 44848,
+      "sha256": "9992681a1aa293c2d085717b42f5ac4d21677de35e80aae44d3726e376656c93"
+    },
+    {
+      "path": "report/chapters/paper_synthesis.md",
+      "bytes": 13769,
+      "sha256": "ec7057011d1990de8e2b2d37316977815fd64b7a6fc589eed994cdcc8a37bdbd"
+    },
+    {
+      "path": "report/chapters/paper_synthesis.tex",
+      "bytes": 17370,
+      "sha256": "9be01e64be7fba8ab5834d9c4fa7aa33ae66f12a4ee5cc6ab8392b707a1c2a46"
+    },
+    {
+      "path": "report/chapters/paper_technical.md",
+      "bytes": 24139,
+      "sha256": "d88949f809de243d177c736261d977c9e5fa20b57c23a6535a97a1d7b2baf677"
+    },
+    {
+      "path": "report/chapters/paper_technical.tex",
+      "bytes": 25959,
+      "sha256": "b09c90518a83099a78feb2ec9ad179ac46bee6ef6a4f3122b6bb28e1ac75fd8b"
+    },
+    {
+      "path": "report/chapters/tutorial.md",
+      "bytes": 35082,
+      "sha256": "d2fb9cdc25957a14607556748737621b3c48121038edcdaf010e877ec5218fc3"
+    },
+    {
+      "path": "report/chapters/tutorial.tex",
+      "bytes": 39515,
+      "sha256": "48f3dfc3d05f77a91087769f4cfe0f046654c0cb036bb6351d92c1f6c3059a14"
+    },
+    {
+      "path": "report/chapters/tutorial_results.md",
+      "bytes": 3762,
+      "sha256": "7d973ac9083feb0f7aa6e974064e1487e367b80b1356e14ab86b7d5e29459aa2"
+    },
+    {
+      "path": "report/chapters/tutorial_results.tex",
+      "bytes": 4814,
+      "sha256": "327210c10cfb5bbdd6326caf6f552494d66ccf6544f7c42d267b55cd9d804c34"
+    },
+    {
+      "path": "report/cover_template.tex",
+      "bytes": 1615,
+      "sha256": "ca4bd66295006a5b14f26ae564c4ab50a9102226e38e682ddd07ba45f337f8f5"
+    },
+    {
+      "path": "report/paper_CT_04_hainn_cover.tex",
+      "bytes": 1653,
+      "sha256": "6a380a83f1821806d3973998238b98a2d14cb52158be5e0a459a05d5287b52a1"
+    },
+    {
+      "path": "report/references.tex",
+      "bytes": 3103,
+      "sha256": "ab57b4bfdb6061ef64f2509c926c795132aa61c1b5217980dad38e8c06f9f81d"
+    },
+    {
+      "path": "report/tutorial_CT_04_hainn_cover.tex",
+      "bytes": 1651,
+      "sha256": "9ad1c0b5b6acd15cdaae7b51d29feb51474dcbe807a83ce92f29a90e4f0f0c15"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 89,
+      "sha256": "872951916096674d83daa02f4621ea83191ab5f4405b51a685b18b30513868fb"
+    },
+    {
+      "path": "results/assignment/aggregate.csv",
+      "bytes": 658,
+      "sha256": "36da9eeadbcbab25435fcf7c67ea5a2b198d08efdd9d5d1a4dce9f5049c7ce6f"
+    },
+    {
+      "path": "results/assignment/alpha_001_11_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "b664385f13803090c7245dc45d70363029f03da4d5e39cdb07309388c3395e72"
+    },
+    {
+      "path": "results/assignment/alpha_001_11_training.csv",
+      "bytes": 175915,
+      "sha256": "71a3c053edc1016e6def4159a8580e7b2e9e6a87482f62bebd7c20c0701a4f18"
+    },
+    {
+      "path": "results/assignment/alpha_001_22_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "5501fae9c07f7e0884a8bd9d7b7d8aaea988d0aa495e1fb3449273cfe97c150c"
+    },
+    {
+      "path": "results/assignment/alpha_001_22_training.csv",
+      "bytes": 175842,
+      "sha256": "c311326c2cbc434fcd54d5f1f67cbe6b16285452d69a7b34245729c889ba856a"
+    },
+    {
+      "path": "results/assignment/alpha_001_33_evaluation.csv",
+      "bytes": 8432,
+      "sha256": "ebc7913b862c63723c60fac72587468dfe3b013a75679b6c998ef5a4ed63d1e8"
+    },
+    {
+      "path": "results/assignment/alpha_001_33_training.csv",
+      "bytes": 175854,
+      "sha256": "a4a60d642f7ed2e57f1eb25eef38c0939564b0a0f611914fd57c7ec5d471ec88"
+    },
+    {
+      "path": "results/assignment/alpha_001_44_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "f45b0256c7163f0526f2d03f76d697e700cfb1e1d20e550507a944eb51e36a9d"
+    },
+    {
+      "path": "results/assignment/alpha_001_44_training.csv",
+      "bytes": 175911,
+      "sha256": "7e07183de9e68e0c470f09f0eb279f23f71a1c4641278743df882be7ea576835"
+    },
+    {
+      "path": "results/assignment/alpha_001_55_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "47a3851a513907550fef5bcb5155274bdc4c9fdf96665bee5665247deb6fa1fc"
+    },
+    {
+      "path": "results/assignment/alpha_001_55_training.csv",
+      "bytes": 175880,
+      "sha256": "d28aff811948e94ad3a59d82d44be0218c01d0bc16bac9a50615a9654827d7f5"
+    },
+    {
+      "path": "results/assignment/alpha_050_11_evaluation.csv",
+      "bytes": 8429,
+      "sha256": "de5659ed98b53a750758300a46ac7f1e21467cbb77c763ee81eba8c9d6386288"
+    },
+    {
+      "path": "results/assignment/alpha_050_11_training.csv",
+      "bytes": 175949,
+      "sha256": "a6444af898b079f319c1137039dc1b71f2c7c6448744d419d0089f5f6c7de8e6"
+    },
+    {
+      "path": "results/assignment/alpha_050_22_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "5501fae9c07f7e0884a8bd9d7b7d8aaea988d0aa495e1fb3449273cfe97c150c"
+    },
+    {
+      "path": "results/assignment/alpha_050_22_training.csv",
+      "bytes": 175868,
+      "sha256": "bb0c6bd7bad610f82bcb8495abd4a790b3a0fa531fe35a593213b80bf1b15333"
+    },
+    {
+      "path": "results/assignment/alpha_050_33_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "007390bd720eb7f0f4e2b450ecb5026d4a018a978ebf029d3095d87c630683b6"
+    },
+    {
+      "path": "results/assignment/alpha_050_33_training.csv",
+      "bytes": 175801,
+      "sha256": "143444000c8844b74cab8e7dd4bd4699759f6d3db1cb0669c9f78a58ef56a299"
+    },
+    {
+      "path": "results/assignment/alpha_050_44_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "f45b0256c7163f0526f2d03f76d697e700cfb1e1d20e550507a944eb51e36a9d"
+    },
+    {
+      "path": "results/assignment/alpha_050_44_training.csv",
+      "bytes": 175870,
+      "sha256": "72bc7f1d91ef4452cfd9223f1dea5333703f4b5c95b5b971adb8d423f62bc605"
+    },
+    {
+      "path": "results/assignment/alpha_050_55_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "391b694f1ed1f9379f59ad3bf230168bfaa8158f098b457955a10cbc2cb3a3ea"
+    },
+    {
+      "path": "results/assignment/alpha_050_55_training.csv",
+      "bytes": 175846,
+      "sha256": "be8363dd710011b508745e038493356fa14c58173b1f8b2f2f0f754255f1e36d"
+    },
+    {
+      "path": "results/assignment/baseline42_exact_steps.csv",
+      "bytes": 646,
+      "sha256": "bc8c9a2ade5f0c08d55375abb2ae1476b5f716bd8a0e3af016d82ec3a87af3fb"
+    },
+    {
+      "path": "results/assignment/baseline_11_evaluation.csv",
+      "bytes": 8429,
+      "sha256": "de5659ed98b53a750758300a46ac7f1e21467cbb77c763ee81eba8c9d6386288"
+    },
+    {
+      "path": "results/assignment/baseline_11_training.csv",
+      "bytes": 175868,
+      "sha256": "5a03c1a36d09f8936d69b95e11575b0deb4a16c9f89581abb735d9cfea8d1b84"
+    },
+    {
+      "path": "results/assignment/baseline_22_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "1e6bc29c5ab17521283267c2cfcf17e14d3831b178a1962b870d36bfe4afec35"
+    },
+    {
+      "path": "results/assignment/baseline_22_training.csv",
+      "bytes": 175869,
+      "sha256": "a318c2013b64e88c7020ac7d0a82cc53c2471575c9ea6c52c3e45eea896934e4"
+    },
+    {
+      "path": "results/assignment/baseline_33_evaluation.csv",
+      "bytes": 8430,
+      "sha256": "c6399060597cf2acd638944265d1829fa5776321e5adaabc205fd9de96b74ef8"
+    },
+    {
+      "path": "results/assignment/baseline_33_training.csv",
+      "bytes": 175814,
+      "sha256": "a0abc4149af8ef0b798966f325cd89c0de8b78f8188728fb0956b48cfd47888e"
+    },
+    {
+      "path": "results/assignment/baseline_42_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "fcd2fc5bb5b193439b2157f5c467e4c73d18a481321da22c5b666195afe28754"
+    },
+    {
+      "path": "results/assignment/baseline_42_q.npy",
+      "bytes": 192,
+      "sha256": "ce0df8e749de54384906a35ce36dd3590959dea6eba927d282e95255b31824d5"
+    },
+    {
+      "path": "results/assignment/baseline_42_summary.csv",
+      "bytes": 200,
+      "sha256": "d39fdd4f3434b65f229bf6d3248f50722587ecbd4519090e3002ec3d7bfbdb02"
+    },
+    {
+      "path": "results/assignment/baseline_42_training.csv",
+      "bytes": 175889,
+      "sha256": "c7977d4b4355af7e5cff1a3199bad0c2e850d4ed5b57aa725a7206370f8c062a"
+    },
+    {
+      "path": "results/assignment/baseline_44_evaluation.csv",
+      "bytes": 8431,
+      "sha256": "43d3cea60304f3d4a418f52ba06ae80f7703162c77ba2debfaedc11201ce4989"
+    },
+    {
+      "path": "results/assignment/baseline_44_training.csv",
+      "bytes": 175839,
+      "sha256": "ed82dc2e26c77fc1251d23209a391091625c0230490a51d596cfef809d5676bc"
+    },
+    {
+      "path": "results/assignment/baseline_55_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "47a3851a513907550fef5bcb5155274bdc4c9fdf96665bee5665247deb6fa1fc"
+    },
+    {
+      "path": "results/assignment/baseline_55_training.csv",
+      "bytes": 175835,
+      "sha256": "5fa2049736cc76bbed16146e1bc6f3beeb06c3eb36f2eedfba9d7f52a14d2c85"
+    },
+    {
+      "path": "results/assignment/configurations.csv",
+      "bytes": 3392,
+      "sha256": "032633ddbdb4fefcb8868a5d53a696d99b712eafed5cf908dcd0c730d5bfefea"
+    },
+    {
+      "path": "results/assignment/epsilon_005_11_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "7576308e7281d11fdd1831ab883543162bbb3d22a85eff779acefebefad92b17"
+    },
+    {
+      "path": "results/assignment/epsilon_005_11_training.csv",
+      "bytes": 168875,
+      "sha256": "a709f7aac68f7ed0f21f6c639ba4fe4252972eb1f18b740b0fc65bec001b17fb"
+    },
+    {
+      "path": "results/assignment/epsilon_005_22_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "5501fae9c07f7e0884a8bd9d7b7d8aaea988d0aa495e1fb3449273cfe97c150c"
+    },
+    {
+      "path": "results/assignment/epsilon_005_22_training.csv",
+      "bytes": 168901,
+      "sha256": "d54e2c7efbea00321c6c9ca10bc8564382d69652fac0709bb247244f4f7430c6"
+    },
+    {
+      "path": "results/assignment/epsilon_005_33_evaluation.csv",
+      "bytes": 8430,
+      "sha256": "4ba85737b3ffc130e676211bad26826a683042d159dbae151679f8e3d7035ba4"
+    },
+    {
+      "path": "results/assignment/epsilon_005_33_training.csv",
+      "bytes": 168978,
+      "sha256": "ef50816282e920f3ac241a30fe9e3148a6022a235b0f7bec68ed764168c5446f"
+    },
+    {
+      "path": "results/assignment/epsilon_005_44_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "f45b0256c7163f0526f2d03f76d697e700cfb1e1d20e550507a944eb51e36a9d"
+    },
+    {
+      "path": "results/assignment/epsilon_005_44_training.csv",
+      "bytes": 168980,
+      "sha256": "08c54f228938ec4787a4864767366b71b3a5f98cab4b664d338df76e9fd7d122"
+    },
+    {
+      "path": "results/assignment/epsilon_005_55_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "47a3851a513907550fef5bcb5155274bdc4c9fdf96665bee5665247deb6fa1fc"
+    },
+    {
+      "path": "results/assignment/epsilon_005_55_training.csv",
+      "bytes": 168934,
+      "sha256": "259f9606f45bfb4c0367aa24f80cf510551ed004f43ae236cdf0cbad41163d22"
+    },
+    {
+      "path": "results/assignment/epsilon_030_11_evaluation.csv",
+      "bytes": 8429,
+      "sha256": "de5659ed98b53a750758300a46ac7f1e21467cbb77c763ee81eba8c9d6386288"
+    },
+    {
+      "path": "results/assignment/epsilon_030_11_training.csv",
+      "bytes": 163952,
+      "sha256": "b22d36a10d393baf6d7cfdd04f843b6b0e2ac436878eed88bf6a199d72b81ad7"
+    },
+    {
+      "path": "results/assignment/epsilon_030_22_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "bfd879548329f120f96060f2550b864e64b1dee6b9ca03e6f4a47600cbf63888"
+    },
+    {
+      "path": "results/assignment/epsilon_030_22_training.csv",
+      "bytes": 163956,
+      "sha256": "bba17f139c21bc427892c4f7a80b1617856e426ee24d9637d96f37cc73e00b3a"
+    },
+    {
+      "path": "results/assignment/epsilon_030_33_evaluation.csv",
+      "bytes": 8432,
+      "sha256": "ebc7913b862c63723c60fac72587468dfe3b013a75679b6c998ef5a4ed63d1e8"
+    },
+    {
+      "path": "results/assignment/epsilon_030_33_training.csv",
+      "bytes": 163848,
+      "sha256": "93437974d6506e7550b0a998f7008785f28710f10dd4f245f03c95af9fffee4e"
+    },
+    {
+      "path": "results/assignment/epsilon_030_44_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "d4829de006cb7b40bac754c4beeeee5e608b9334bced08f30671586d60c2e8f8"
+    },
+    {
+      "path": "results/assignment/epsilon_030_44_training.csv",
+      "bytes": 163966,
+      "sha256": "4a7fbffd2bc6632c59fa433eb4b99a04eea0a2a63f8314e31fd2165cf1d04d99"
+    },
+    {
+      "path": "results/assignment/epsilon_030_55_evaluation.csv",
+      "bytes": 8428,
+      "sha256": "2ff1f6e6d715299e181a7c0ce4c6c2172475a6eceba3151a261f74ab4fe7f7eb"
+    },
+    {
+      "path": "results/assignment/epsilon_030_55_training.csv",
+      "bytes": 163925,
+      "sha256": "161c7deb21bdd0adea40b01e2ff536a82b7f7f91f591d1832e7e3ccbfd4a9a56"
+    },
+    {
+      "path": "results/assignment/evaluation.png",
+      "bytes": 54034,
+      "sha256": "d516f39cf1b7365f1a87291e2f5851fbd2aa835d738f7aeeea269d9ad3866144"
+    },
+    {
+      "path": "results/assignment/exact_analysis.json",
+      "bytes": 200,
+      "sha256": "993a00ca9a2b0407aa98a4d93338e8ec655c1543c0f31d6887f9fb7c5f72a497"
+    },
+    {
+      "path": "results/assignment/exact_policy_values.csv",
+      "bytes": 1495,
+      "sha256": "62517cd392954636a8780053515f17477626b7ed2b748c976cbdc2ccb2eead75"
+    },
+    {
+      "path": "results/assignment/exploration.png",
+      "bytes": 214963,
+      "sha256": "d624090046e56ed583ccf3b5a4fb528b23e3100562e3eece60047538a1bf36aa"
+    },
+    {
+      "path": "results/assignment/fair_comparison.csv",
+      "bytes": 1662,
+      "sha256": "85ea940273c06bba5944f623e2b9fe11b4efedb515c3207fbcbcdedc39422658"
+    },
+    {
+      "path": "results/assignment/learning_curve.png",
+      "bytes": 133566,
+      "sha256": "2cf7c3655205953afda54fdf25a4e462408b0f0691c8512c3c46034bccf6a2e6"
+    },
+    {
+      "path": "results/assignment/learning_rates.png",
+      "bytes": 214749,
+      "sha256": "577ab915eac92a226468c19c3697eb7246591eb795a85b6f2f13ae94bd467e23"
+    },
+    {
+      "path": "results/assignment/q_and_sensitivity.png",
+      "bytes": 76373,
+      "sha256": "aba7cc8a809e31b599039f660792a2ac211307547a78ab75e226bb505ff63d69"
+    },
+    {
+      "path": "results/assignment/reference_original_42.json",
+      "bytes": 758,
+      "sha256": "7c51ff10e558718d949dc712ea34591acc51ef559e63563cf4f2dee184a78dab"
+    },
+    {
+      "path": "results/assignment/reference_original_42_summary.csv",
+      "bytes": 173,
+      "sha256": "3e0f9ad82b46ca395746b43ec85ee26c49f33e8dee0cd4878c15aa253d7ded77"
+    },
+    {
+      "path": "results/assignment/reference_original_42_training.csv",
+      "bytes": 195850,
+      "sha256": "65359dc12362ab0d9d76a11d3c4f17ab5397cf3ed90cf37e48cbee47eb73dfab"
+    },
+    {
+      "path": "results/assignment/robustness_discount40.csv",
+      "bytes": 1402,
+      "sha256": "79e456e0ef93336fec9fe033fd8459fc0e71e937462b7e4a38a019007b2057a6"
+    },
+    {
+      "path": "results/assignment/selfplay_11_training.csv",
+      "bytes": 175874,
+      "sha256": "86cc2b4ceadbb97a5ecafd75dc6b9d37ef5bf2b712e8d73466025f75407f2af3"
+    },
+    {
+      "path": "results/assignment/selfplay_22_training.csv",
+      "bytes": 175869,
+      "sha256": "0034e2a64202fb61f44bba52c471f2f7cdc97a367ad955195e6c05a35d90800c"
+    },
+    {
+      "path": "results/assignment/selfplay_33_training.csv",
+      "bytes": 175892,
+      "sha256": "fd1bfcb3c654540f5f05be0a310239622073ecb4a6dd9ec96a024bff4d9b2cf1"
+    },
+    {
+      "path": "results/assignment/selfplay_44_training.csv",
+      "bytes": 175767,
+      "sha256": "bb4c08f0a6d4699f760fb6f3d1dd5a5e623af1fa0b47ff436126c99a63f1a55b"
+    },
+    {
+      "path": "results/assignment/selfplay_55_training.csv",
+      "bytes": 175859,
+      "sha256": "0a0f065a1d21a88af306fb83937cc7525a1303d8a84a6337a6de982b02370be0"
+    },
+    {
+      "path": "results/assignment/selfplay_summary.csv",
+      "bytes": 719,
+      "sha256": "be489b1a6b20ee9460ce409958c9331364b095ff53a3a59e87878ffb833a0588"
+    },
+    {
+      "path": "results/assignment/summary.json",
+      "bytes": 12502,
+      "sha256": "0dfd34d843a76615bc5153bcfca98563a4316e1ed425325d16b338e436d85b7f"
+    },
+    {
+      "path": "results/tutorial/intent_dataset.csv",
+      "bytes": 32826,
+      "sha256": "b2d8dcaf0b01a8853aec14dc7e2c880967a3c75d6d8f94a28dee4c43cfbbba8a"
+    },
+    {
+      "path": "results/tutorial/intent_metrics.json",
+      "bytes": 1385,
+      "sha256": "4cd3be8e9cb4a96a4e80f8349446b699c786d0c1c7085171398c386712a19424"
+    },
+    {
+      "path": "results/tutorial/intent_model.pt",
+      "bytes": 14095,
+      "sha256": "4823bf5bdca1ffc60a9a994bc1c82c8aacb7778528dcf080a7d8c4c67ec0bfa7"
+    },
+    {
+      "path": "results/tutorial/intent_test_predictions.csv",
+      "bytes": 8239,
+      "sha256": "d28a8aea8be87f493741eb77fc820e03707bc5ffdbdbb0b0aa50df272840d1e5"
+    },
+    {
+      "path": "results/tutorial/intent_training.csv",
+      "bytes": 5714,
+      "sha256": "f5706a4406a915dcc5d97a9c87495823362ae23dff6c6cfa9aa55fba81cc783b"
+    },
+    {
+      "path": "results/tutorial/intent_training.png",
+      "bytes": 47742,
+      "sha256": "8afa735a3f22cbcc7ebcb6b65738e2138c2293794e3dd6f88590ed5b086c36f6"
+    },
+    {
+      "path": "results/tutorial/mas_benchmark.csv",
+      "bytes": 397,
+      "sha256": "9cdc5588b33eed3a8a3be7a83c1e9c95c10733f4ac7d8f6f9620da2c9cbf5735"
+    },
+    {
+      "path": "results/tutorial/mas_benchmark_raw.csv",
+      "bytes": 55413,
+      "sha256": "2df55c5846a5dbea8ecf6fc8e246ba4dc2eedc1b84468d21f38e919deae2e418"
+    },
+    {
+      "path": "results/tutorial/mas_metrics.json",
+      "bytes": 1202,
+      "sha256": "0a06e03df99d6f7dc975f120bf0c7246f74c43c44b5b107d1541f8333e9afa6f"
+    },
+    {
+      "path": "results/tutorial/mas_traces.json",
+      "bytes": 24974,
+      "sha256": "6e854b9084f6b27ba18d12743390a99a91995cec0658fcb91b7b79f6a6647796"
+    },
+    {
+      "path": "results/tutorial/slide_baseline.json",
+      "bytes": 504,
+      "sha256": "24fde0869c740604e3e655e765a25186881c64d446975019ba8bc605825becde"
+    },
+    {
+      "path": "tutorial/demo_slides.html",
+      "bytes": 8058,
+      "sha256": "6aebc49cbaf86f141bfef7f34893f2e7ad51e02b86031f6cbda46d5aa81df7e4"
+    },
+    {
+      "path": "tutorial/evaluate_mas.py",
+      "bytes": 3564,
+      "sha256": "50e39c95747ed46cd8863722c7b5801b6c7aa58b248d38727de150a8c5f4412e"
+    },
+    {
+      "path": "tutorial/mas_system.py",
+      "bytes": 7347,
+      "sha256": "c5a4978f1dd5e535e581f0e31303bf97f049f90ffcc55005ad8858fb6dfab411"
+    },
+    {
+      "path": "tutorial/slide_baseline.py",
+      "bytes": 3287,
+      "sha256": "f6eeb8b6a7645816073c5d1e30d859fa8b46df3546753c6f07c61b7fa6162c0d"
+    },
+    {
+      "path": "tutorial/test_tutorial.py",
+      "bytes": 2828,
+      "sha256": "efcc3f5965a66dbec94d41831ffe3789a7f6af25eeae9230e213e4f041f3be5f"
+    },
+    {
+      "path": "tutorial/train_intent.py",
+      "bytes": 7758,
+      "sha256": "78b7b62aa3d1ca6c9657074247a12329499b619ac02415972ab6fd6a38faad21"
+    },
+    {
+      "path": "tutorial_CT_04_hainn.ipynb",
+      "bytes": 85071,
+      "sha256": "da0fd176474ace5bea568ca5cc980f72195f7ef85c295fb0d52aad24e9e0f02b"
+    },
+    {
+      "path": "tutorial_CT_04_hainn.pdf",
+      "bytes": 300626,
+      "sha256": "6eabb07a753ca80ccf85e8e537ea37c173817a826f04b23796a44d569c4a3f7e"
+    },
+    {
+      "path": "tutorial_CT_04_hainn.tex",
+      "bytes": 2979,
+      "sha256": "97582135d79eb6a5a3809e14e75794f35be097894c10eecb80794a410c9a82ea"
+    },
+    {
+      "path": "tutorial_CT_04_hainn_notebook.html",
+      "bytes": 392317,
+      "sha256": "6ed4977ebb45dfa06cd024f449ddd95500b40a57d203d3b4513fd7eac1b50f1b"
+    },
+    {
+      "path": "validate_solution.py",
+      "bytes": 4022,
+      "sha256": "c4ad589962f8c6b37f633f22a13fb851987cd31644fde1e1a42287399434151f"
+    }
+  ]
+}

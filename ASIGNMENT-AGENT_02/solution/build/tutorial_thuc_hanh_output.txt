@@ -1,0 +1,23 @@
+EXERCISE 2 - SHOPPING MAS
+query='portable' budget=100 scenario=normal -> {"status": "ok", "items": [{"id": "p2", "price": 25, "availability": "verified"}, {"id": "p4", "price": 55, "availability": "verified"}]}
+query='sports' budget=100 scenario=normal -> {"status": "no_results", "items": []}
+query='' budget=100 scenario=normal -> {"status": "no_results", "items": []}
+query='portable' budget=100 scenario=timeout -> {"status": "timeout", "items": []}
+query='portable' budget=100 scenario=malformed -> {"status": "contract_error", "items": []}
+query='portable' budget=100 scenario=stale -> {"status": "availability_unverified", "items": []}
+query='portable' budget=100 scenario=forged -> {"status": "contract_error", "items": []}
+
+EXERCISE 3 - TRAINED INTENT CLASSIFIER
+test_count=108 accuracy=1.000 macro_f1=1.000 threshold=0.50
+ecommerce        precision=1.000 recall=1.000
+tourism          precision=1.000 recall=1.000
+healthcare_admin precision=1.000 recall=1.000
+input='xin ch\xe0o' -> intent=clarify confidence=0.494
+input='th\u1eddi ti\u1ebft h\xf4m nay th\u1ebf n\xe0o' -> intent=ecommerce confidence=0.988
+input='gi\u1ea3i ph\u01b0\u01a1ng tr\xecnh' -> intent=tourism confidence=0.931
+
+EXERCISE 5 - BASELINE VS MAS
+single_agent: {"status": "ok", "items": [{"id": "p2", "price": 25, "availability": "verified"}, {"id": "p4", "price": 55, "availability": "verified"}]}
+validated_mas: {"status": "ok", "items": [{"id": "p2", "price": 25, "availability": "verified"}, {"id": "p4", "price": 55, "availability": "verified"}]}
+same_result: True
+without_validation_stale: {"status": "ok", "items": [{"id": "p2", "price": 25, "availability": "verified"}, {"id": "p4", "price": 55, "availability": "verified"}]}

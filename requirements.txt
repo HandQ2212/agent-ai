@@ -1,0 +1,5 @@
+nbformat>=5.7
+ipython>=8,<9
+Pygments>=2.13
+matplotlib>=3.5
+websocket-client>=1.3

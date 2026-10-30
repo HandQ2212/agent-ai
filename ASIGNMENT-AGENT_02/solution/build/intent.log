@@ -1,0 +1,81 @@
+{
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "precision": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "recall": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "f1": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "confusion_matrix": [
+    [
+      36,
+      0,
+      0
+    ],
+    [
+      0,
+      36,
+      0
+    ],
+    [
+      0,
+      0,
+      36
+    ]
+  ],
+  "splits": {
+    "train": 270,
+    "validation": 54,
+    "test": 108
+  },
+  "threshold": 0.5,
+  "selected_epoch": 120,
+  "test_coverage": 1.0,
+  "selective_accuracy": 1.0,
+  "vocabulary_size": 79,
+  "seed": 42,
+  "torch": "2.8.0",
+  "limitation": "Synthetic template dataset; group split by verb family, objects shared. Not evidence of real-world NLU.",
+  "ood": [
+    {
+      "text": "xin chào",
+      "intent": "clarify",
+      "confidence": 0.49433353543281555
+    },
+    {
+      "text": "thời tiết hôm nay thế nào",
+      "intent": "ecommerce",
+      "confidence": 0.9876664876937866
+    },
+    {
+      "text": "viết thơ cho tôi",
+      "intent": "clarify",
+      "confidence": 0.6865730881690979
+    },
+    {
+      "text": "giải phương trình",
+      "intent": "tourism",
+      "confidence": 0.9311287999153137
+    },
+    {
+      "text": "cảm ơn bạn",
+      "intent": "clarify",
+      "confidence": 0.49433353543281555
+    },
+    {
+      "text": "abc xyz",
+      "intent": "clarify",
+      "confidence": 0.49433353543281555
+    }
+  ]
+}

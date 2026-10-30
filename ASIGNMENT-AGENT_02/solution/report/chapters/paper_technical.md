@@ -1,0 +1,163 @@
+# Chuyên đề toán học và kỹ thuật bổ sung
+
+Phần này phát triển các phép tính và thiết kế cụ thể để làm rõ hai paper. Đây là phân tích của báo cáo trên mô hình được cung cấp, không phải các định lý hoặc kết quả thực nghiệm mới được gán cho tác giả hai survey. Các suy luận đi từ giả định đến hệ quả, giúp kiểm tra tính nhất quán giữa mô hình, code và kết luận.
+
+## 1. Từ collaboration channel đến hợp đồng có thể kiểm
+
+Giả sử một ranker trả ba sản phẩm, mỗi sản phẩm có ID, score và lời giải thích. Coordinator muốn trả kết quả cho người dùng cần kiểm ít nhất bốn thuộc tính: ID có trong catalog; ID đến từ tập candidate của truy vấn hiện tại; giá nằm trong ngân sách; kho đã được đọc với tuổi dữ liệu hợp lệ. Score cao không thay thế bất kỳ điều kiện nào trong bốn điều kiện đó.
+
+Có thể biểu diễn một proposal $z$ bằng predicate:
+
+$$\operatorname{Valid}(z)=\operatorname{KnownID}(z)\land\operatorname{Retrieved}(z,q)\land
+\operatorname{Affordable}(z,B)\land\operatorname{FreshStock}(z,\tau).$$
+
+Các predicate dùng dữ liệu từ những nguồn có thẩm quyền khác nhau. Catalog xác nhận ID và price; retrieval trace xác nhận candidate provenance; inventory xác nhận stock và thời điểm. Coordinator không cần làm lại mọi công việc chuyên môn, nhưng phải biết nguồn nào quyết định thuộc tính nào. Nếu output một agent nói “đã kiểm tra tất cả” mà không có dữ liệu xác nhận, chuỗi kiểm chứng bị đứt.
+
+Ví dụ một message giả trả p99 với giá 0 có thể vượt qua kiểm budget nhưng thất bại KnownID. Một message trả p1 đúng catalog nhưng không thuộc truy vấn hoặc vượt budget lại thất bại điều kiện khác. Việc dùng nhiều predicate ngăn một dấu hiệu bề ngoài hợp lệ che mất sai sót ở thuộc tính khác. Đây là cách cụ thể hóa ý tưởng kênh cộng tác trong paper MAS.
+
+## 2. State machine cho workflow thay vì vòng chat không giới hạn
+
+Một quy trình mua hàng có thể có các trạng thái RECEIVED, SEARCHED, RANKED, VALIDATED, STOCK_VERIFIED và COMPLETED. Nhánh lỗi gồm INVALID_INPUT, NO_RESULTS, TIMEOUT, CONTRACT_ERROR và AVAILABILITY_UNVERIFIED. Điều kiện chuyển trạng thái phải được định nghĩa trước: chỉ response đúng envelope mới cho phép sang bước sau; chỉ dữ liệu kho mới và đủ ID mới cho phép COMPLETED có claim verified.
+
+Bất biến ở cấp state machine có thể phát biểu: mọi item trong COMPLETED đã đi qua VALIDATED và STOCK_VERIFIED trong cùng task ID. Một response cũ đến sau timeout không được hồi sinh yêu cầu đã kết thúc thành thành công, trừ khi thiết kế explicitly cho phép một phiên mới. Tutorial không có queue response muộn vì lời gọi là coroutine cục bộ, nhưng task ID đã tạo ranh giới phù hợp để mở rộng.
+
+Lợi ích của state machine là phân biệt lỗi chuyên môn và lỗi giao tiếp. Empty search là một kết quả hợp lệ của CatalogAgent; timeout là không có kết quả đúng hạn; malformed là vi phạm hợp đồng. Nếu tất cả đều chuyển thành danh sách trống không có status, người sử dụng và nhà phát triển không thể biết nên sửa truy vấn, thử lại hay kiểm tra dữ liệu.
+
+## 3. Complexity của giao tiếp và đường găng
+
+Với $n$ tác tử và $r$ vòng trao đổi, một topology đầy đủ có hướng có thể tạo $r\,n(n-1)$ message. Cấu trúc tập trung gọi mỗi worker một lần theo request–response có khoảng $2n$ message. Nhưng số message chỉ là một phần chi phí. Nếu mỗi message lặp một context dài $L$ token, tổng token có thể tăng theo $L$ nhân số lượt, cộng với output và phần tính toán của mô hình.
+
+Một mô hình chi phí do báo cáo đề xuất là:
+
+$$C_{total}=\sum_{v\in V}C_{compute}(v)+\sum_{e\in E}C_{message}(e)+C_{retry}+C_{verification}.$$
+
+Thời gian hoàn tất có thể gần độ dài đường găng trong DAG cộng scheduling overhead. Nếu catalog và dữ liệu chính sách độc lập, hai thao tác có thể chạy cùng lúc. Nếu inventory chỉ nhận danh sách sau xếp hạng, nó nằm sau ranker. Việc chạy mọi agent song song mà chưa có input hợp lệ không phải tối ưu hợp lý.
+
+Một baseline công bằng nên được cấp cùng dữ liệu và quyền công cụ. Nếu MAS chạy song song trên bốn CPU còn baseline chỉ một CPU, chênh lệch latency trộn kiến trúc với tài nguyên. Nếu cả hai đều dùng dịch vụ ngoài, cần cùng timeout, pool và cache. Bảng cục bộ của tutorial ghi rõ giới hạn này, đặc biệt baseline timeout được tiêm đồng bộ.
+
+## 4. Mô hình lỗi dây chuyền và giá trị kiểm chứng
+
+Giả sử một pipeline có $k$ bước bắt buộc và mỗi bước thành công độc lập với xác suất $p_i$. Xác suất mọi bước thành công là $\prod_i p_i$. Nếu bốn bước đều đạt 0.95 thì tích là khoảng 0.8145, không còn 0.95. Đây chỉ là ví dụ giả định độc lập để giải thích vì sao nhiều thành phần tạo thêm rủi ro; hệ thật có thể có tương quan lỗi và fallback.
+
+Một validator có thể phát hiện tỷ lệ $d$ của lỗi nhưng cũng có false rejection. Giá trị của nó phụ thuộc chi phí sai sót và chi phí từ chối. Nếu lỗi tạo claim tồn kho sai có hậu quả đáng kể, chặn một kết quả chưa xác minh có thể là lựa chọn đúng dù làm giảm số danh sách được trả. Vì vậy success không nên định nghĩa chỉ bằng tỷ lệ có output không rỗng.
+
+Điểm kiểm chứng tốt nhất nằm ở nơi có thông tin độc lập. Một LLM reviewer đọc cùng output không có catalog khó phát hiện p99 là bịa. Một phép kiểm membership trong tập ID thực hiện điều đó xác định. Khi nhiệm vụ có công cụ kiểm chứng chính xác, cần tận dụng thay vì chỉ thêm một vai trò hội thoại.
+
+## 5. Đa số và tương quan sai số
+
+Với ba bộ trả lời độc lập có cùng xác suất đúng $p$, đa số đúng khi đúng cả ba hoặc đúng đúng hai. Kết quả $p^3+3p^2(1-p)$ tăng so với $p$ nếu $p>0.5$ trong mô hình nhị phân này. Nếu $p<0.5$, đa số có thể làm kết quả tệ hơn. Vì vậy ngay mô hình độc lập đơn giản cũng đòi hỏi chất lượng thành viên đủ tốt.
+
+Trong hệ LLM, lỗi không độc lập: các thành viên có thể chung backbone, dữ liệu hoặc prompt; sau vòng đầu, chúng đọc câu trả lời của nhau và càng tương quan. Thêm vòng tranh luận có thể cung cấp phản biện, nhưng cũng có thể gây anchoring. Một thí nghiệm tốt cần đo cấu hình độc lập trước trao đổi và sau trao đổi, không chỉ báo cuối cùng có đa số.
+
+Đa dạng hữu ích có thể đến từ công cụ kiểm khác nhau hoặc nguồn dữ liệu độc lập. Người tính bằng Python và người kiểm đơn vị vật lý có khả năng phát hiện những nhóm lỗi khác nhau. Đa dạng persona không đủ để suy ra đa dạng năng lực. Đây là điểm quan trọng khi chuyển taxonomy role-based thành thiết kế nghiên cứu thực tế.
+
+## 6. Confusion matrix, macro-F1 và selective prediction
+
+Confusion matrix $M_{ij}$ đếm số ví dụ có nhãn thật $i$ nhưng dự đoán $j$. Precision lớp $i$ là $M_{ii}/\sum_jM_{ji}$; recall là $M_{ii}/\sum_jM_{ij}$; F1 là trung bình điều hòa của hai chỉ số. Macro-F1 lấy trung bình đều các lớp, hữu ích khi không muốn lớp đông áp đảo chỉ số tổng.
+
+Trong dataset tutorial, ba lớp có cùng 36 câu test và toàn bộ đường chéo là 36, nên accuracy và macro-F1 đều bằng 1. Kết quả này được tính từ predictions CSV, không suy ra từ training loss. Một mô hình có loss nhỏ không tự động được phép gọi là đạt 100% nếu chưa so dự đoán với nhãn held-out.
+
+Với ngưỡng $\tau$, coverage là tỷ lệ ví dụ được chấp nhận và selective risk là tỷ lệ sai trong tập chấp nhận. Một hệ có thể tăng độ đúng bằng cách từ chối nhiều hơn; cần báo đồng thời coverage. Tuy nhiên, các đường coverage–risk trên in-domain validation không mô tả đầy đủ false acceptance OOD. Sáu probe ngoài miền của tutorial cho thấy một câu xa nhiệm vụ vẫn có thể có confidence trên 0.9.
+
+## 7. Vì sao chia theo nhóm dữ liệu quan trọng
+
+Nếu sinh nhiều câu bằng một template rồi chia ngẫu nhiên từng câu, train và test có thể chỉ khác một hậu tố nhỏ. Mô hình dễ khai thác mẫu bề mặt và test trở nên lạc quan. Chia theo họ động từ trong tutorial làm các pattern mở đầu test không có nguyên dạng trong train, giảm một loại rò rỉ.
+
+Dù vậy, các đối tượng như laptop, bảo tàng hoặc giấy tờ bảo hiểm vẫn lặp giữa split; vocabulary chỉ xây trên train nhưng các token nổi bật của từng class vẫn xuất hiện. Đây là lý do kết quả không được gọi là tổng quát hóa ngôn ngữ tự nhiên rộng. Một split khó hơn có thể giữ riêng cả nhóm đối tượng hoặc dùng câu người dùng viết độc lập.
+
+Tập validation được dùng chọn epoch và threshold; test dùng đo cuối. Nếu sau khi đọc các lỗi OOD ta sửa lexicon, các câu đã xem trở thành dữ liệu development. Muốn báo hiệu năng mới đáng tin, phải tạo test khác. Tính độc lập là thuộc tính của quy trình nghiên cứu, không chỉ của tên tệp train/test.
+
+## 8. Chứng minh observation baseline chưa đủ Markov
+
+Xét hai lịch sử có cùng $d_t=1$ và hành động trước của B bằng 0. Lịch sử thứ nhất có $a^A_{t-1}=0$, thứ hai có $a^A_{t-1}=1$. Theo rule B, hành động hiện tại lần lượt là 0 và 1. A không giảm trong cả hai trường hợp. Khi đó reward kỳ vọng A là 55 hoặc 45. Cùng observation và action nhưng khác luật reward có điều kiện theo phần lịch sử bị bỏ.
+
+Kết luận không phải “mọi Q-learning ở đây vô nghĩa”. Bảng Q vẫn có thể học một chính sách tốt trong lớp phản ứng theo observation. Nhưng không thể áp nguyên các giả định tabular MDP đã đủ trạng thái. Việc thêm own previous action là một cách sửa có lý do rõ, vì A vốn có thể ghi nhớ hành động của chính mình mà không cần cảm biến mới.
+
+Nếu opponent thay luật dựa trên cả mười bước quá khứ, một bit lịch sử có thể vẫn chưa đủ. Khi đó cần state augmentation lớn hơn, belief hoặc mô hình đối thủ. Chọn state là quá trình cân bằng đủ thông tin và chi phí biểu diễn, không phải chỉ chọn vector ngắn để code thuận tiện.
+
+## 9. Hữu hạn chân trời và terminal aliasing
+
+Trong nhiệm vụ 20 bước, cùng một trạng thái kinh tế ở bước 1 và bước 20 có số bước tương lai khác nhau. Một hàm giá trị chính xác nên có chỉ số $t$. Ở bước 20, return chỉ gồm reward hiện tại; ở bước 1 còn 19 reward sau đó. Nếu bảng Q không chứa thời gian nhưng update cuối dùng target không bootstrap, nó nhận các target không đồng nhất cho cùng ô.
+
+Có hai cách mô hình hóa hợp lệ tùy ý nghĩa bài toán. Nếu 20 bước là horizon thật, thêm thời gian và terminal ở cuối. Nếu thị trường continuing còn 20 chỉ là cách cắt log, có thể bootstrap qua điểm cắt thích hợp thay vì xem đó là terminal kinh tế. Đề tham chiếu dùng cách đầu nhưng biểu diễn không có thời gian; báo cáo giữ để đối chiếu rồi bổ sung oracle đầy đủ.
+
+Sửa terminal mà không hiểu mục tiêu có thể gây lỗi khác. Một số bài thật có thanh lý tồn kho cuối kỳ, khi đó reward ở terminal còn bao gồm giá trị tồn và nghĩa vụ chưa hoàn tất. Chỉ gán future value 0 mà bỏ các phần đó cũng là mô hình hóa sai. Vì vậy thảo luận terminal cần bắt đầu từ bài toán, không từ công thức code.
+
+## 10. Quy hoạch động lùi: một ví dụ hai bước
+
+Dùng horizon hai bước với rule opponent và gamma 0.9. Ở bước cuối, khi nhu cầu thấp thì B không giảm; action 0 có reward kỳ vọng 15 so với 13.5. Khi nhu cầu cao, B có thể là 0 hoặc 1; action 0 lần lượt đạt 55 hoặc 45, đều lớn hơn 42 hoặc 36 của action 1. Do đó hành động cuối tối ưu là 0 ở mọi state.
+
+Ở bước đầu, chọn action 0 làm own previous của bước sau bằng 0, nên rule B không giảm bước sau. Giá trị tối ưu kỳ vọng bước sau là 35. Chọn action 1 làm B giảm nếu nhu cầu sau cao; giá trị khi A chọn 0 ở bước sau là $(15+45)/2=30$. Như vậy action 1 còn mất thêm $0.9(35-30)=4.5$ giá trị tương lai so với action 0, ngoài chênh reward tức thời.
+
+Lập luận này cho thấy cơ chế dài hạn trong mô hình. Nhu cầu độc lập không làm bài toán thành các lựa chọn tức thời độc lập vì opponent phản ứng theo lịch sử action. Với horizon 20, DP lùi kiểm toàn bộ state/time và cho cùng kết luận hành động 0. Đây là ví dụ liên hệ trực tiếp Bellman với tương tác đa tác tử.
+
+## 11. Giá trị kỳ vọng của policy bằng forward occupancy
+
+Để kiểm tra số đo mà không cần thêm random seeds, báo cáo triển khai một phép tính chính xác cho policy cố định. Gọi $\mu_t(x)$ là xác suất full state $x=(d,u,v)$ ở bước $t$. Khởi đầu $\mu_0(0,0,0)=\mu_0(1,0,0)=1/2$. Với action $a=\pi(d,v)$ và $b=d\,u$, trạng thái sau là $(d',a,b)$, trong đó mỗi $d'$ có xác suất 1/2.
+
+Cập nhật occupancy:
+
+$$\mu_{t+1}(d',a,b)\mathrel{+}=\frac12\mu_t(d,u,v).$$
+
+Reward kỳ vọng mỗi bước là $\sum_x\mu_t(x)\bar r(x,\pi(x),b(x))$; trung bình qua 20 bước cho exact policy mean không chiết khấu. Đây là đánh giá một policy bằng forward probability, khác với DP lùi tìm policy tốt nhất. Cả hai dùng cùng full state để giữ đúng phản ứng của đối thủ.
+
+Tệp `assignment/analyze_exact.py` áp dụng phép tính cho mọi Q-table đã lưu. Policy bits theo thứ tự observation (0,0), (0,1), (1,0), (1,1) giúp đọc hành vi. Một policy có bit 1 ở state không thể tới có thể vẫn đạt cùng mean 35 như policy 0000. Bởi vậy so bảng policy từng ô không thay thế phân tích trạng thái thực sự được thăm.
+
+## 12. Tách lỗi học khỏi nhiễu evaluation bằng exact values
+
+Baseline seed 11 và 55 có policy bits 0000, exact mean 35. Seed 44 có 0001 nhưng state gây discount không xuất hiện từ điều kiện khởi đầu khi policy không tạo discount trước, nên exact mean cũng 35. Seed 22 và 33 có 1000, exact mean xấp xỉ 32.448. Lợi nhuận thấp hơn ở hai seed sau là khác biệt policy thực sự, không chỉ nhiễu test.
+
+Lượt minh họa seed 42 có exact mean xấp xỉ 25.698, trong khi evaluation sample mean là 25.5591. Điều này xác nhận policy snapshot thật sự kém trong mô hình chứ không đơn thuần gặp một tape rất xấu. Sự khác biệt nhỏ giữa exact và sampled mean là nhiễu hữu hạn; khoảng cách lớn với 35 chủ yếu nằm ở policy đã học.
+
+Bảng exact cho toàn bộ 25 cấu hình/seed được xuất trong `exact_policy_values.csv`. Phép tính này chỉ khả thi vì môi trường nhỏ và biết đầy đủ reward/transition. Trong ứng dụng thật, không thể gọi một mô hình chưa hiệu chỉnh là exact oracle; độ đúng khi ấy bị giới hạn bởi sai số mô hình.
+
+## 13. Kỳ vọng và phương sai profit ở một bước
+
+Nếu action và demand cố định, $S\sim\operatorname{Binomial}(N,p)$ và margin là $m$, thì $R=mS$. Vì vậy $\mathbb E[R]=mNp$ và $\operatorname{Var}(R)=m^2Np(1-p)$. Với không giảm và demand thấp, $N=10,p=0.3,m=5$, ta có mean 15 và variance 52.5. Demand cao với $p=0.55$ cho mean 55 và variance 123.75.
+
+Nếu demand thấp/cao đều xác suất 1/2, dùng luật phương sai toàn phần:
+
+$$\operatorname{Var}(R)=\mathbb E[\operatorname{Var}(R\mid d)]+\operatorname{Var}(\mathbb E[R\mid d])
+=88.125+400=488.125.$$
+
+Standard deviation một bước khoảng 22.094, dù policy hoàn toàn xác định. Với never-discount đối đầu rule và reset như đề, nhu cầu và sales qua các bước độc lập nên SD của average 20 bước xấp xỉ $\sqrt{488.125/20}=4.94$. Các SD episode đo quanh 5 là phù hợp với cấu trúc này. Một reward curve gồ ghề vì thế không tự chứng minh policy đang thay đổi.
+
+Khi policy phụ thuộc lịch sử, reward qua bước có thể tương quan; không còn được chia variance cho T một cách máy móc. Dùng sample SD trên run means và protocol nhiều seed giúp tránh một phần sai lầm, nhưng muốn ước lượng uncertainty chính xác cần thiết kế phù hợp với cấu trúc phụ thuộc.
+
+## 14. Confidence interval và đơn vị mẫu
+
+Báo cáo có năm training seeds. Mỗi run tạo một policy rồi đánh giá trên một tape riêng. Lấy năm mean để tính SD phản ánh kết hợp biến động học và evaluation. Nếu coi 50.000 bước evaluation gộp là 50.000 mẫu độc lập của chất lượng thuật toán, độ chắc chắn sẽ bị phóng đại vì nhiều bước dùng cùng một policy được học từ cùng run.
+
+Với năm mean, khoảng $t$ minh họa dùng 4 bậc tự do. Khoảng rộng là tín hiệu dữ liệu còn ít hoặc policy không ổn định. Không có ý nghĩa khi giảm interval bằng cách chỉ lặp đánh giá một policy tốt đã chọn rồi bỏ các training seeds kém. Đó là selection bias, không phải tăng độ tin cậy.
+
+So sánh paired nên dùng chênh lệch hai policy trên cùng tape. Tuy nhiên, nếu một số seed cho policy giống hệt baseline, các chênh lệch bằng 0 là cấu trúc có ý nghĩa. Năm seed quá ít để mạnh tay khẳng định thứ hạng phổ quát; bảng từng seed thường cho nhiều thông tin hơn một dấu sao significance.
+
+## 15. Robustness: zero-shot shift khác retraining
+
+Trong stress test discount 40%, frozen policy giữ nguyên Q học ở 20% và chỉ thay reward environment. Đây là đo zero-shot robustness trước một thay đổi margin. Retrained policy được học lại ở 40%, đo khả năng tìm policy khi dữ liệu phù hợp chế độ mới. Hai thiết lập trả lời hai câu hỏi khác nhau và không được gộp thành một hàng “agent thích nghi”.
+
+Những policy luôn không giảm không bị ảnh hưởng vì action 0 không dùng discount fraction. Những policy còn giảm chịu margin từ 3 xuống 1, nên profit kém hơn. Retraining có thể sửa policy nhưng không bảo đảm từng seed thành công do baseline vẫn có thiếu trạng thái và target noise. Tính học không tạo bảo đảm thích nghi cho một lần train hữu hạn.
+
+Một nghiên cứu robustness đầy đủ nên có lưới demand transition, conversion uplift, cost, opponent và horizon. Chọn tham số trên train/validation regimes, rồi giữ test regimes độc lập. Đo mean, worst-case và regret so với oracle từng regime, thay vì chỉ báo một điều kiện có lợi cho phương pháp đề xuất.
+
+## 16. Đối thủ cố định, self-play và cân bằng
+
+Best response với đối thủ cố định tối ưu lợi ích khi policy bên kia không đổi. Self-play là quá trình cả hai cập nhật; evaluation cuối chỉ quan sát chất lượng cặp policy đã đóng băng. Nash equilibrium yêu cầu không bên nào có thể tăng lợi ích bằng cách đơn phương đổi policy trong lớp trò chơi đã định nghĩa. Một trận có reward gần nhau không chứng minh điều kiện này.
+
+Trong lab, cấu trúc reward khiến không giảm là rất mạnh trước rule, nhưng không nên tự tuyên bố mọi policy self-play đã hội tụ cân bằng. Cần tính hoặc xấp xỉ best response với từng opponent snapshot và đo exploitability. Với không gian nhỏ, có thể liệt kê 16 policy reactive theo bốn observation; với policy có lịch sử đầy đủ, lớp phương án rộng hơn nhiều.
+
+Cross-play giữa checkpoint và seed giúp phát hiện co-adaptation: hai policy tốt khi chơi cùng nhau nhưng kém với đối thủ khác. Bộ bài có self-play và dữ liệu cuối trên năm seed, chưa triển khai toàn bộ ma trận cross-play. Vì vậy báo cáo giữ kết luận ở mức minh họa non-stationarity và biến động kết quả, không gán chứng nhận equilibrium.
+
+## 17. Từ thuật toán sang thiết kế có thể tái lập
+
+Một kết quả tái lập cần nguồn, tham số, seed, phiên bản thư viện, protocol và dữ liệu đầu ra. Chỉ công bố seed 42 thiếu thông tin về số lần gọi RNG, cách phá hòa, cách reset và việc evaluation có cập nhật Q không. Hai chương trình cùng dùng seed 42 nhưng tách stream khác nhau có thể sinh các policy rất khác mà vẫn cùng mô hình phân phối.
+
+Bộ bài lưu bản gốc, bản mở rộng, Q snapshot, từng episode, summary và version. Notebook đọc dữ liệu đầy đủ đã lưu và chạy thêm các ví dụ kiểm chứng nhỏ; script `--episodes 5000` tái tạo thí nghiệm chính. Sự khác biệt giữa “đọc kết quả đã chạy” và “rerun toàn bộ training” được ghi ở notebook và README.
+
+Nếu môi trường phần mềm thay đổi, bit-level reproducibility của floating point hoặc backend có thể khác. Vì bài chủ yếu dùng NumPy và mạng CPU nhỏ, kiểm tra nên ưu tiên tái lập hành vi và protocol, đồng thời lưu version thực tế. Không được âm thầm thay kết quả cũ rồi giữ cùng mô tả phiên bản.
+
+## 18. Phạm vi đóng góp của bộ báo cáo
+
+Bộ bài cung cấp một triển khai học tập có nguồn và bằng chứng kiểm. Phân tích MAS chuyển taxonomy thành hợp đồng và failure injection; phân tích RL chuyển MDP thành phép kiểm trạng thái, oracle và exact policy evaluation. Những phần này làm rõ hai paper bằng một hệ có thể thực hiện, thay vì chỉ tóm tắt abstract.
+
+Các giới hạn vẫn rõ: không gọi LLM, không tái lập các benchmark của AutoGen hoặc MetaGPT, không có dữ liệu intent thật và không có thị trường kinh tế đã hiệu chỉnh. Các đề xuất mở rộng được viết như hướng nghiên cứu để tiếp tục, có protocol và tiêu chí đo, không có kết quả được bịa cho những thí nghiệm chưa thực hiện.

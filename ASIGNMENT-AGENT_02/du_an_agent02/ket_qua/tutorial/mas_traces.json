@@ -1,0 +1,1178 @@
+[
+  {
+    "system": "B0_single",
+    "case": 0,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p2",
+          "price": 25,
+          "availability": "verified"
+        },
+        {
+          "id": "p4",
+          "price": 55,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 1,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 2,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 3,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 4,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 5,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p5",
+          "price": 150,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 6,
+    "result": {
+      "status": "timeout",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 7,
+    "result": {
+      "status": "contract_error",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 8,
+    "result": {
+      "status": "availability_unverified",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 9,
+    "result": {
+      "status": "contract_error",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B0_single",
+    "case": 10,
+    "result": {
+      "status": "invalid_input",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 0,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p2",
+          "price": 25,
+          "availability": "verified"
+        },
+        {
+          "id": "p4",
+          "price": 55,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:0",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.16512500000009922
+      },
+      {
+        "task_id": "B1_rule_MAS:0:0",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.08016600000004814
+      },
+      {
+        "task_id": "B1_rule_MAS:0:0",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.07795899999996081
+      },
+      {
+        "task_id": "B1_rule_MAS:0:0",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.08054099999998954
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 1,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:1",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06495800000005936
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 2,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:2",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.07420900000010278
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 3,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:3",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.09141600000006633
+      },
+      {
+        "task_id": "B1_rule_MAS:0:3",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06941699999996054
+      },
+      {
+        "task_id": "B1_rule_MAS:0:3",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.07008299999999856
+      },
+      {
+        "task_id": "B1_rule_MAS:0:3",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.05816699999994235
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 4,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:4",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06083399999989858
+      },
+      {
+        "task_id": "B1_rule_MAS:0:4",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.0588750000001248
+      },
+      {
+        "task_id": "B1_rule_MAS:0:4",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.05712500000010223
+      },
+      {
+        "task_id": "B1_rule_MAS:0:4",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.06229199999996382
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 5,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p5",
+          "price": 150,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:5",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06683299999998837
+      },
+      {
+        "task_id": "B1_rule_MAS:0:5",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.10183400000007836
+      },
+      {
+        "task_id": "B1_rule_MAS:0:5",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.10304200000010866
+      },
+      {
+        "task_id": "B1_rule_MAS:0:5",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.0819169999999314
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 6,
+    "result": {
+      "status": "timeout",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:6",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.10970800000009717
+      },
+      {
+        "task_id": "B1_rule_MAS:0:6",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.08533300000013178
+      },
+      {
+        "task_id": "B1_rule_MAS:0:6",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.11333300000004876
+      },
+      {
+        "task_id": "B1_rule_MAS:0:6",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "error",
+        "milliseconds": 11.157749999999966
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 7,
+    "result": {
+      "status": "contract_error",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:7",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.07816700000007337
+      },
+      {
+        "task_id": "B1_rule_MAS:0:7",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.061584000000003414
+      },
+      {
+        "task_id": "B1_rule_MAS:0:7",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.09766699999991246
+      },
+      {
+        "task_id": "B1_rule_MAS:0:7",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "error",
+        "milliseconds": 0.08654100000016207
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 8,
+    "result": {
+      "status": "availability_unverified",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:8",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.07504100000010894
+      },
+      {
+        "task_id": "B1_rule_MAS:0:8",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06395799999991958
+      },
+      {
+        "task_id": "B1_rule_MAS:0:8",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.057707999999934145
+      },
+      {
+        "task_id": "B1_rule_MAS:0:8",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.11641700000009081
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 9,
+    "result": {
+      "status": "contract_error",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B1_rule_MAS:0:9",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.10037499999993038
+      },
+      {
+        "task_id": "B1_rule_MAS:0:9",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06545800000012925
+      },
+      {
+        "task_id": "B1_rule_MAS:0:9",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "error",
+        "milliseconds": 0.15162499999998857
+      }
+    ]
+  },
+  {
+    "system": "B1_rule_MAS",
+    "case": 10,
+    "result": {
+      "status": "invalid_input",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 0,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p2",
+          "price": 25,
+          "availability": "verified"
+        },
+        {
+          "id": "p4",
+          "price": 55,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:0",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.10900000000013677
+      },
+      {
+        "task_id": "B2_learned_MAS:0:0",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06299999999992423
+      },
+      {
+        "task_id": "B2_learned_MAS:0:0",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.11729100000001935
+      },
+      {
+        "task_id": "B2_learned_MAS:0:0",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.06299999999992423
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 1,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:1",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06529099999985633
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 2,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:2",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.08020900000005327
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 3,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:3",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.07766699999978144
+      },
+      {
+        "task_id": "B2_learned_MAS:0:3",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06849999999980483
+      },
+      {
+        "task_id": "B2_learned_MAS:0:3",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.06333400000002598
+      },
+      {
+        "task_id": "B2_learned_MAS:0:3",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.05575000000002106
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 4,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:4",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06233300000024755
+      },
+      {
+        "task_id": "B2_learned_MAS:0:4",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.05687500000028933
+      },
+      {
+        "task_id": "B2_learned_MAS:0:4",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.05591700000007194
+      },
+      {
+        "task_id": "B2_learned_MAS:0:4",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.05370800000026321
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 5,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p5",
+          "price": 150,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:5",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.060292000000128354
+      },
+      {
+        "task_id": "B2_learned_MAS:0:5",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.0604579999996524
+      },
+      {
+        "task_id": "B2_learned_MAS:0:5",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.06016699999999986
+      },
+      {
+        "task_id": "B2_learned_MAS:0:5",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.05445799999970191
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 6,
+    "result": {
+      "status": "timeout",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:6",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.0632920000001036
+      },
+      {
+        "task_id": "B2_learned_MAS:0:6",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.0580420000000359
+      },
+      {
+        "task_id": "B2_learned_MAS:0:6",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.05750000000004363
+      },
+      {
+        "task_id": "B2_learned_MAS:0:6",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "error",
+        "milliseconds": 11.130415999999865
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 7,
+    "result": {
+      "status": "contract_error",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:7",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.07320800000032435
+      },
+      {
+        "task_id": "B2_learned_MAS:0:7",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.09566599999999426
+      },
+      {
+        "task_id": "B2_learned_MAS:0:7",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.06262499999998283
+      },
+      {
+        "task_id": "B2_learned_MAS:0:7",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "error",
+        "milliseconds": 0.05941600000003433
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 8,
+    "result": {
+      "status": "availability_unverified",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:8",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06250000000029843
+      },
+      {
+        "task_id": "B2_learned_MAS:0:8",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.058166999999720304
+      },
+      {
+        "task_id": "B2_learned_MAS:0:8",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "ok",
+        "milliseconds": 0.05566700000025904
+      },
+      {
+        "task_id": "B2_learned_MAS:0:8",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.053208999999831974
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 9,
+    "result": {
+      "status": "contract_error",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B2_learned_MAS:0:9",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06091700000032674
+      },
+      {
+        "task_id": "B2_learned_MAS:0:9",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06820800000006955
+      },
+      {
+        "task_id": "B2_learned_MAS:0:9",
+        "agent": "policy",
+        "kind": "VALIDATE",
+        "status": "error",
+        "milliseconds": 0.05908399999965397
+      }
+    ]
+  },
+  {
+    "system": "B2_learned_MAS",
+    "case": 10,
+    "result": {
+      "status": "invalid_input",
+      "items": []
+    },
+    "trace": []
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 0,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p2",
+          "price": 25,
+          "availability": "verified"
+        },
+        {
+          "id": "p4",
+          "price": 55,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:0",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.061375000000030155
+      },
+      {
+        "task_id": "B3_no_validation:0:0",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.05600000000027805
+      },
+      {
+        "task_id": "B3_no_validation:0:0",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.057208999999947
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 1,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:1",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.1285000000001979
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 2,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:2",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.09908299999983328
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 3,
+    "result": {
+      "status": "no_results",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:3",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.0747500000000123
+      },
+      {
+        "task_id": "B3_no_validation:0:3",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.0648749999996312
+      },
+      {
+        "task_id": "B3_no_validation:0:3",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.07045900000024474
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 4,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p3",
+          "price": 70,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:4",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.07266599999988799
+      },
+      {
+        "task_id": "B3_no_validation:0:4",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06100000000008876
+      },
+      {
+        "task_id": "B3_no_validation:0:4",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.12645799999999596
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 5,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p5",
+          "price": 150,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:5",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.12604199999977084
+      },
+      {
+        "task_id": "B3_no_validation:0:5",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.07820799999969097
+      },
+      {
+        "task_id": "B3_no_validation:0:5",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.06145899999987492
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 6,
+    "result": {
+      "status": "timeout",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:6",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.06170800000004917
+      },
+      {
+        "task_id": "B3_no_validation:0:6",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.0652499999995726
+      },
+      {
+        "task_id": "B3_no_validation:0:6",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "error",
+        "milliseconds": 11.212458000000147
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 7,
+    "result": {
+      "status": "contract_error",
+      "items": []
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:7",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.12150000000010763
+      },
+      {
+        "task_id": "B3_no_validation:0:7",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06637499999984087
+      },
+      {
+        "task_id": "B3_no_validation:0:7",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "error",
+        "milliseconds": 0.05629200000001333
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 8,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p2",
+          "price": 25,
+          "availability": "verified"
+        },
+        {
+          "id": "p4",
+          "price": 55,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:8",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.061333000000107774
+      },
+      {
+        "task_id": "B3_no_validation:0:8",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.07691699999989865
+      },
+      {
+        "task_id": "B3_no_validation:0:8",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.08070900000012315
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 9,
+    "result": {
+      "status": "ok",
+      "items": [
+        {
+          "id": "p99",
+          "price": 0,
+          "availability": "verified"
+        },
+        {
+          "id": "p1",
+          "price": 850,
+          "availability": "verified"
+        },
+        {
+          "id": "p2",
+          "price": 25,
+          "availability": "verified"
+        },
+        {
+          "id": "p4",
+          "price": 55,
+          "availability": "verified"
+        }
+      ]
+    },
+    "trace": [
+      {
+        "task_id": "B3_no_validation:0:9",
+        "agent": "catalog",
+        "kind": "SEARCH",
+        "status": "ok",
+        "milliseconds": 0.0618340000002604
+      },
+      {
+        "task_id": "B3_no_validation:0:9",
+        "agent": "recommender",
+        "kind": "RANK",
+        "status": "ok",
+        "milliseconds": 0.06816699999978582
+      },
+      {
+        "task_id": "B3_no_validation:0:9",
+        "agent": "inventory",
+        "kind": "CHECK",
+        "status": "ok",
+        "milliseconds": 0.20504199999971107
+      }
+    ]
+  },
+  {
+    "system": "B3_no_validation",
+    "case": 10,
+    "result": {
+      "status": "invalid_input",
+      "items": []
+    },
+    "trace": []
+  }
+]

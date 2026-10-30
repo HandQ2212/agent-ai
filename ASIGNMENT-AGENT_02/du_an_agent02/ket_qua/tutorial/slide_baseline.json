@@ -1,0 +1,28 @@
+{
+  "query": "portable",
+  "budget": 100,
+  "items": [
+    {
+      "id": "p2",
+      "name": "Wireless mouse",
+      "category": "electronics",
+      "price": 25,
+      "tags": [
+        "portable",
+        "accessory"
+      ]
+    },
+    {
+      "id": "p4",
+      "name": "Travel backpack",
+      "category": "travel",
+      "price": 55,
+      "tags": [
+        "portable",
+        "travel"
+      ]
+    }
+  ],
+  "checks_passed": 5,
+  "source": "Teaching slide Units 7-9; original four-product baseline"
+}

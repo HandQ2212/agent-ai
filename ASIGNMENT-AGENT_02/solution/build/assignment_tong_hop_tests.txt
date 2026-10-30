@@ -1,0 +1,18 @@
+/Users/handq2212/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/j4/25t6gdwj2gd_pjjr4x7vyt1h0000gn/T/matplotlib-6iv8ejns because there was an issue with the default path (/Users/handq2212/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/handq2212/.cache/fontconfig
+	/Users/handq2212/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/handq2212/.cache/fontconfig
+	/Users/handq2212/.fontconfig
+Matplotlib is building the font cache; this may take a moment.
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.068s
+
+OK

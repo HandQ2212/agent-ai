@@ -1,0 +1,41 @@
+{
+  "pdfs": [
+    {
+      "file": "tutorial_CT_04_hainn.pdf",
+      "pages": 22,
+      "text_characters": 40097
+    },
+    {
+      "file": "paper_CT_04_hainn.pdf",
+      "pages": 44,
+      "text_characters": 100905
+    },
+    {
+      "file": "agent02_CT_04_hainn.pdf",
+      "pages": 24,
+      "text_characters": 43145
+    }
+  ],
+  "notebooks": [
+    {
+      "file": "tutorial_CT_04_hainn.ipynb",
+      "executed_code_cells": 14,
+      "output_blocks": 16
+    },
+    {
+      "file": "agent02_CT_04_hainn.ipynb",
+      "executed_code_cells": 15,
+      "output_blocks": 26
+    }
+  ],
+  "checks": [
+    "tutorial_CT_04_hainn: readable, identified, complete headings, resolved references",
+    "paper_CT_04_hainn: readable, identified, complete headings, resolved references",
+    "agent02_CT_04_hainn: readable, identified, complete headings, resolved references",
+    "Raw CSV row counts match protocol",
+    "Aggregates match measured per-seed data",
+    "Exact policy values consistent with sampled evaluation",
+    "Original slide baseline: 5 checks passed",
+    "17 tutorial and 12 assignment tests passed"
+  ]
+}

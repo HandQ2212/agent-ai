@@ -1,0 +1,473 @@
+% Extended reading and original technical analysis. Included after the six core pages.
+\par
+\section{Nền tảng ra quyết định: trạng thái, MDP và quan sát}
+\subsection{Từ một chương trình phản ứng đến bài toán quyết định tuần tự}
+Một hành động có thể thay đổi những lựa chọn còn lại trong tương lai. Ví dụ, robot đi
+vào một hành lang có thể tiết kiệm thời gian trước mắt nhưng làm mất cơ hội chọn đường
+khác nếu cửa phía sau đóng. Vì vậy, việc đánh giá hành động cần xét chuỗi kết quả,
+không chỉ phản hồi ngay lập tức. Tổng quan của Kaelbling, Littman và Moore trình bày
+học tăng cường dưới góc nhìn tương tác thử--sai và lý thuyết quyết định Markov
+\cite{rlsurvey}. Phần dưới cụ thể hóa các khái niệm bằng mô hình của báo cáo.
+
+Một Markov Decision Process có thể biểu diễn bằng $(\mathcal S,\mathcal A,P,R,\gamma)$:
+$\mathcal S$ là tập trạng thái, $\mathcal A$ là tập hành động, $P(s'|s,a)$ là xác suất
+chuyển trạng thái, $R$ là phần thưởng và $\gamma$ là hệ số chiết khấu. Chính sách
+$\pi(a|s)$ mô tả cách chọn hành động. Tính Markov đòi hỏi trạng thái hiện tại chứa đủ
+thông tin để mô tả phân phối bước tiếp theo khi đã biết hành động.
+
+\subsection{Tại sao cách định nghĩa trạng thái quan trọng?}
+Trong GridWorld tĩnh của thực nghiệm, vị trí $(r,c)$ là trạng thái đủ: cùng một hành
+động từ cùng vị trí tạo ra cùng kết quả. Nhưng trong ví dụ cạnh B--D đóng sau bước
+đầu, vị trí đơn lẻ chưa mô tả đầy đủ môi trường. Để mô hình đầy đủ là Markov, có thể
+thêm trạng thái đóng/mở cửa hoặc biến thời gian liên quan. Agent lại chỉ quan sát
+được một phần thông tin, nên mô hình nội bộ là ước lượng về môi trường.
+
+Ví dụ tự xây dựng: hai lịch sử đều đưa robot về B nhưng một lịch sử đã có thông báo
+B--D bị đóng. Nếu chỉ lưu B, robot có thể chọn lại hành động lỗi. Khi trạng thái nội
+bộ được bổ sung tập cạnh chặn, hai tình huống được phân biệt. Tuy nhiên, bộ nhớ đó vẫn
+không đại diện hoàn hảo cho thế giới nếu cửa có thể tự mở lại mà robot không biết.
+
+\subsection{Quan sát không đầy đủ và trạng thái niềm tin}
+Khi cảm biến không cho biết trạng thái thật, có thể duy trì một phân phối niềm tin
+$b_t(s)$ thay cho một kết luận chắc chắn \cite{pomdp}. Theo phép cập nhật Bayes, một dạng cập nhật là
+\[
+b_{t+1}(s')=\eta\,O(o_{t+1}|s',a_t)\sum_s P(s'|s,a_t)b_t(s),
+\]
+trong đó $O$ mô tả xác suất nhận quan sát, còn $\eta$ chuẩn hóa tổng xác suất bằng 1.
+Đây là công thức nền để hiểu vấn đề, không phải phần đã cài trong notebook. Ví dụ,
+cảm biến cửa báo sai 10\% thì một lần báo ``đóng'' không nên được hiểu như bằng chứng
+chắc chắn vĩnh viễn. Ngược lại, công cụ mô phỏng ở đây trả về lỗi xác định nên dùng
+tập cạnh chặn đơn giản là phù hợp với giả định thực nghiệm.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{3.3cm}XX@{}}\toprule
+\textbf{Môi trường} & \textbf{Thông tin cần giữ} & \textbf{Hệ quả thiết kế}\\\midrule
+Tĩnh, quan sát đầy đủ & Trạng thái hiện tại và mô hình & Có thể tìm kế hoạch trước\\
+Động, quan sát cục bộ & Lịch sử liên quan và thời điểm & Cần kiểm tra lại giả định\\
+Có nhiễu & Độ tin cậy hoặc phân phối niềm tin & Tránh quyết định chắc chắn quá sớm\\
+Đối tác cũng hành động & Trạng thái phối hợp và cam kết & Cần giải quyết xung đột\\\bottomrule
+\end{tabularx}\end{center}
+\textbf{Liên hệ với LLM agent:} lịch sử hội thoại là một nguồn quan sát, không tự động
+là trạng thái đúng của nghiệp vụ. Một câu ``đã thanh toán'' trong tin nhắn và trạng
+thái xác nhận từ hệ thống thanh toán phải được phân biệt về nguồn và độ tin cậy.
+
+\par
+\section{LLM agent, workflow và hợp đồng sử dụng công cụ}
+\subsection{Phân biệt phạm vi của hai cách dùng thuật ngữ agent}
+Trong cách phân loại AI cổ điển, bộ tìm đường có mục tiêu là một agent. Trong bài viết
+kỹ thuật về hệ thống LLM, Anthropic phân biệt workflow có đường điều khiển định trước
+với agent để LLM tự định hướng quá trình và lựa chọn công cụ \cite{effective}.
+Hai cách dùng có phạm vi khác nhau. Báo cáo sử dụng nghĩa rộng cho agent tìm kiếm và
+agent RL, đồng thời ghi rõ chính sách của trợ lý tra cứu là mã Python xác định.
+
+LLM agent có thể được xem như bộ đề xuất hành động làm việc cùng một bộ thực thi.
+Mô hình nhận mô tả mục tiêu, công cụ và trạng thái rồi đề xuất tên tool cùng tham số.
+Bộ thực thi kiểm tra đề xuất, gọi tool, lưu quan sát và quyết định bước tiếp theo.
+Nếu một lời gọi không hợp lệ, việc trả lỗi có cấu trúc giúp phân biệt lỗi lập kế
+hoạch với lỗi hạ tầng. Đặt quyền kiểm soát ở bộ thực thi giúp hành vi của hệ thống
+có thể kiểm tra mà không phụ thuộc hoàn toàn vào cách mô hình diễn đạt.
+
+\subsection{Tool use có thể được học như thế nào?}
+Toolformer nghiên cứu việc huấn luyện mô hình chọn API, thời điểm gọi, tham số và cách
+kết hợp kết quả API vào dự đoán văn bản \cite{toolformer}. Đây là một hướng học sử
+dụng công cụ; nó khác với việc lập trình sẵn một hàm chọn tool hoặc chỉ liệt kê tool
+trong prompt. Khả năng gọi đúng API vẫn cần được đánh giá trên đầu vào và điều kiện
+thực thi cụ thể.
+
+Trong thiết kế minh họa của báo cáo, công cụ \texttt{search} chỉ nhận truy vấn và
+\texttt{top\_k}; \texttt{read} chỉ nhận ID tài liệu. Hợp đồng này xác định rõ miền
+đầu vào, cấu trúc đầu ra và lỗi. Mã không cho phép tùy ý chuyển một chuỗi thành lệnh
+hệ điều hành. Ngay cả khi thay bộ chọn hành động bằng LLM, lớp hợp đồng này vẫn cần
+được giữ và kiểm tra độc lập.
+
+\subsection{Phân biệt các loại lỗi để xử lý đúng}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{3.0cm}XX@{}}\toprule
+\textbf{Loại lỗi} & \textbf{Ví dụ tự xây dựng} & \textbf{Cách xử lý đề xuất}\\\midrule
+Schema & \texttt{top\_k=true} & Từ chối kiểu sai; yêu cầu sửa tham số\\
+Không có dữ liệu & Không tìm thấy ID & Không tạo ra tài liệu giả\\
+Tạm thời & Timeout dịch vụ đọc & Retry có giới hạn, ghi mã yêu cầu\\
+Quyền hạn & Không được đọc hồ sơ & Dừng hoặc chuyển người có quyền\\
+Mâu thuẫn trạng thái & Phòng vừa được đặt & Đọc lại và lập kế hoạch khác\\\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Hành động đọc, hành động ghi và kiểm chứng}
+Một truy vấn tra cứu không tạo ra cùng trách nhiệm như gửi thư hoặc đặt chỗ. Với hành
+động ghi, hệ thống cần xác định người chịu trách nhiệm, điều kiện cho phép và khả năng
+khôi phục. Ví dụ tự thiết kế: chuẩn bị một bản nháp lịch học có thể tự động; ghi lịch
+lên tài khoản dùng chung cần tuân theo quy trình xác nhận của đơn vị. Tool trả về
+``accepted'' cũng có thể chỉ cho biết yêu cầu đã xếp hàng, chưa hoàn tất.
+
+Trong notebook, kết quả cuối là trạng thái vị trí hoặc văn bản có ID nguồn, nên có
+phép kiểm tra trực tiếp. Đối với hệ thống thật, nên tách trạng thái đã yêu cầu, đang
+thực hiện, đã xác nhận và thất bại. Cấu trúc trạng thái này giúp agent không báo hoàn
+thành chỉ vì đã tạo được một lời gọi hợp lệ.
+
+\par
+\section{Bộ nhớ, ngữ cảnh, reflection và thư viện kỹ năng}
+\subsection{Bộ nhớ có nhiều chức năng}
+Tổng quan của Wang và cộng sự mô tả kiến trúc LLM agent theo các mô-đun như hồ sơ,
+bộ nhớ, lập kế hoạch và hành động \cite{llmsurvey}. Để áp dụng, báo cáo phân biệt
+những dữ liệu mà agent cần giữ theo mục đích sử dụng, thay vì xem mọi văn bản đã lưu
+là cùng một loại tri thức.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{2.7cm}XX@{}}\toprule
+\textbf{Loại thông tin} & \textbf{Ví dụ của báo cáo} & \textbf{Câu hỏi kiểm tra}\\\midrule
+Ngữ cảnh làm việc & Mục tiêu, vị trí, bước đang chạy & Còn phù hợp lượt hiện tại không?\\
+Ký ức tình huống & B--D bị chặn sau lần thử & Nguồn nào xác nhận? Khi nào hết hạn?\\
+Tri thức tham khảo & Tài liệu quy trình có phiên bản & Có quyền dùng và còn hiệu lực không?\\
+Kỹ năng thực thi & Hàm kiểm tra lịch trống & Đã kiểm thử với tool phiên bản nào?\\
+Sở thích người dùng & Ưu tiên phòng gần thư viện & Có đồng ý lưu lâu dài không?\\\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Reflection thay đổi cái gì?}
+Reflexion dùng phản hồi bằng ngôn ngữ và bộ nhớ tình huống để cải thiện các lần thử,
+không cần cập nhật trọng số mô hình \cite{reflexion}. Điều này giúp phân biệt học
+trong ngữ cảnh với tối ưu tham số. Từ ``reinforcement'' trong tên phương pháp không
+có nghĩa mọi thành phần của nó giống thuật toán Q-learning dạng bảng.
+
+Ví dụ tự phân tích: sau một lần tạo phiếu sai đơn vị tiếp nhận, agent lưu nhận xét
+``thiết bị mạng thuộc nhóm hạ tầng, không thuộc nhóm máy tính cá nhân''. Trước nhiệm
+vụ tiếp theo, nó truy hồi nhận xét đó. Nếu quy trình tổ chức thay đổi, ghi nhớ cũ có
+thể dẫn đến sai mới. Vì vậy, phản hồi được lưu nên kèm phạm vi áp dụng, thời điểm và
+nguồn xác nhận, đồng thời có cơ chế sửa hoặc quên.
+
+Generative Agents nghiên cứu việc lưu trải nghiệm bằng ngôn ngữ, tổng hợp reflection
+và truy hồi để lập hành vi trong một môi trường mô phỏng xã hội \cite{generative}.
+Kết quả hành vi có vẻ hợp lý trong mô phỏng không tự động là bằng chứng về độ chính
+xác của một hệ thống xử lý hồ sơ. Thước đo cần phù hợp với loại nhiệm vụ.
+
+\subsection{Từ ghi nhớ một câu trả lời đến tái sử dụng một kỹ năng}
+Voyager kết hợp chương trình học tự động, thư viện kỹ năng dạng code và cải tiến dựa
+trên phản hồi môi trường trong Minecraft \cite{voyager}. Ý tưởng đáng chú ý là tái
+sử dụng hành vi có thể thực thi, thay vì chỉ lưu đoạn hội thoại. Việc lấy một kỹ năng
+từ thư viện vẫn đòi hỏi điều kiện đầu vào phù hợp và kiểm tra kết quả.
+
+Trong mở rộng do báo cáo đề xuất, kỹ năng ``tìm phòng phù hợp'' có thể đóng gói thành
+hàm nhận ngày, giờ, số người, rồi trả về danh sách phòng. Hàm này nên được phiên bản
+hóa, kiểm thử trường hợp không có phòng và không tự ý đặt chỗ. Khi dùng lại, agent
+cần kiểm tra lược đồ lịch hiện tại; nếu trường dữ liệu đã đổi, việc tái sử dụng code
+cũ có thể làm mất lợi ích của bộ nhớ kỹ năng.
+
+\subsection{Chi phí và giới hạn của việc lưu tất cả}
+Đưa toàn bộ lịch sử vào mỗi lần gọi mô hình làm ngữ cảnh dài hơn và chứa cả thông tin
+không còn liên quan. Tóm tắt giúp giảm độ dài nhưng có thể bỏ mất điều kiện quan trọng.
+Một giải pháp thiết kế là lưu bản ghi gốc, tạo bản tóm tắt có tham chiếu và chỉ truy
+hồi những phần liên quan đến quyết định hiện tại. Đánh giá bộ nhớ cần đo cả độ đúng
+khi truy hồi, dữ liệu lỗi thời và mức giảm chi phí sau khi tính công sức duy trì.
+
+\par
+\section{RAG, truy hồi thông tin và dẫn chứng}
+\subsection{RAG giải quyết nhu cầu kiến thức bên ngoài mô hình}
+Lewis và cộng sự giới thiệu cách kết hợp bộ nhớ tham số của mô hình sinh với bộ nhớ
+phi tham số được truy hồi từ kho tài liệu \cite{rag}. Trong mô hình RAG-Sequence,
+một cách biểu diễn là:
+\[
+p(y|x)\approx\sum_{z\in\mathrm{TopK}(x)}p_{\eta}(z|x)\,p_{\theta}(y|x,z),
+\]
+với $x$ là câu hỏi, $z$ là tài liệu truy hồi, $y$ là câu trả lời; $\eta$ và $\theta$
+lần lượt biểu diễn thành phần truy hồi và sinh. Công thức thể hiện rằng tìm tài liệu
+và sử dụng tài liệu là hai bài toán riêng, cùng ảnh hưởng kết quả.
+
+\subsection{Luồng dữ liệu để triển khai một hệ thống có nguồn}
+Một thiết kế tham khảo của báo cáo gồm: thu nhận tài liệu được phép dùng; gán ID và
+phiên bản; tách đoạn; lập chỉ mục; truy hồi; chọn bằng chứng; tạo câu trả lời; kiểm tra
+liên kết giữa phát biểu và nguồn. Mỗi công đoạn có thể làm sai thông tin. Chẳng hạn,
+tách đoạn làm mất tiêu đề ``chỉ áp dụng cho học kỳ hè'' có thể khiến một mốc thời gian
+được áp dụng sai cho cả năm học.
+
+Trong bài thực hành 2, kho chỉ có bốn quy định giả lập. Để dễ đọc toàn bộ code, dùng
+vector đếm token và cosine:
+\[
+\operatorname{sim}(q,d)=\frac{\sum_w q_w d_w}{\sqrt{\sum_w q_w^2}\sqrt{\sum_w d_w^2}}.
+\]
+Nếu một vector rỗng, mã trả score 0. Đây là truy hồi lexical; nó không nhận ra mọi
+quan hệ đồng nghĩa và không phải dense retrieval của nghiên cứu RAG. Câu trả lời được
+trích nguyên từ tài liệu giả lập kèm ID, không gọi mô hình sinh nên không gán nhãn đây
+là một bản tái lập RAG đầy đủ.
+
+\subsection{Agentic retrieval khác một truy vấn duy nhất ở đâu?}
+Trong một thiết kế mở rộng, agent có thể nhận ra bằng chứng thiếu, sửa câu hỏi, chọn
+nguồn khác hoặc tra thêm tài liệu. Tuy nhiên, một chuỗi cố định search--read--answer
+vẫn là workflow nếu mọi bước đã được mã hóa. Bài thực hành dùng workflow này để làm
+rõ hợp đồng công cụ và nguồn gốc dữ liệu, không tuyên bố LLM tự điều phối.
+
+Ví dụ tự xây dựng: câu hỏi ``được mượn bao nhiêu sách và trong bao lâu?'' cần hai dữ
+kiện. Một đoạn nêu ``3 sách'' mà thiếu thời hạn chưa đủ trả lời. Hệ thống nên kiểm tra
+mức bao phủ từng phần câu hỏi, thay vì chọn đoạn có score cao nhất rồi kết luận đã
+đủ bằng chứng. Nếu không tìm được thời hạn, câu trả lời cần nêu phần chưa xác nhận.
+
+\subsection{Dẫn chứng đúng gồm nhiều điều kiện}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{3.0cm}X@{}}\toprule
+\textbf{Điều kiện} & \textbf{Phép kiểm tra đề xuất}\\\midrule
+Nguồn tồn tại & ID/URL mở được, tài liệu còn truy cập được\\
+Đúng phạm vi & Đúng đơn vị, thời gian, đối tượng, phiên bản\\
+Hỗ trợ phát biểu & Đoạn trích thực sự chứng minh câu được viết\\
+Không bỏ điều kiện & Giữ ngoại lệ và giới hạn ảnh hưởng kết luận\\
+Đủ bao phủ & Mỗi phát biểu cần chứng cứ đều có nguồn phù hợp\\\bottomrule
+\end{tabularx}\end{center}
+Một citation có hình thức đẹp không bù được suy luận vượt quá tài liệu. Trong báo cáo
+này, số liệu của thực nghiệm gắn với code và output; thông tin nghiên cứu gắn với bài
+gốc; các ví dụ nghiệp vụ được ghi là thiết kế riêng. Cách tách nguồn này giúp người
+đọc biết điều gì đã được kiểm tra và điều gì là hướng đề xuất.
+
+\par
+\section{Các chiến lược lập kế hoạch và tìm kiếm}
+\subsection{Tìm kiếm trên mô hình tường minh}
+BFS phù hợp khi mọi cạnh có chi phí bằng nhau. Nếu chi phí khác nhau nhưng không âm,
+có thể dùng Dijkstra. A* sắp xếp ứng viên theo $f(n)=g(n)+h(n)$, với $g(n)$ là chi phí
+đã đi và $h(n)$ là ước lượng chi phí còn lại \cite{astar}. Điều kiện của heuristic và quy tắc xử lý
+đỉnh đã xét ảnh hưởng bảo đảm tối ưu; không nên gán bảo đảm của tìm kiếm cổ điển cho
+một hàm đánh giá bằng LLM mà chưa kiểm chứng.
+
+Ví dụ tự tính: đường A--B--F có hai cạnh với chi phí 1 và 9, tổng 10; đường A--C--D--F
+có ba cạnh với chi phí 2, 2 và 2, tổng 6. BFS tối ưu số cạnh nên có thể chọn đường đầu;
+mục tiêu tối ưu chi phí yêu cầu đường sau. Vì vậy, kết luận ``đường ngắn nhất'' luôn
+phải chỉ rõ ngắn theo số bước, độ dài vật lý hay thời gian dự kiến.
+
+\subsection{Lập kế hoạch trong không gian ngôn ngữ}
+Tree of Thoughts nghiên cứu việc xét nhiều hướng suy luận, đánh giá và quay lui ở
+cấp các bước lập luận bằng văn bản \cite{tot}. Cách tiếp cận này mở rộng không gian
+tìm kiếm nhưng cũng tạo nhu cầu đánh giá các ứng viên. Một bước lập luận có vẻ hợp
+lý chưa chắc thỏa mãn ràng buộc của bài toán gốc.
+
+Giả sử tác vụ là lập lịch ba môn vào hai phòng. Agent sinh ba lịch ứng viên; bộ kiểm
+tra xác định việc trùng thời gian, sức chứa và thiết bị bắt buộc. LLM có thể giúp đề
+xuất lịch, còn các ràng buộc kiểm được bằng chương trình nên được kiểm bằng chương
+trình. Khi không lịch nào hợp lệ, có thể mở rộng tìm kiếm hoặc báo không đủ tài nguyên,
+thay vì chọn lịch có lời giải thích thuyết phục nhất.
+
+\subsection{Lập trước và điều chỉnh theo quan sát}
+Theo cách tổ chức ReAct, kết quả hành động tham gia quyết định bước kế tiếp
+\cite{react}. ReWOO tách phần lập kế hoạch với việc thu thập kết quả công cụ
+\cite{rewoo}. Trong phân tích của báo cáo, hai nhu cầu cạnh tranh là tránh lập lại
+những phần đã ổn định và tránh bám vào kế hoạch đã mất hiệu lực.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{3.0cm}XX@{}}\toprule
+\textbf{Tình huống} & \textbf{Chiến lược đề xuất} & \textbf{Phép kiểm tra}\\\midrule
+Các truy vấn độc lập & Chuẩn bị và gom truy vấn & Kết quả có cùng thời điểm không?\\
+Phụ thuộc kết quả trước & Quan sát rồi chọn bước tiếp & Còn thiếu dữ kiện nào?\\
+Không gian chọn lớn & Sinh ứng viên và kiểm ràng buộc & Ứng viên có thực thi được không?\\
+Môi trường biến động & Kế hoạch ngắn và điểm kiểm tra & Giả định nào vừa thay đổi?\\\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Phân rã nhiệm vụ cần giữ điều kiện toàn cục}
+Nếu chia một chuyến đi thành đặt vé, đặt phòng và sắp xếp lịch, từng tác vụ có thể
+thành công riêng nhưng tổng thể vẫn thất bại khi giờ nhận phòng không khớp giờ đến.
+Do đó, bộ điều phối cần giữ các ràng buộc liên kết, thứ tự phụ thuộc và tiêu chí hoàn
+thành chung. Kế hoạch nên là một cấu trúc có trạng thái, thay vì danh sách câu văn
+không thể biết bước nào đã xác nhận.
+
+Trong notebook tìm đường, chuỗi đỉnh là kế hoạch thực thi cụ thể. Khi một cạnh lỗi,
+agent bỏ phần kế hoạch còn lại và tìm từ vị trí hiện tại. Đây là một minh họa rõ về
+việc kế hoạch phải được kiểm tra với môi trường, dù cơ chế suy luận không dùng LLM.
+
+\par
+\section{Hệ đa tác tử: giao tiếp, điều phối và trách nhiệm}
+\subsection{Vì sao dùng nhiều tác tử?}
+AutoGen nghiên cứu xây dựng ứng dụng bằng các agent có thể hội thoại, kết hợp mô hình,
+tool và đầu vào con người \cite{autogen}. Một giá trị thiết kế là tách vai trò,
+nguồn dữ liệu hoặc quyền thao tác. Việc tăng số agent cũng tăng số điểm phối hợp cần
+kiểm tra; không thể suy ra hiệu quả chỉ từ số lượng tác tử.
+
+Ví dụ tự đề xuất: hệ thống hỗ trợ báo cáo có tác tử tìm tài liệu, tác tử viết và tác tử
+kiểm chứng. Tác tử tìm tài liệu trả các bản ghi ID, tiêu đề, đoạn hỗ trợ; tác tử viết
+chỉ dùng dữ kiện đã có; tác tử kiểm chứng đối chiếu từng phát biểu với nguồn. Nếu cả
+ba chỉ lặp lại cùng một thông tin sai từ một tài liệu, sự đồng thuận không tạo thêm
+chứng cứ. Đầu ra cần được kiểm tra theo nguồn và điều kiện nhiệm vụ.
+
+\subsection{Các mô hình tổ chức có thể lựa chọn}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{2.7cm}XX@{}}\toprule
+\textbf{Cấu trúc} & \textbf{Cách hoạt động} & \textbf{Điểm cần quản lý}\\\midrule
+Chuỗi vai trò & Nghiên cứu $\to$ soạn $\to$ kiểm tra & Lỗi đầu chuỗi lan xuống cuối\\
+Điều phối trung tâm & Một bộ phân việc cho chuyên gia & Nút điều phối có thể thành điểm nghẽn\\
+Làm song song & Các tác vụ độc lập cùng chạy & Cần hợp nhất và xử lý mâu thuẫn\\
+Phản biện & Một bên đề xuất, một bên kiểm & Giới hạn vòng tranh luận và chuẩn chấm\\\bottomrule
+\end{tabularx}\end{center}
+
+Trong cấu trúc đề xuất của báo cáo, thông điệp nên có mã nhiệm vụ, mục tiêu, nguồn dữ
+liệu, trạng thái, kết quả và lỗi. Một yêu cầu ``kiểm tra lại'' thiếu tiêu chí sẽ khiến
+tác tử nhận không biết phải đối chiếu điều gì. Nếu đầu ra là bản vá code, tiêu chí có
+thể là bài kiểm tra tái hiện lỗi và tập kiểm tra hồi quy; nếu đầu ra là tổng hợp tài
+liệu, tiêu chí có thể là đúng trích dẫn và đủ câu hỏi được trả lời.
+
+\subsection{Mô hình chi phí và lỗi phối hợp}
+Với các phần việc tuần tự có thời gian $T_1,\dots,T_n$, tổng độ trễ gần
+$\sum_i T_i$. Khi phần việc độc lập được chạy đồng thời, độ trễ lý tưởng gần
+$\max_i T_i$, nhưng còn thời gian điều phối, tổng hợp và chờ tài nguyên. Tổng lượng
+tính toán có thể tăng dù người dùng nhận kết quả sớm hơn.
+
+Một hệ đa tác tử cũng có thể gặp tranh chấp khi hai agent cùng sửa một hồ sơ. Đề xuất
+thiết kế là ghi phiên bản dữ liệu đã đọc và từ chối cập nhật nếu phiên bản thay đổi.
+Với thông điệp bất đồng bộ, cần phân biệt nhiệm vụ đang chờ, đang chạy, đã hoàn thành
+và đã hủy, đồng thời quy định tác tử nào có quyền ra quyết định cuối.
+
+\subsection{Kiểm tra lợi ích bằng đối chứng}
+Để chứng minh mô hình đa tác tử hữu ích, có thể so với một agent dùng cùng công cụ,
+cùng dữ liệu và tổng ngân sách tương đương. Các tiêu chí là hoàn thành, chi phí,
+độ trễ và lỗi. Nếu mô hình nhiều tác tử được cấp số lượt gọi gấp mười lần, kết quả
+tốt hơn chưa cho biết lợi ích đến từ tổ chức vai trò hay chỉ từ nhiều tài nguyên hơn.
+
+Trong phạm vi thực hành này, không cần đa tác tử để giải đồ thị sáu đỉnh hoặc kho bốn
+tài liệu. Phần đa tác tử là kiến thức mở rộng và phân tích thiết kế; báo cáo không
+tuyên bố đã đo hiệu quả của một framework đa tác tử trong các thực nghiệm đi kèm.
+
+\par
+\section{Học tăng cường: Q-learning và thiết kế thí nghiệm}
+\subsection{Giá trị hành động và mục tiêu cập nhật}
+Watkins và Dayan trình bày Q-learning như phương pháp cải thiện ước lượng chất lượng
+hành động trong môi trường Markov; kết quả hội tụ cần các điều kiện thích hợp
+\cite{qlearning}. Công thức được triển khai trong thực nghiệm là
+\[
+Q(s,a)\leftarrow Q(s,a)+\alpha\left[r+\gamma(1-d)\max_{a'}Q(s',a')-Q(s,a)\right],
+\]
+trong đó $d=1$ khi đạt trạng thái kết thúc. $\alpha$ là learning rate, $\gamma$ là mức
+chiết khấu. Tại terminal, không cộng lợi ích của một hành động tương lai không xảy ra.
+
+Ví dụ tính tay để đối chiếu code: $Q(s,a)=0$, phần thưởng đến đích là 10 và
+$\alpha=0.2$. Vì trạng thái tiếp theo là terminal, giá trị mới bằng
+$0+0.2(10-0)=2$. Cho dù hàng Q của đích chứa số 100 để thử lỗi, phép cập nhật vẫn phải
+ra 2. Cell kiểm tra cố tình tạo tình huống này để phát hiện bootstrap sai.
+
+\subsection{Khám phá và khai thác}
+Chính sách $\epsilon$-greedy chọn hành động ngẫu nhiên với xác suất $\epsilon$, còn lại
+chọn hành động có Q cao nhất. Trong code, $\epsilon$ giảm từ khoảng 0.9 theo hệ số
+0.995 mỗi episode và có sàn 0.05. Tie-break ngẫu nhiên có seed tránh luôn ưu tiên
+hướng đầu danh sách khi các giá trị Q bằng nhau.
+
+Khám phá gây thêm bước và có thể làm reward huấn luyện thấp hơn reward đánh giá của
+chính sách đóng băng. Hai đại lượng này không nên trộn trong cùng kết luận.
+Sau huấn luyện, việc đánh giá đặt $\epsilon=0$ và giữ nguyên Q. Baseline ngẫu nhiên
+dùng cùng lưới, vị trí đầu và giới hạn bước để so sánh hành vi thực tế.
+
+\subsection{Các lựa chọn cụ thể trong bài thực hành}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{3.6cm}X@{}}\toprule
+\textbf{Thành phần} & \textbf{Thiết lập thực nghiệm của báo cáo}\\\midrule
+Không gian trạng thái & Lưới $5\times5$; 5 ô tường; đích $(4,4)$\\
+Hành động & Lên, phải, xuống, trái; hành động sai giữ nguyên vị trí\\
+Reward & Đến đích $+10$; bước thường $-1$; hành động sai $-3$\\
+Huấn luyện & 2.500 episode/seed; seed 7, 42, 2026; tối đa 100 bước/episode\\
+Siêu tham số & $\alpha=0.2$, $\gamma=0.95$; Q khởi tạo bằng 0\\
+Đánh giá & 100 episode/chính sách; không cập nhật Q; baseline ngẫu nhiên\\\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Termination, truncation và giới hạn kết luận}
+Đến đích là terminal của bài toán. Hết 100 bước là dừng do giới hạn tính toán; mã vẫn
+bootstrap theo trạng thái tiếp theo ở lần cập nhật cuối vì giới hạn này không được
+định nghĩa là terminal trong MDP. Nếu thay đổi bài toán thành ``phải đến trước hạn'',
+cần đưa thời gian còn lại vào trạng thái hoặc định nghĩa lại quá trình và hàm thưởng.
+
+Học với $\alpha$ cố định trong hữu hạn episode và một bản đồ không chứng minh các điều
+kiện hội tụ tổng quát. Ba seed làm rõ mức phụ thuộc vào khởi tạo ngẫu nhiên trong
+thiết lập đã chọn; chúng chưa cho phép kết luận về khả năng chuyển sang bản đồ mới.
+Đánh giá tổng quát cần thêm nhiều bản đồ, vị trí đầu khác nhau, nhiễu và phân tích
+độ nhạy siêu tham số.
+
+\par
+\section{Đánh giá agent: benchmark, đối chứng và bằng chứng}
+\subsection{Đánh giá tương tác khác đánh giá một câu trả lời}
+AgentBench tổ chức đánh giá năng lực agent qua nhiều môi trường tương tác
+\cite{agentbench}. WebArena cung cấp môi trường web có thể tái lập và chấm mức hoàn
+thành chức năng của tác vụ \cite{webarena}. SWE-bench đánh giá sửa lỗi phần mềm dựa
+trên yêu cầu và kho mã thực tế \cite{swebench}. Các bài này gợi ý rằng kết quả cuối
+cần được kiểm tra trong môi trường, thay vì chỉ chấm câu giải thích của mô hình.
+
+Các benchmark nói trên khác nhau về dữ liệu, quyền truy cập, công cụ và chuẩn chấm.
+Báo cáo không so sánh trực tiếp điểm số giữa chúng và không dùng số liệu của các mô
+hình cũ để mô tả hiệu năng hiện tại. Phần thực nghiệm ở đây là kiểm tra minh họa trên
+đồ thị và dữ liệu nhỏ, không được gọi là đạt một benchmark nghiên cứu.
+
+\subsection{Một quy trình đánh giá có thể áp dụng}
+Trước hết, cố định mục tiêu và điều kiện thành công. Sau đó xác định tập tình huống,
+ngân sách, seed và dữ liệu mà agent được nhìn thấy. Tiếp theo chạy đối chứng, lưu
+nhật ký và phân loại lỗi. Cuối cùng đối chiếu kết quả với những giả định ban đầu.
+Nếu thay đổi prompt hoặc siêu tham số sau khi xem toàn bộ tập kiểm tra, cần một tập
+đánh giá khác để tránh kết quả bị tối ưu theo ví dụ đã biết.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{3.0cm}XX@{}}\toprule
+\textbf{Khía cạnh} & \textbf{Phép đo đề xuất} & \textbf{Điều phải ghi kèm}\\\midrule
+Đúng nhiệm vụ & Tỷ lệ đạt toàn bộ ràng buộc & Cách chấm và tình huống thất bại\\
+Hiệu quả & Chi phí, độ trễ, số tool call & Cùng ngân sách với đối chứng\\
+Ổn định & Phân bố kết quả theo seed & Độ ngẫu nhiên nằm ở thành phần nào\\
+Khả năng phục hồi & Kết quả khi tool lỗi hoặc thiếu dữ liệu & Mức lỗi và chính sách retry\\
+Nguồn dẫn & Độ bao phủ, phù hợp của citation & Phát biểu nào nguồn hỗ trợ\\\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Ablation để biết thành phần nào tạo ích lợi}
+Với agent tìm đường, có thể bỏ bộ nhớ cạnh chặn để quan sát hành vi lặp lại lỗi; với
+trợ lý tra cứu, có thể tắt cache để đo số lần gọi thêm; với Q-learning, có thể so với
+chính sách ngẫu nhiên và kiểm tra ảnh hưởng lịch giảm $\epsilon$. Một ablation hợp
+lý chỉ thay thành phần đang kiểm tra, giữ điều kiện khác tương đương.
+
+Trong notebook, cache được kiểm bằng hai câu hỏi giống nhau: lần đầu có search và
+read; lần sau trả kết quả có phiên bản từ cache và không gọi tool. Phép thử này chứng
+minh hành vi cache trong ví dụ. Nó chưa chứng minh cache luôn an toàn khi tài liệu
+thay đổi, khi quyền người dùng khác nhau hoặc khi câu hỏi có ngữ nghĩa tương tự nhưng
+không giống chuỗi ký tự.
+
+\subsection{Đọc tỷ lệ thành công đúng mức}
+Trong GridWorld xác định, 100 episode đánh giá chính sách tốt trên cùng bản đồ không
+phải 100 môi trường độc lập. Một kết quả 100/100 có thể chỉ phản ánh cùng đường đi
+được lặp lại. Với các phép thử Bernoulli độc lập có tính đại diện, sai số chuẩn gần
+$\sqrt{\hat p(1-\hat p)/n}$ có thể giúp mô tả bất định ở vùng thích hợp; công thức
+xấp xỉ này không xử lý tốt biên 0 hoặc 1 và không sửa được thiên lệch chọn mẫu.
+Vì thế, báo cáo ưu tiên ghi rõ tập dữ liệu và quy trình trước khi diễn giải một tỷ lệ.
+
+\par
+\section{Độ tin cậy, bảo mật và vòng đời vận hành}
+\subsection{Dữ liệu bên ngoài có thể chứa chỉ dẫn không đáng tin}
+Greshake và cộng sự nghiên cứu indirect prompt injection: chỉ dẫn có thể được cài vào
+nội dung mà ứng dụng LLM truy hồi hoặc xử lý \cite{injection}. Hệ thống cần giữ ranh
+giới giữa yêu cầu được ủy quyền và dữ liệu bên ngoài. Một trang web tự ghi ``hãy bỏ
+qua quy định'' không trở thành quy tắc điều khiển ứng dụng chỉ vì agent đọc được nó.
+
+Trong kiến trúc đề xuất, dữ liệu tài liệu được truyền như bằng chứng; bộ thực thi giữ
+quyền quyết định công cụ nào được phép gọi. Việc chỉ cho phép \texttt{search} và
+\texttt{read} trong bài thực hành hạn chế bề mặt hành động, nhưng không được diễn giải
+thành chứng minh chống mọi tấn công. Không có LLM trong code để thử hành vi làm theo
+chỉ dẫn độc hại; các kiểm tra hiện tại chỉ xác nhận hợp đồng công cụ đã cài.
+
+\subsection{Ba lớp bảo vệ gắn với hành động}
+Lớp thứ nhất kiểm tra đầu vào: kiểu dữ liệu, kích thước, ID và quyền truy cập. Lớp
+thứ hai kiểm soát thực thi: giới hạn tool, timeout, ngân sách, cách ly và nhật ký.
+Lớp thứ ba kiểm tra kết quả: xác nhận trạng thái, đối chiếu ràng buộc và quyết định
+cần người can thiệp. Đây là phân rã thiết kế của báo cáo; hiệu quả thực tế phải được
+kiểm thử theo ứng dụng cụ thể.
+
+Ví dụ một agent tạo phiếu sửa thiết bị có thể được cho quyền đọc danh mục công khai
+và ghi phiếu nháp, nhưng không được sửa danh sách người dùng. Nếu dữ liệu yêu cầu chứa
+mã lệnh hoặc một câu đề nghị đổi quyền, bộ thực thi vẫn xử lý như nội dung yêu cầu.
+Quyền ghi cần được giới hạn theo thao tác và đối tượng, thay vì một cờ ``được dùng API''
+chung cho mọi loại cập nhật.
+
+\subsection{Từ notebook sang một dịch vụ có thể vận hành}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{3cm}X@{}}\toprule
+\textbf{Giai đoạn} & \textbf{Sản phẩm cần có trong thiết kế đề xuất}\\\midrule
+Định nghĩa bài toán & Mục tiêu, người dùng, ràng buộc, điều kiện dừng\\
+Chuẩn bị dữ liệu & Nguồn, quyền sử dụng, phiên bản, quy tắc cập nhật\\
+Xây công cụ & Schema, xác thực, lỗi, giới hạn, kiểm tra lặp thao tác\\
+Thử nghiệm & Tình huống chuẩn, ca biên, dữ liệu lỗi, đối chứng\\
+Triển khai hạn chế & Giám sát, khả năng dừng, phương án chuyển người\\
+Duy trì & Phân tích log, sửa nguồn, cập nhật tool, kiểm tra hồi quy\\\bottomrule
+\end{tabularx}\end{center}
+
+Nhật ký nên ghi hành động và quan sát có ích cho việc kiểm tra, đồng thời tránh lưu
+dữ liệu cá nhân không cần thiết. Với hệ thống LLM, có thể ghi mã yêu cầu, tool, tham
+số đã được lọc, mã lỗi, trạng thái cuối và phiên bản cấu hình. Không cần xem mọi câu
+lập luận được sinh ra là bằng chứng chính xác về cơ chế bên trong; bằng chứng quan
+trọng hơn là yêu cầu nào đã được thực thi và môi trường xác nhận điều gì.
+
+\subsection{Kết nối các kiến thức mở rộng}
+Agent là lớp ra quyết định trong một hệ thống lớn hơn. Tìm kiếm giải quyết việc chọn
+chuỗi hành động từ mô hình; RAG cung cấp kiến thức có thể cập nhật; bộ nhớ giữ kinh
+nghiệm; RL cải thiện hành vi từ tương tác; đa tác tử tổ chức các vai trò; đánh giá và
+kiểm soát xác nhận hành vi đáng tin trong phạm vi đã định nghĩa. Những thành phần này
+có thể kết hợp nhưng không thay thế nhau. Ba bài thực hành sau minh họa từng phần đủ
+rõ để đọc hết code, chạy lại và đối chiếu output với nhận định trong báo cáo.

@@ -1,0 +1,53 @@
+Python: 3.9.6
+Nodes: 6
+Goal: A -> F; all edges have unit cost.
+Initial plan: ['A', 'B', 'D', 'F']
+Known closure: ['B', 'C', 'E', 'F']
+Move A -> B: {'ok': True, 'pos': 'B'}
+Move B -> D: {'ok': False, 'error': 'blocked', 'pos': 'B'}
+Agent ready: planner + tool + memory + stopping rule.
+PLAN ['A', 'B', 'D', 'F']
+ACT A->B: {'ok': True, 'pos': 'B'}
+ACT B->D: {'ok': False, 'error': 'blocked', 'pos': 'B'}
+PLAN ['B', 'C', 'E', 'F']
+ACT B->C: {'ok': True, 'pos': 'C'}
+ACT C->E: {'ok': True, 'pos': 'E'}
+ACT E->F: {'ok': True, 'pos': 'F'}
+STATIC success path= A->B->D->F moves= 3 calls= 3 plans= 1
+DYNAMIC success path= A->B->C->E->F moves= 4 calls= 5 plans= 2
+PASS static        status=success           calls=3
+PASS dynamic       status=success           calls=5
+PASS budget        status=budget_exhausted  calls=1
+PASS unreachable   status=unreachable       calls=2
+PASS already_goal  status=success           calls=0
+5/5 cases passed; dynamic run replanned exactly once.
+Synthetic documents: 4
+Corpus version: demo-v1; not actual university regulations.
+Search: [{'id': 'D1', 'score': 0.5145}]
+Unknown: []
+{'title': 'Borrowing books', 'version': 'demo-v1', 'text': 'Students can borrow at most 3 books for 14 days.', 'id': 'D2'}
+Rejected: tool not allowed
+Answer: The library opens from 08:00 to 20:00 on weekdays. [D1; demo-v1]
+Calls: 2
+Tools: ['search', 'read']
+PASS evidence ID, cache, no evidence, budget, empty input, ranking
+PASS rejected search {'query': 'x', 'top_k': True}
+PASS rejected read {'id': 'D99'}
+8/8 retrieval and tool contract checks passed.
+Grid: 5 x 5 ; walls: [(1, 1), (1, 2), (2, 2), (3, 0), (3, 2)]
+Invalid move: ((0, 0), -3.0, False)
+Terminal: ((4, 4), 0.0, True)
+Terminal update: 2.0 (expected 2.0)
+7 episodes= 2500 last100 success= 100 mean reward= 2.41
+42 episodes= 2500 last100 success= 100 mean reward= 2.09
+2026 episodes= 2500 last100 success= 100 mean reward= 2.53
+random success= 48 /100 mean steps= 80.23
+7 success= 100 /100 mean steps= 8.0
+42 success= 100 /100 mean steps= 8.0
+2026 success= 100 /100 mean steps= 8.0
+Learned path: [(0, 0), (0, 1), (0, 2), (0, 3), (1, 3), (2, 3), (2, 4), (3, 4), (4, 4)]
+PASS 3 seeds: success, optimal length, legal path, frozen Q.
+Oracle shortest steps: 8
+Terminal bootstrap check: PASS
+Saved assets/q_learning_results.png
+Training: 3 seeds x 2500 episodes; evaluation: 100 episodes/policy.

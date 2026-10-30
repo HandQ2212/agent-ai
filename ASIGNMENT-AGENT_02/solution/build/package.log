@@ -1,0 +1,19 @@
+{
+  "zip": "/Users/handq2212/DaiHoc/Nam4/LTHTTM/agent-ai/ASIGNMENT-AGENT_02/agent02_CT_04_hainn_full.zip",
+  "bytes": 6063353,
+  "files": 157,
+  "pdfs": [
+    {
+      "file": "agent02_CT_04_hainn.pdf",
+      "pages": 24
+    },
+    {
+      "file": "paper_CT_04_hainn.pdf",
+      "pages": 44
+    },
+    {
+      "file": "tutorial_CT_04_hainn.pdf",
+      "pages": 22
+    }
+  ]
+}

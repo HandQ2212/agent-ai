@@ -1,0 +1,77 @@
+\section{Tutorial thực hành: xây dựng và chạy hệ đa tác tử bằng Python}
+
+Phần này trình bày thực hành trực tiếp theo năm bài tập của tutorial: chạy hệ mua hàng cơ bản, mở rộng thành hệ đa tác tử, huấn luyện mô hình phân loại ý định, đưa lỗi vào hệ thống và so sánh các kiến trúc. Toàn bộ mã nguồn thực thi của sáu tệp tutorial nằm trong phụ lục mã ngay sau phần kết quả; mã gốc có dấu tiếng Việt được cung cấp kèm để chạy lại. Các đầu ra dưới đây được lấy từ chương trình đã chạy, không điền thủ công.
+
+\subsection{Chuẩn bị và tổ chức tệp}
+Mở terminal tại thư mục \texttt{solution}, cài các thư viện và thực hiện lần lượt:
+\begin{lstlisting}[language=bash]
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 tutorial/slide_baseline.py
+python3 tutorial/mas_system.py
+python3 tutorial/train_intent.py
+python3 tutorial/thuc_hanh_tong_hop.py
+python3 tutorial/evaluate_mas.py
+python3 -m unittest discover -s tutorial -p 'test_*.py' -v
+\end{lstlisting}
+
+Hệ mua hàng cơ bản dùng thư viện chuẩn Python; PyTorch và Matplotlib cần cho mô hình và biểu đồ. Tệp \texttt{train\_intent.py} tạo checkpoint và dữ liệu đánh giá; có thể dùng checkpoint đã cung cấp để chạy ngay ví dụ tổng hợp. Dữ liệu sản phẩm, kho và câu yêu cầu là dữ liệu tạo phục vụ bài học.
+
+\subsection{Bài 1: định nghĩa hợp đồng thông điệp và môi trường}
+Một thông điệp có mã yêu cầu, người gửi, người nhận, loại và payload. \texttt{CatalogAgent}, \texttt{RecommendationAgent}, \texttt{PolicyAgent} và \texttt{InventoryAgent} có chức năng riêng; coordinator kiểm tra người gửi, loại phản hồi và task ID. Mã sau lấy trực tiếp từ tệp đã thực thi:
+\lstinputlisting[firstline=7,lastline=33,caption={Dữ liệu sản phẩm và hợp đồng Message trong hệ thực hành}]{report/code_ascii/mas_system.py}
+
+Để kiểm tra, tìm \texttt{portable} với budget 100: sản phẩm p2 và p4 hợp lệ; p1 và p5 vượt budget. Nếu query rỗng, catalog không trả tất cả sản phẩm. Nếu kho không xác minh được, coordinator không khẳng định còn hàng.
+
+\subsection{Bài 2: coordinator, luật và xác minh tồn kho}
+Luồng hoạt động là SEARCH, RANK, VALIDATE rồi CHECK. Việc kiểm tra policy xác nhận ID thuộc catalog và tập kết quả truy hồi, đồng thời không vượt ngân sách. Inventory trả số lượng và tuổi dữ liệu; quá 60 giây được xem là chưa xác minh. Dưới đây là phần cốt lõi, bản đầy đủ có trong phụ lục:
+\lstinputlisting[firstline=60,lastline=112,caption={PolicyAgent và luồng thực thi có kiểm hợp đồng, timeout và độ mới}]{report/code_ascii/mas_system.py}
+
+\subsection{Bài 3: huấn luyện PyTorch và đánh giá}
+Tập dữ liệu gồm 432 câu tổng hợp thuộc ba lớp. Các nhóm động từ được chia thành 270 câu train, 54 validation và 108 test; vocabulary chỉ xây từ train. Mạng gồm lớp tuyến tính, ReLU và lớp logits; CrossEntropyLoss nhận logits và nhãn. Validation được dùng để chọn checkpoint và ngưỡng, sau đó test để báo precision và recall theo lớp.
+
+Đoạn mã sau là phần định nghĩa mạng và chuyển câu thành vector. Vòng huấn luyện, việc chọn checkpoint, threshold và test được in đầy đủ trong phụ lục tệp \texttt{train\_intent.py}.
+\lstinputlisting[firstline=35,lastline=44,caption={Mạng PyTorch và biểu diễn bag-of-words}]{report/code_ascii/train_intent.py}
+
+Độ chính xác trên test tổng hợp đạt 108/108. Đây là bộ test với đối tượng chia sẻ giữa các split. Các câu ngoài miền được thử riêng cho thấy mô hình vẫn có thể tự tin khi định tuyến sai; vì vậy kết quả không chứng minh mô hình đã hiểu tốt mọi yêu cầu tự nhiên.
+
+\subsection{Bài 4: chạy các ca bình thường và đưa lỗi vào hệ thống}
+Tệp \texttt{thuc\_hanh\_tong\_hop.py} gọi trực tiếp chương trình, mô hình đã huấn luyện và phép so sánh, rồi in kết quả. Tệp mã hoàn chỉnh cũng nằm trong phụ lục. Kết quả thực tế của lệnh \texttt{python3 tutorial/thuc\_hanh\_tong\_hop.py}:
+\lstinputlisting[basicstyle=\ttfamily\scriptsize,numbers=none,caption={Output thật: shopping MAS, classifier và so sánh baseline}]{build/tutorial_thuc_hanh_output.txt}
+
+Quan sát: timeout, malformed và forged trả trạng thái lỗi; trường hợp kho cũ được báo là chưa xác minh. Khi tắt kiểm chứng, kịch bản stale vẫn đưa ra kết luận verified; đây là chủ đích của ablation và cho thấy vì sao cần kiểm độ mới. Câu ngoài miền bị phân loại nhầm được giữ nguyên trong kết quả để minh họa giới hạn của ngưỡng confidence.
+
+\subsection{Bài 5: so sánh kiến trúc và chạy kiểm thử}
+Đầu ra của phép so sánh trong chương trình gồm một pipeline đơn, MAS có kiểm chứng và phiên bản bỏ validation. Benchmark đầy đủ dùng 11 tình huống lặp 20 lần cho mỗi kiến trúc, dữ liệu trong \texttt{results/tutorial/mas\_benchmark\_raw.csv}. Pipeline đơn và MAS có kiểm chứng đều xử lý đúng 11 ca trong tập toy. Việc chia vai tạo thêm trace và overhead; bảng benchmark không chứng minh chất lượng tăng nhờ nhiều agent.
+
+Lệnh kiểm thử thực tế đã chạy thành công trên 17 ca, gồm đầu vào rỗng, quá ngân sách, timeout, message sai, kho cũ, ID giả, correlation ID và dữ liệu ngoài miền:
+\lstinputlisting[basicstyle=\ttfamily\scriptsize,numbers=none,caption={Kết quả thật của bộ kiểm thử tutorial}]{build/tutorial_thuc_hanh_tests.txt}
+
+\section{Phụ lục mã nguồn đầy đủ của tutorial}
+
+Các tệp bên dưới được trích toàn bộ từ chương trình đã chạy, kèm số dòng. Để pdfLaTeX hiển thị ổn định, các ký tự không ASCII trong \texttt{train\_intent.py} và tệp demo được biểu diễn bằng escape Python \texttt{\textbackslash uXXXX}; kiểm tra cú pháp cho thấy biểu diễn này tương đương mã gốc. Mã gốc và notebook có output được cung cấp cùng báo cáo. Khi chạy, dùng các tệp \texttt{tutorial/*.py} từ thư mục mã; những đoạn trong PDF được in để người đọc có thể xem toàn bộ quá trình triển khai.
+
+\subsection{Mã gốc: hệ cơ bản theo slide}
+Chương trình gốc của Unit 7--9 có hai agent và coordinator. Nó chạy năm kiểm tra đầu vào, budget và provenance.
+\lstinputlisting[language=Python,caption={slide\_baseline.py -- baseline theo slide}]{report/code_ascii/slide_baseline.py}
+
+\subsection{Mã mở rộng: shopping multi-agent system}
+Tệp này chứa dữ liệu, hợp đồng message, bốn agent, coordinator, baseline đơn và demo lỗi.
+\lstinputlisting[language=Python,caption={mas\_system.py -- hệ đa tác tử đầy đủ}]{report/code_ascii/mas_system.py}
+
+\subsection{Mã huấn luyện và đánh giá mô hình PyTorch}
+Tệp tạo dữ liệu tổng hợp, chia nhóm, xây vocabulary từ train, train, chọn checkpoint và threshold bằng validation rồi đánh giá test. Phần router có cơ chế từ chối đơn giản và probe ngoài miền.
+\lstinputlisting[language=Python,caption={train\_intent.py -- train và đánh giá classifier}]{report/code_ascii/train_intent.py}
+
+\subsection{Mã chạy ví dụ thực hành tổng hợp}
+Chương trình này tạo output vừa được trình bày và có thể chạy độc lập sau khi đã tạo checkpoint.
+\lstinputlisting[language=Python,caption={thuc\_hanh\_tong\_hop.py -- minh họa thực thi đầu cuối}]{report/code_ascii/thuc_hanh_tong_hop.py}
+
+\subsection{Mã benchmark B0--B3}
+Benchmark dùng cùng danh sách ca, ghi dữ liệu thô và tính success, violation, số message và latency. Các hạn chế về phép đo đã được nêu ở phần kết quả tutorial.
+\lstinputlisting[language=Python,caption={evaluate\_mas.py -- so sánh kiến trúc}]{report/code_ascii/evaluate_mas.py}
+
+\subsection{Mã kiểm thử tutorial}
+Bộ test chạy tự động và được dùng để tạo kết quả thực tế ở trên.
+\lstinputlisting[language=Python,caption={test\_tutorial.py -- 17 ca kiểm thử}]{report/code_ascii/test_tutorial.py}

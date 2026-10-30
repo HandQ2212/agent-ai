@@ -1,0 +1,1 @@
+[{'agent': 'RL', 'total_reward': 351275.0, 'mean_reward_per_step': 35.1275, 'no_discount_actions': 10000, 'discount_actions': 0, 'discount_action_rate': 0.0}, {'agent': 'Rule-based', 'total_reward': 349685.0, 'mean_reward_per_step': 34.9685, 'no_discount_actions': 10000, 'discount_actions': 0, 'discount_action_rate': 0.0}]

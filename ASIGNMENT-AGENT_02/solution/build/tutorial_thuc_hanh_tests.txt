@@ -1,0 +1,22 @@
+test_budget (test_tutorial.TutorialTests) ... ok
+test_correlation (test_tutorial.TutorialTests) ... ok
+test_empty (test_tutorial.TutorialTests) ... ok
+test_forged (test_tutorial.TutorialTests) ... ok
+test_malformed (test_tutorial.TutorialTests) ... ok
+test_message_receiver (test_tutorial.TutorialTests) ... ok
+test_nan_budget (test_tutorial.TutorialTests) ... ok
+test_negative_budget (test_tutorial.TutorialTests) ... ok
+test_normal_equivalence (test_tutorial.TutorialTests) ... ok
+test_ood_abstention (test_tutorial.TutorialTests) ... ok
+test_out_of_stock (test_tutorial.TutorialTests) ... ok
+test_split_groups (test_tutorial.TutorialTests) ... ok
+test_stale (test_tutorial.TutorialTests) ... ok
+test_tag_retrieval (test_tutorial.TutorialTests) ... ok
+test_timeout (test_tutorial.TutorialTests) ... ok
+test_trace (test_tutorial.TutorialTests) ... ok
+test_unknown (test_tutorial.TutorialTests) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.091s
+
+OK

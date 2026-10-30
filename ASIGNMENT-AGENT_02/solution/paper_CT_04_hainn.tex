@@ -1,0 +1,63 @@
+\documentclass[12pt,a4paper]{article}
+\makeatletter\def\input@path{{report/}}\makeatother
+\usepackage{assignment_format}
+\usepackage{longtable,calc,listings,etoolbox}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\newcounter{none}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,
+ keepspaces=true,showstringspaces=false,frame=single,rulecolor=\color{accent!40},
+ backgroundcolor=\color{black!2},numbers=left,numberstyle=\tiny,numbersep=5pt,
+ xleftmargin=8pt,framexleftmargin=5pt,aboveskip=8pt,belowskip=8pt}
+\setlength{\LTpre}{5pt}\setlength{\LTpost}{5pt}
+\AtBeginEnvironment{longtable}{\small\linespread{1.05}\selectfont}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{03B5}{\ensuremath{\epsilon}}
+\DeclareUnicodeCharacter{03B1}{\ensuremath{\alpha}}
+\DeclareUnicodeCharacter{03B3}{\ensuremath{\gamma}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{00B1}{\ensuremath{\pm}}
+\hypersetup{pdftitle={BÁO CÁO ĐỌC VÀ PHÂN TÍCH PAPER},pdfauthor={Nguyễn Nam Hải -- B23DCCN277}}
+\begin{document}
+\input{report/paper_CT_04_hainn_cover.tex}
+\pagenumbering{roman}
+\setcounter{tocdepth}{2}
+{\linespread{1.0}\selectfont\tableofcontents}
+\clearpage\listoffigures\clearpage
+\section*{DANH MỤC THUẬT NGỮ}
+\addcontentsline{toc}{section}{Danh mục thuật ngữ}
+\begin{tabularx}{\linewidth}{p{2.5cm}X}
+\toprule
+MAS & Multi-Agent System -- Hệ đa tác tử\\
+LLM & Large Language Model -- Mô hình ngôn ngữ lớn\\
+RL / MARL & Reinforcement Learning / Multi-Agent RL\\
+MDP / POMDP & Quá trình quyết định Markov / quan sát không đầy đủ\\
+TD / Q & Sai phân thời gian / Giá trị hành động\\
+DP & Dynamic Programming -- Quy hoạch động\\
+OOD & Out-of-distribution -- Ngoài phân phối/ngoài miền\\
+PEAS & Performance, Environment, Actuators, Sensors\\
+DAG & Directed Acyclic Graph -- Đồ thị có hướng không chu trình\\
+SD / CI & Độ lệch chuẩn mẫu / Khoảng tin cậy\\
+P50 / P95 & Phân vị 50 / 95 của thời gian phản hồi\\
+TTL & Time to Live -- Giới hạn độ mới của dữ liệu\\
+\bottomrule
+\end{tabularx}
+\vspace{8mm}
+\begin{academicbox}{Quy ước đọc báo cáo}
+Dữ liệu thực hành là tổng hợp hoặc mô phỏng. Số đo được lấy từ mã đã chạy và lưu kèm; phép tính lý thuyết và đề xuất chưa thực hiện được gọi rõ. Thông tin bìa, logo và phong cách trình bày kế thừa báo cáo trước. Ngày hoàn thiện: 28/10/2026.
+\end{academicbox}
+\clearpage\pagenumbering{arabic}\setcounter{page}{1}
+\input{report/chapters/paper_intro.tex}
+\clearpage
+\input{report/chapters/paper_mas.tex}
+\clearpage
+\input{report/chapters/paper_rl.tex}
+\clearpage
+\input{report/chapters/paper_technical.tex}
+\clearpage
+\input{report/chapters/paper_synthesis.tex}
+\input{report/references.tex}
+\end{document}

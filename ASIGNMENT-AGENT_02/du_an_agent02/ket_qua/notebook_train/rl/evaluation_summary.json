@@ -1,0 +1,43 @@
+{
+  "rl_vs_rule": [
+    {
+      "agent": "focal",
+      "total_reward": 255591.0,
+      "mean_reward": 25.5591,
+      "episode_sd": 3.122348524848122,
+      "no_discount": 1849,
+      "discount": 8151,
+      "discount_rate": 0.8151
+    },
+    {
+      "agent": "opponent",
+      "total_reward": 246856.0,
+      "mean_reward": 24.6856,
+      "episode_sd": 3.4513745976388095,
+      "no_discount": 6147,
+      "discount": 3853,
+      "discount_rate": 0.3853
+    }
+  ],
+  "never_vs_rule": [
+    {
+      "agent": "focal",
+      "total_reward": 348295.0,
+      "mean_reward": 34.8295,
+      "episode_sd": 4.9890214893144815,
+      "no_discount": 10000,
+      "discount": 0,
+      "discount_rate": 0.0
+    },
+    {
+      "agent": "opponent",
+      "total_reward": 346340.0,
+      "mean_reward": 34.634,
+      "episode_sd": 4.819387616076131,
+      "no_discount": 10000,
+      "discount": 0,
+      "discount_rate": 0.0
+    }
+  ],
+  "seed": 500042
+}

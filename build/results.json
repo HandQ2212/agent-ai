@@ -1,0 +1,25 @@
+{
+  "static": {
+    "status": "success",
+    "path": [
+      "A",
+      "B",
+      "D",
+      "F"
+    ],
+    "calls": 3,
+    "plans": 1
+  },
+  "dynamic": {
+    "status": "success",
+    "path": [
+      "A",
+      "B",
+      "C",
+      "E",
+      "F"
+    ],
+    "calls": 5,
+    "plans": 2
+  }
+}

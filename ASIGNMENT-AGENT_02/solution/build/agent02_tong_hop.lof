@@ -1,0 +1,11 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Kiến trúc cục bộ: các quyết định có vai trò riêng, kết quả đi qua coordinator.}}{4}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Loss train/validation và confusion matrix trên 108 câu test tổng hợp.}}{27}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Minh họa phân biệt chất lượng trong phân phối và đánh giá ngoài miền; đây là dữ liệu tự thực thi.}}{62}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Độ nhạy learning rate trong mô hình bán hàng toy; vùng tô là một SD qua năm seed.}}{63}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Đánh giá policy đóng băng và mốc analytic không giảm giá.}}{63}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Learning curve baseline: moving average 100 episode, mean và một SD qua năm seed.}}{79}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces So sánh ba learning rate với cùng epsilon schedule.}}{79}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces So sánh ba cấu hình epsilon; mọi cấu hình đánh giá với epsilon bằng 0.}}{80}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Policy đóng băng: mean và SD giữa seed; đường 35 là kỳ vọng lý thuyết.}}{80}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Q-table seed 42 và độ nhạy lợi nhuận tức thời theo discount fraction.}}{80}{figure.10}%

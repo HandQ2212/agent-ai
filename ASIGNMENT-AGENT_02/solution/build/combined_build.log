@@ -1,0 +1,33 @@
+{
+  "pdf": "/Users/handq2212/DaiHoc/Nam4/LTHTTM/agent-ai/ASIGNMENT-AGENT_02/agent02_CT_04_hainn.pdf",
+  "pages": 92,
+  "bytes": 1264414,
+  "tutorial_sources": [
+    {
+      "name": "slide_baseline.py",
+      "lines": 64
+    },
+    {
+      "name": "mas_system.py",
+      "lines": 135
+    },
+    {
+      "name": "train_intent.py",
+      "lines": 112
+    },
+    {
+      "name": "thuc_hanh_tong_hop.py",
+      "lines": 57
+    },
+    {
+      "name": "evaluate_mas.py",
+      "lines": 47
+    },
+    {
+      "name": "test_tutorial.py",
+      "lines": 36
+    }
+  ],
+  "tutorial_tests": 17,
+  "assignment_tests": 12
+}

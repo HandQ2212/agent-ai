@@ -1,0 +1,44 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {section}{Danh mục thuật ngữ}{iv}{Doc-Start}%
+\contentsline {section}{\numberline {1}Giới thiệu và mục tiêu thí nghiệm}{1}{section.1}%
+\contentsline {section}{\numberline {2}Mô tả môi trường và hai tác tử}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Mô hình thị trường}{1}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Agent A: Q-learning}{1}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Agent B: luật cố định}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Hai vấn đề trạng thái cần lưu ý}{2}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Mã nguồn và thay đổi so với tài liệu tham chiếu}{2}{section.3}%
+\contentsline {section}{\numberline {4}Thiết lập thực nghiệm và protocol}{3}{section.4}%
+\contentsline {section}{\numberline {5}Thí nghiệm A --- Baseline và policy đã học}{4}{section.5}%
+\contentsline {section}{\numberline {6}Thí nghiệm B --- Quá trình học}{4}{section.6}%
+\contentsline {section}{\numberline {7}Thí nghiệm C --- Learning rate}{5}{section.7}%
+\contentsline {section}{\numberline {8}Thí nghiệm D --- Khám phá}{5}{section.8}%
+\contentsline {section}{\numberline {9}Thí nghiệm E --- So sánh policy công bằng}{5}{section.9}%
+\contentsline {section}{\numberline {10}Trả lời đầy đủ mười câu hỏi}{6}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Câu 1 --- Mô hình tác tử và môi trường}{6}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Câu 2 --- Quyết định học và theo luật}{6}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Câu 3 --- Tính cập nhật Q-learning}{6}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Câu 4 --- Khám phá và khai thác}{7}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Câu 5 --- Reward và mục tiêu kinh doanh}{7}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Câu 6 --- Hiệu năng và thống kê}{7}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Câu 7 --- Learning rate và ổn định}{8}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Câu 8 --- Tương tác và môi trường không dừng}{8}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}Câu 9 --- Giới hạn và biến đổi đã thực hiện}{9}{subsection.10.9}%
+\contentsline {subsection}{\numberline {10.10}Câu 10 --- Thiết kế agent tốt hơn}{9}{subsection.10.10}%
+\contentsline {section}{\numberline {11}Phân tích bổ sung: lợi nhuận, oracle và độ nhạy}{10}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Bảng lợi nhuận kỳ vọng}{10}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Giải thích mốc 35 và quy hoạch động}{10}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Ngưỡng discount có lợi tức thời}{10}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Thảo luận về độ tin cậy, giới hạn và diễn giải}{11}{section.12}%
+\contentsline {section}{\numberline {13}Kiểm tra độc lập bằng đánh giá policy chính xác}{11}{section.13}%
+\contentsline {section}{\numberline {14}Kết luận của assignment}{12}{section.14}%
+\contentsline {section}{\numberline {15}Phụ lục kết quả đo và bằng chứng thực thi}{12}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Bảng tổng hợp thí nghiệm alpha và epsilon}{12}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}So sánh công bằng với cùng đối thủ}{12}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Thí nghiệm biến đổi discount 40\%}{12}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Q-table minh họa seed 42}{13}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Từng seed của baseline}{13}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Cặp learner trong self-play}{13}{subsection.15.6}%
+\contentsline {subsection}{\numberline {15.7}Đối chiếu bản gốc và bản mở rộng seed 42}{14}{subsection.15.7}%
+\contentsline {subsection}{\numberline {15.8}Mã Python cốt lõi}{16}{subsection.15.8}%
+\contentsline {subsection}{\numberline {15.9}Bằng chứng kiểm thử}{17}{subsection.15.9}%
+\contentsline {section}{Tài liệu tham khảo}{18}{section*.1}%

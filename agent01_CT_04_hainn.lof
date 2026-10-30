@@ -1,0 +1,21 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Sơ đồ kiến trúc đề xuất; phản hồi thực tế đi vào vòng quyết định.}}{2}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Bản đồ mô phỏng. B--D bị đóng sau lần di chuyển đầu trong ca động.}}{7}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Cell 1: khai báo bản đồ, biểu diễn cạnh và thông tin môi trường Python.}}{20}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Cell 2: BFS và hai kế hoạch khi chưa biết/đã biết cạnh B--D bị chặn.}}{20}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Cell 3: công cụ di chuyển trả về quan sát có cấu trúc; cạnh B--D thực sự bị chặn.}}{21}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Cell 4: vòng lặp lập kế hoạch--gọi công cụ--cập nhật bộ nhớ--kiểm tra dừng.}}{22}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Cell 5: nhật ký ca động và đối chiếu định lượng với ca tĩnh.}}{23}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Cell 6: năm ca kiểm tra đều vượt qua; ca động lập kế hoạch hai lần.}}{23}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Cell 7: toàn bộ kho dữ liệu, hàm token hóa và thông báo phạm vi giả lập.}}{24}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Cell 8: vector đếm token, cosine, xếp hạng và trường hợp không có bằng chứng.}}{25}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Cell 9: triển khai đầy đủ dispatcher cho search/read và một lời gọi bị từ chối.}}{26}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Cell 10: toàn bộ bộ điều khiển search--read--answer, không bỏ bớt nhánh xử lý.}}{27}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Cell 11: đủ tám kiểm tra về dẫn chứng, cache, từ chối và schema công cụ.}}{28}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Cell 12: toàn bộ GridWorld, hàm chuyển trạng thái và phép thử ở biên/đích.}}{29}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Cell 13: epsilon-greedy, Q-update và kiểm tra numeric cho trạng thái terminal.}}{30}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Cell 14: toàn bộ vòng huấn luyện 2.500 episode với mỗi seed và output thực tế.}}{31}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Cell 15: chính sách đóng băng, baseline ngẫu nhiên và đường đi thực thi.}}{32}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Cell 16: dựng oracle BFS, kiểm đường hợp lệ, độ dài tối ưu và Q đóng băng.}}{33}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Cell 17: toàn bộ code vẽ reward và đường đi; hình được lưu từ dữ liệu chạy thật.}}{34}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Kết quả Q-learning do code notebook sinh ra: reward huấn luyện và quỹ đạo đánh giá.}}{35}{figure.20}%

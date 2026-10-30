@@ -1,0 +1,57 @@
+% Shared presentation adapted from the user's Assignment 05--08 reports.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{assignment_format}[2026/10/23 PTIT assignment report format]
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T5]{fontenc}
+\RequirePackage[vietnamese]{babel}
+\RequirePackage[a4paper,left=25mm,right=20mm,top=25mm,bottom=25mm,headheight=16pt]{geometry}
+\RequirePackage{amsmath,amssymb,graphicx,booktabs,tabularx,array}
+\RequirePackage{xcolor,tikz,enumitem,fancyhdr,titlesec,caption}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc}
+\definecolor{ink}{RGB}{0,0,128}
+\definecolor{accent}{RGB}{0,102,128}
+\RequirePackage[unicode,colorlinks=true,linkcolor=blue!75!black,
+ citecolor=red!75!black,urlcolor=teal!80!black]{hyperref}
+\RequirePackage{bookmark}
+\hypersetup{pdfstartview={FitH},pdftitle={DISCOVERING AI AGENT},
+ pdfauthor={Nguyễn Nam Hải -- B23DCCN277},
+ pdfsubject={Báo cáo Assignment -- Phát triển các hệ thống thông minh}}
+\linespread{1.18}
+\setlength{\parindent}{0.8cm}
+\setlength{\parskip}{2pt}
+\setlength{\emergencystretch}{1.5em}
+\setlist{leftmargin=1.5em,itemsep=2pt,topsep=4pt}
+\titleformat{\section}{\large\bfseries\color{blue!85!black}}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries\color{cyan!75!black}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\small\bfseries\color{black}}{\thesubsubsection}{1em}{}
+\titlespacing*{\section}{0pt}{15pt}{9pt}
+\titlespacing*{\subsection}{0pt}{10pt}{5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\textit{Học viện Công nghệ Bưu chính Viễn thông -- PTIT}}
+\fancyhead[R]{\footnotesize\textit{AI Agent -- LTHTTM}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\figurename}{Hình}
+\renewcommand{\tablename}{Bảng}
+\renewcommand{\refname}{Tài liệu tham khảo}
+\renewcommand{\contentsname}{MỤC LỤC}
+\renewcommand{\listfigurename}{DANH MỤC HÌNH VẼ}
+\addto\captionsvietnamese{%
+ \renewcommand{\contentsname}{MỤC LỤC}%
+ \renewcommand{\listfigurename}{DANH MỤC HÌNH VẼ}%
+ \renewcommand{\refname}{Tài liệu tham khảo}%
+}
+\captionsetup{hypcap=false,font=small,labelfont=bf,skip=7pt}
+\renewcommand{\arraystretch}{1.15}
+\newtcolorbox{academicbox}[1]{colback=blue!3!white,colframe=blue!75!black,
+ fonttitle=\bfseries,title=#1,arc=1.5mm,breakable}
+\newcommand{\shot}[2]{\begin{center}
+ \includegraphics[width=\linewidth,height=0.67\textheight,keepaspectratio]{screenshots/cell_#1.png}
+ \captionof{figure}{#2}\end{center}}
+\newcommand{\pairedshot}[2]{\begin{center}
+ \includegraphics[width=0.92\linewidth]{screenshots/cell_#1.png}
+ \captionof{figure}{#2}\end{center}}

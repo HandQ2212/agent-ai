@@ -1,0 +1,6 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Learning curve baseline: moving average 100 episode, mean và một SD qua năm seed.}}{14}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces So sánh ba learning rate với cùng epsilon schedule.}}{14}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces So sánh ba cấu hình epsilon; mọi cấu hình đánh giá với epsilon bằng 0.}}{15}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Policy đóng băng: mean và SD giữa seed; đường 35 là kỳ vọng lý thuyết.}}{15}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Q-table seed 42 và độ nhạy lợi nhuận tức thời theo discount fraction.}}{15}{figure.5}%

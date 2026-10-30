@@ -1,0 +1,42 @@
+{
+  "q": [
+    [
+      [
+        228.3023983357577,
+        178.8494381965078
+      ],
+      [
+        177.9920010504587,
+        207.2051155760043
+      ]
+    ],
+    [
+      [
+        246.87993766168444,
+        235.23383292483732
+      ],
+      [
+        211.41981890830542,
+        242.96286488956815
+      ]
+    ]
+  ],
+  "summary": [
+    {
+      "agent": "RL",
+      "total_reward": 351275.0,
+      "mean_reward_per_step": 35.1275,
+      "no_discount_actions": 10000,
+      "discount_actions": 0,
+      "discount_action_rate": 0.0
+    },
+    {
+      "agent": "Rule-based",
+      "total_reward": 349685.0,
+      "mean_reward_per_step": 34.9685,
+      "no_discount_actions": 10000,
+      "discount_actions": 0,
+      "discount_action_rate": 0.0
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+text,label,predicted,confidence,accepted
+giúp chọn laptop cho tôi,0,0,0.9999760389328003,True
+giúp chọn laptop vào ngày mai,0,0,0.9999909400939941,True
+giúp chọn laptop theo nhu cầu của tôi,0,0,0.9999978542327881,True
+giúp chọn chuột máy tính cho tôi,0,0,0.9999998807907104,True
+giúp chọn chuột máy tính vào ngày mai,0,0,1.0,True
+giúp chọn chuột máy tính theo nhu cầu của tôi,0,0,1.0,True
+giúp chọn ba lô cho tôi,0,0,0.9999992847442627,True
+giúp chọn ba lô vào ngày mai,0,0,0.9999997615814209,True
+giúp chọn ba lô theo nhu cầu của tôi,0,0,1.0,True
+giúp chọn giày thể thao cho tôi,0,0,0.9999997615814209,True
+giúp chọn giày thể thao vào ngày mai,0,0,0.9999998807907104,True
+giúp chọn giày thể thao theo nhu cầu của tôi,0,0,1.0,True
+giúp chọn máy tính bảng cho tôi,0,0,1.0,True
+giúp chọn máy tính bảng vào ngày mai,0,0,1.0,True
+giúp chọn máy tính bảng theo nhu cầu của tôi,0,0,1.0,True
+giúp chọn tai nghe cho tôi,0,0,0.9999994039535522,True
+giúp chọn tai nghe vào ngày mai,0,0,0.9999997615814209,True
+giúp chọn tai nghe theo nhu cầu của tôi,0,0,1.0,True
+gợi ý mua laptop cho tôi,0,0,0.9999850988388062,True
+gợi ý mua laptop vào ngày mai,0,0,0.9999943971633911,True
+gợi ý mua laptop theo nhu cầu của tôi,0,0,0.9999986886978149,True
+gợi ý mua chuột máy tính cho tôi,0,0,1.0,True
+gợi ý mua chuột máy tính vào ngày mai,0,0,1.0,True
+gợi ý mua chuột máy tính theo nhu cầu của tôi,0,0,1.0,True
+gợi ý mua ba lô cho tôi,0,0,0.9999994039535522,True
+gợi ý mua ba lô vào ngày mai,0,0,0.9999998807907104,True
+gợi ý mua ba lô theo nhu cầu của tôi,0,0,1.0,True
+gợi ý mua giày thể thao cho tôi,0,0,0.9999998807907104,True
+gợi ý mua giày thể thao vào ngày mai,0,0,1.0,True
+gợi ý mua giày thể thao theo nhu cầu của tôi,0,0,1.0,True
+gợi ý mua máy tính bảng cho tôi,0,0,1.0,True
+gợi ý mua máy tính bảng vào ngày mai,0,0,1.0,True
+gợi ý mua máy tính bảng theo nhu cầu của tôi,0,0,1.0,True
+gợi ý mua tai nghe cho tôi,0,0,0.9999995231628418,True
+gợi ý mua tai nghe vào ngày mai,0,0,1.0,True
+gợi ý mua tai nghe theo nhu cầu của tôi,0,0,1.0,True
+gợi ý tham quan bảo tàng cho tôi,1,1,0.9999985694885254,True
+gợi ý tham quan bảo tàng vào ngày mai,1,1,0.9999984502792358,True
+gợi ý tham quan bảo tàng theo nhu cầu của tôi,1,1,0.9999961853027344,True
+gợi ý tham quan phố cổ cho tôi,1,1,0.9999992847442627,True
+gợi ý tham quan phố cổ vào ngày mai,1,1,0.999998927116394,True
+gợi ý tham quan phố cổ theo nhu cầu của tôi,1,1,0.9999964237213135,True
+gợi ý tham quan bãi biển cho tôi,1,1,0.9999992847442627,True
+gợi ý tham quan bãi biển vào ngày mai,1,1,0.9999991655349731,True
+gợi ý tham quan bãi biển theo nhu cầu của tôi,1,1,0.9999973773956299,True
+gợi ý tham quan công viên cho tôi,1,1,0.9999990463256836,True
+gợi ý tham quan công viên vào ngày mai,1,1,0.9999984502792358,True
+gợi ý tham quan công viên theo nhu cầu của tôi,1,1,0.9999953508377075,True
+gợi ý tham quan khu di tích cho tôi,1,1,0.9999998807907104,True
+gợi ý tham quan khu di tích vào ngày mai,1,1,1.0,True
+gợi ý tham quan khu di tích theo nhu cầu của tôi,1,1,0.9999998807907104,True
+gợi ý tham quan vườn thực vật cho tôi,1,1,0.9999998807907104,True
+gợi ý tham quan vườn thực vật vào ngày mai,1,1,0.9999998807907104,True
+gợi ý tham quan vườn thực vật theo nhu cầu của tôi,1,1,0.9999998807907104,True
+lập lịch trình bảo tàng cho tôi,1,1,0.9999984502792358,True
+lập lịch trình bảo tàng vào ngày mai,1,1,0.9999986886978149,True
+lập lịch trình bảo tàng theo nhu cầu của tôi,1,1,0.9999985694885254,True
+lập lịch trình phố cổ cho tôi,1,1,0.9999998807907104,True
+lập lịch trình phố cổ vào ngày mai,1,1,0.9999998807907104,True
+lập lịch trình phố cổ theo nhu cầu của tôi,1,1,0.9999997615814209,True
+lập lịch trình bãi biển cho tôi,1,1,1.0,True
+lập lịch trình bãi biển vào ngày mai,1,1,1.0,True
+lập lịch trình bãi biển theo nhu cầu của tôi,1,1,0.9999998807907104,True
+lập lịch trình công viên cho tôi,1,1,0.9999991655349731,True
+lập lịch trình công viên vào ngày mai,1,1,0.999998927116394,True
+lập lịch trình công viên theo nhu cầu của tôi,1,1,0.9999988079071045,True
+lập lịch trình khu di tích cho tôi,1,1,1.0,True
+lập lịch trình khu di tích vào ngày mai,1,1,1.0,True
+lập lịch trình khu di tích theo nhu cầu của tôi,1,1,1.0,True
+lập lịch trình vườn thực vật cho tôi,1,1,1.0,True
+lập lịch trình vườn thực vật vào ngày mai,1,1,1.0,True
+lập lịch trình vườn thực vật theo nhu cầu của tôi,1,1,1.0,True
+hướng dẫn đặt hẹn quầy tiếp nhận cho tôi,2,2,0.9999971389770508,True
+hướng dẫn đặt hẹn quầy tiếp nhận vào ngày mai,2,2,0.9999953508377075,True
+hướng dẫn đặt hẹn quầy tiếp nhận theo nhu cầu của tôi,2,2,0.9999880790710449,True
+hướng dẫn đặt hẹn thủ tục đăng ký cho tôi,2,2,0.9999994039535522,True
+hướng dẫn đặt hẹn thủ tục đăng ký vào ngày mai,2,2,0.9999994039535522,True
+hướng dẫn đặt hẹn thủ tục đăng ký theo nhu cầu của tôi,2,2,0.9999983310699463,True
+hướng dẫn đặt hẹn giấy tờ bảo hiểm cho tôi,2,2,0.9999939203262329,True
+hướng dẫn đặt hẹn giấy tờ bảo hiểm vào ngày mai,2,2,0.9999874830245972,True
+hướng dẫn đặt hẹn giấy tờ bảo hiểm theo nhu cầu của tôi,2,2,0.9999594688415527,True
+hướng dẫn đặt hẹn lịch chuyên khoa cho tôi,2,2,0.9999974966049194,True
+hướng dẫn đặt hẹn lịch chuyên khoa vào ngày mai,2,2,0.9999970197677612,True
+hướng dẫn đặt hẹn lịch chuyên khoa theo nhu cầu của tôi,2,2,0.9999911785125732,True
+hướng dẫn đặt hẹn hồ sơ hẹn cho tôi,2,2,0.9999279975891113,True
+hướng dẫn đặt hẹn hồ sơ hẹn vào ngày mai,2,2,0.9998636245727539,True
+hướng dẫn đặt hẹn hồ sơ hẹn theo nhu cầu của tôi,2,2,0.9995362758636475,True
+hướng dẫn đặt hẹn giờ tiếp nhận cho tôi,2,2,0.9999969005584717,True
+hướng dẫn đặt hẹn giờ tiếp nhận vào ngày mai,2,2,0.9999949932098389,True
+hướng dẫn đặt hẹn giờ tiếp nhận theo nhu cầu của tôi,2,2,0.9999876022338867,True
+sắp xếp khám quầy tiếp nhận cho tôi,2,2,0.9986627101898193,True
+sắp xếp khám quầy tiếp nhận vào ngày mai,2,2,0.9987612962722778,True
+sắp xếp khám quầy tiếp nhận theo nhu cầu của tôi,2,2,0.999161958694458,True
+sắp xếp khám thủ tục đăng ký cho tôi,2,2,0.9998829364776611,True
+sắp xếp khám thủ tục đăng ký vào ngày mai,2,2,0.9998946189880371,True
+sắp xếp khám thủ tục đăng ký theo nhu cầu của tôi,2,2,0.9999270439147949,True
+sắp xếp khám giấy tờ bảo hiểm cho tôi,2,2,0.9927552342414856,True
+sắp xếp khám giấy tờ bảo hiểm vào ngày mai,2,2,0.9932748079299927,True
+sắp xếp khám giấy tờ bảo hiểm theo nhu cầu của tôi,2,2,0.9955333471298218,True
+sắp xếp khám lịch chuyên khoa cho tôi,2,2,0.8396964073181152,True
+sắp xếp khám lịch chuyên khoa vào ngày mai,2,2,0.844194233417511,True
+sắp xếp khám lịch chuyên khoa theo nhu cầu của tôi,2,2,0.893441379070282,True
+sắp xếp khám hồ sơ hẹn cho tôi,2,2,0.9983319640159607,True
+sắp xếp khám hồ sơ hẹn vào ngày mai,2,2,0.9984555244445801,True
+sắp xếp khám hồ sơ hẹn theo nhu cầu của tôi,2,2,0.9989553689956665,True
+sắp xếp khám giờ tiếp nhận cho tôi,2,2,0.9987146854400635,True
+sắp xếp khám giờ tiếp nhận vào ngày mai,2,2,0.9987737536430359,True
+sắp xếp khám giờ tiếp nhận theo nhu cầu của tôi,2,2,0.9991984963417053,True

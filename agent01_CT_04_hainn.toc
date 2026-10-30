@@ -1,0 +1,100 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {section}{Danh mục hình vẽ}{iv}{section*.1}%
+\contentsline {section}{Danh mục thuật ngữ và từ viết tắt}{v}{section*.2}%
+\contentsline {section}{\numberline {1}Khái niệm và cách đọc ba nguồn chính}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Điểm xuất phát từ tài liệu}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Cách hiểu tổng hợp}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Phân biệt qua trách nhiệm thực hiện}{1}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Những ranh giới cần giữ rõ}{1}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Kiến trúc và vòng lặp tương tác}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Các thành phần dưới góc nhìn thiết kế}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Mô tả hình thức tối thiểu}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Bộ nhớ và công cụ không thể thay thế lẫn nhau}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Cập nhật ngữ cảnh khác với học mô hình}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Các loại agent và lựa chọn phương pháp}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Phân loại theo cơ chế quyết định}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Đạt mục tiêu và tối ưu chất lượng}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Quan sát đầy đủ và quan sát không đầy đủ}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Khi nào một agent là đủ?}{4}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Lập kế hoạch, phản hồi và học tăng cường}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Phản hồi quyết định kế hoạch tiếp theo}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Liên hệ với reinforcement learning}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Tìm kiếm và học giải quyết hai nhu cầu khác nhau}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Phản hồi nào có giá trị?}{5}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Ứng dụng, đánh giá và kiểm soát}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Từ năng lực kỹ thuật đến một quy trình có ích}{6}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Đo hiệu quả ở kết quả cuối}{6}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Các kiểm soát suy ra từ tình huống cụ thể}{6}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Vai trò của người dùng và người vận hành}{7}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Tổng hợp nhận thức và thiết kế thực nghiệm}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Những điều rút ra sau khi đọc}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Bài toán được chọn để kiểm chứng}{7}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Giả thuyết, tiêu chí và giới hạn}{8}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Kết luận phần tìm hiểu}{8}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Nền tảng ra quyết định: trạng thái, MDP và quan sát}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Từ một chương trình phản ứng đến bài toán quyết định tuần tự}{8}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Tại sao cách định nghĩa trạng thái quan trọng?}{8}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Quan sát không đầy đủ và trạng thái niềm tin}{9}{subsection.7.3}%
+\contentsline {section}{\numberline {8}LLM agent, workflow và hợp đồng sử dụng công cụ}{9}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Phân biệt phạm vi của hai cách dùng thuật ngữ agent}{9}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Tool use có thể được học như thế nào?}{10}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Phân biệt các loại lỗi để xử lý đúng}{10}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Hành động đọc, hành động ghi và kiểm chứng}{10}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Bộ nhớ, ngữ cảnh, reflection và thư viện kỹ năng}{10}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Bộ nhớ có nhiều chức năng}{10}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Reflection thay đổi cái gì?}{11}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Từ ghi nhớ một câu trả lời đến tái sử dụng một kỹ năng}{11}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Chi phí và giới hạn của việc lưu tất cả}{12}{subsection.9.4}%
+\contentsline {section}{\numberline {10}RAG, truy hồi thông tin và dẫn chứng}{12}{section.10}%
+\contentsline {subsection}{\numberline {10.1}RAG giải quyết nhu cầu kiến thức bên ngoài mô hình}{12}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Luồng dữ liệu để triển khai một hệ thống có nguồn}{12}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Agentic retrieval khác một truy vấn duy nhất ở đâu?}{12}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Dẫn chứng đúng gồm nhiều điều kiện}{13}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Các chiến lược lập kế hoạch và tìm kiếm}{13}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Tìm kiếm trên mô hình tường minh}{13}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Lập kế hoạch trong không gian ngôn ngữ}{13}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Lập trước và điều chỉnh theo quan sát}{14}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Phân rã nhiệm vụ cần giữ điều kiện toàn cục}{14}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Hệ đa tác tử: giao tiếp, điều phối và trách nhiệm}{14}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Vì sao dùng nhiều tác tử?}{14}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Các mô hình tổ chức có thể lựa chọn}{15}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Mô hình chi phí và lỗi phối hợp}{15}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Kiểm tra lợi ích bằng đối chứng}{15}{subsection.12.4}%
+\contentsline {section}{\numberline {13}Học tăng cường: Q-learning và thiết kế thí nghiệm}{15}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Giá trị hành động và mục tiêu cập nhật}{16}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Khám phá và khai thác}{16}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Các lựa chọn cụ thể trong bài thực hành}{16}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Termination, truncation và giới hạn kết luận}{16}{subsection.13.4}%
+\contentsline {section}{\numberline {14}Đánh giá agent: benchmark, đối chứng và bằng chứng}{17}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Đánh giá tương tác khác đánh giá một câu trả lời}{17}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Một quy trình đánh giá có thể áp dụng}{17}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Ablation để biết thành phần nào tạo ích lợi}{17}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Đọc tỷ lệ thành công đúng mức}{18}{subsection.14.4}%
+\contentsline {section}{\numberline {15}Độ tin cậy, bảo mật và vòng đời vận hành}{18}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Dữ liệu bên ngoài có thể chứa chỉ dẫn không đáng tin}{18}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Ba lớp bảo vệ gắn với hành động}{18}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Từ notebook sang một dịch vụ có thể vận hành}{19}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Kết nối các kiến thức mở rộng}{19}{subsection.15.4}%
+\contentsline {section}{\numberline {16}Thực hành notebook dựa trên IBM [2]}{20}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Bài 1: phạm vi và khả năng chạy lại}{20}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}Tách mô hình agent và trạng thái môi trường}{21}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}Các giả định giúp đọc kết quả đúng}{21}{subsection.16.3}%
+\contentsline {section}{\numberline {17}Bài thực hành 2: tra cứu có công cụ và dẫn chứng}{24}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Mục tiêu, dữ liệu và cách chạy}{24}{subsection.17.1}%
+\contentsline {subsection}{\numberline {17.2}Cách đọc score}{25}{subsection.17.2}%
+\contentsline {subsection}{\numberline {17.3}Các kiểm tra thực sự được cài}{26}{subsection.17.3}%
+\contentsline {subsection}{\numberline {17.4}Dòng điều khiển}{27}{subsection.17.4}%
+\contentsline {subsection}{\numberline {17.5}Kết quả có thể xác nhận}{28}{subsection.17.5}%
+\contentsline {section}{\numberline {18}Bài thực hành 3: learning agent với Q-learning}{29}{section.18}%
+\contentsline {subsection}{\numberline {18.1}Mô hình môi trường}{29}{subsection.18.1}%
+\contentsline {subsection}{\numberline {18.2}Đối chiếu với công thức}{30}{subsection.18.2}%
+\contentsline {subsection}{\numberline {18.3}Tái lập và chi phí học}{31}{subsection.18.3}%
+\contentsline {subsection}{\numberline {18.4}Đọc số liệu}{32}{subsection.18.4}%
+\contentsline {subsection}{\numberline {18.5}Vai trò của đối chứng có mô hình}{33}{subsection.18.5}%
+\contentsline {subsection}{\numberline {18.6}Ý nghĩa của trực quan hóa}{34}{subsection.18.6}%
+\contentsline {section}{\numberline {19}Đối chiếu kết quả và tổng kết thực nghiệm}{35}{section.19}%
+\contentsline {subsection}{\numberline {19.1}Những gì ba bài thực hành chứng minh}{35}{subsection.19.1}%
+\contentsline {subsection}{\numberline {19.2}Hướng mở rộng có thể thực hiện tiếp}{35}{subsection.19.2}%
+\contentsline {subsection}{\numberline {19.3}Kết luận chung của báo cáo}{36}{subsection.19.3}%
+\contentsline {subsection}{\numberline {19.4}Nguồn dữ liệu và khả năng tái lập}{36}{subsection.19.4}%
+\contentsline {section}{Tài liệu tham khảo}{37}{subsection.19.4}%
