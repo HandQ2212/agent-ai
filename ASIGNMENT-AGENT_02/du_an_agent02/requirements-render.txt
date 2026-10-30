@@ -1,0 +1,4 @@
+# Dependencies needed by the deployed web service; the full project keeps requirements.txt.
+--extra-index-url https://download.pytorch.org/whl/cpu
+numpy==1.26.4
+torch==2.8.0+cpu

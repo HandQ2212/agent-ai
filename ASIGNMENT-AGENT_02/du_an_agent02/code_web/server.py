@@ -6,6 +6,7 @@ import argparse
 import asyncio
 import json
 import mimetypes
+import os
 from pathlib import Path
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -56,7 +57,7 @@ def recommend(payload):
     if not isinstance(scenario, str) or scenario not in SCENARIOS:
         raise ValueError('Kịch bản không hợp lệ.')
     # A fresh coordinator per request keeps traces isolated across clients.
-    coordinator = Coordinator(deadline=.01)
+    coordinator = Coordinator(deadline=.01 if scenario == 'timeout' else .5)
     result = asyncio.run(coordinator.shop(query, budget, scenario, task_id='web-request'))
     items = []
     for row in result['items']:
@@ -128,7 +129,7 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     parser = argparse.ArgumentParser(description='Chạy web demo Agent 02')
     parser.add_argument('--host', default='127.0.0.1')
-    parser.add_argument('--port', type=int, default=8000)
+    parser.add_argument('--port', type=int, default=int(os.environ.get('PORT', '8000')))
     args = parser.parse_args()
     server = ThreadingHTTPServer((args.host, args.port), Handler)
     print(f'Agent 02 đang chạy tại http://{args.host}:{server.server_port}', flush=True)

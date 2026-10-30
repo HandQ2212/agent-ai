@@ -78,3 +78,7 @@ Có thể đổi cổng bằng `python3 code_web/server.py --port 8080`. Để p
 **Notebook huấn luyện tổng hợp:** `notebooks/train_agent02.ipynb` gom các bước train classifier PyTorch và Q-learning, kèm giải thích, biểu đồ, đánh giá và output đã chạy. Mặc định train 120 epoch và 5.000 episode với seed 42; kết quả lưu riêng trong `ket_qua/notebook_train/`. Bật `RUN_FULL_EXPERIMENT = True` nếu muốn chạy lại toàn bộ 36 lượt thí nghiệm.
 
 Mở notebook trong `notebooks/` bằng Jupyter hoặc VS Code. Các notebook đã lưu output từ lần chạy trước và có thể chạy lại từ thư mục dự án hoặc thư mục `notebooks/`. Hai notebook thực hành cũ mặc định đọc kết quả đã có. Notebook `train_agent02.ipynb` mặc định chạy train minh họa và lưu kết quả riêng; chỉ bật tùy chọn toàn bộ thí nghiệm khi muốn tạo lại đầy đủ dữ liệu.
+
+## Đưa lên GitHub và Render
+
+Xem hướng dẫn từng bước trong `HUONG_DAN_DEPLOY.md`. Dự án có `render.yaml` và `requirements-render.txt` để deploy web có backend Python lên Render Web Service.

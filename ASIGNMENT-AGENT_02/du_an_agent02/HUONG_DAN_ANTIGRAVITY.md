@@ -16,3 +16,5 @@ python3 -m unittest discover -s code_web -p 'test_*.py'
 Sau đó commit, push lên đúng remote/branch, và báo lại URL, commit cùng kết quả kiểm thử. `.gitignore` loại môi trường ảo, cache và file bí mật. Phần `code_web/` gồm giao diện và `server.py` kết nối agent Python. GitHub Pages không chạy backend Python; để có API cần dịch vụ chạy server riêng.
 
 Notebook huấn luyện chung: `notebooks/train_agent02.ipynb` (PyTorch và Q-learning); kết quả demo train riêng trong `ket_qua/notebook_train/`.
+
+Triển khai Render: dùng cấu hình và hướng dẫn trong `render.yaml`, `requirements-render.txt`, `HUONG_DAN_DEPLOY.md`; Python đọc biến `PORT` và cần chạy với `--host 0.0.0.0`.

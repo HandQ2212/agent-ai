@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: agent02-lab
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-render.txt
+    startCommand: python code_web/server.py --host 0.0.0.0
+    healthCheckPath: /api/overview
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
